@@ -258,18 +258,21 @@ function letterGrade (a,b) {
  * @param {object} restaurant   represents a restaurant object
  * @return {object} restaurant
  */
-var restaurant = {};
-
-function incrementReviews(rev) {
+var awesomeEatery = {
+  reviews: 1776
+};
+var newEatery = {
+};
+function incrementReviews(restaurant) {
   if (restaurant.hasOwnProperty('reviews')) {
-    restaurant.reviews = rev+1;
+    restaurant.reviews ++;
   }
   else {
     restaurant.reviews = 1;
   }
-  return restaurant.reviews;
+  return restaurant;
 }
-
+incrementReviews(awesomeEatery);
 /**
  * Joins two strings with a space.
  * @param {string} word1
