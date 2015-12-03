@@ -1,15 +1,18 @@
 exports.largestPrimeFactor = function(n){
   var primeNumber = 0;
   var i = 2;
+
   while(i<= n) {
+
     if(isDivisible(n,i)) {
 
       if(isPrime(i)) {
 
-      console.log(i);
-      primeNumber = i;
-     }
+        console.log(i);
+        primeNumber = i;
+      }
     }
+
     i++;
   }
 
@@ -19,13 +22,11 @@ exports.largestPrimeFactor = function(n){
 
 function isPrime(value) {
   for (var i = 2; i < value; i++) {
-    if(value%i === 0) {
+    if(value % i === 0) {
       return false;
     }
-    else {
-      return value > 1;
-    }
   }
+  return value;
 }
 
 function isDivisible(n,divider) {
