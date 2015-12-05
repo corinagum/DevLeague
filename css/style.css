@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+.calculator {
+  width: 500px;
+  height:500px;
+  font-family: monospace;
+  background-color: #BFD9DA;
+}
+.display {
+  width:90%;
+  height:90px;
+  line-height: 80px;
+  font-size: 60px;
+  text-align:right;
+  border-bottom-width: 2px;
+  padding-right:40px;
+  overflow:hidden;
+}
+.number-holder {
+  width:80%;
+  height:500px;
+  background-color: #87AAAE;
+  display: inline-block;
+}
+.other-operations {
+  width: 20%;
+  height: 500px;
+  background-color: #BFD9DA;
+  display: inline-block;
+}
+
+.clear-fix {
+  clear:both;
+}
+.numbers {
+  margin:5px;
+  height:90px;
+  width:90px;
+  float:left;
+  text-align: center;
+  line-height: 90px;
+  font-size:50px;
+}
+.numbers:hover {
+  background-color: #BFD9DA;
+}
+.numbers:active {
+  background-color: #BC4676;
+}
+
+
+.other-buttons {
+  margin-top:10px;
+  width:90px;
+  height:30px;
+  text-align: center;
+  line-height: 20px;
+  font-size:15px;
+  float:left;
+}
+.other-buttons:hover {
+  color:#DDECEF;
+}
+
+.other-buttons:active {
+  color:#BC4676;
+}
+
+#one {}
+#two {}
+#three {}
+#four {}
+#five {}
+#six {}
+#seven {}
+#eight {}
+#nine {}
+#zero {}
+#dot {}
+#plus {}
+#minus {}
+#times {}
+#divided {}
+#equals {}
+#double-zero {}
+#dot {}
+#display {}
+
+#clear {}
+#get-balance {}
+#deposit-cash {}
+#withdraw-cash {}
+
