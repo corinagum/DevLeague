@@ -3,6 +3,7 @@ var Calculator = (function () {
 
   var memory = 0;
   var total = 0;
+  var cashRegister = 0;
   function isANumber(num) {
     if (Number.isInteger(num)) {
         return true;
@@ -16,6 +17,7 @@ var Calculator = (function () {
         total = num;
         return total;
       }
+        console.log(total);
   };
   calculator.getTotal = function(){
     return total;
@@ -25,6 +27,7 @@ var Calculator = (function () {
   calculator.add = function(num) {
     if (isANumber(num)) {
         total += num;
+        console.log(total);
     }
   };
 
@@ -46,6 +49,7 @@ var Calculator = (function () {
   calculator.divide = function(num) {
   if (isANumber(num)) {
     total /= num;
+    console.log(total);
   }
   };
 
@@ -55,8 +59,12 @@ var Calculator = (function () {
   };
 
 
-  calculator.saveMemory = function() {
-    memory = total;
+  calculator.depositMemory = function(num) {
+    memory += num;
+  };
+
+  calculator.withdrawMemory = function(num) {
+    memory -= num;
   };
 
 

@@ -25,6 +25,7 @@ window.onload = function() {
   // var inputNumber = arrayPush.join("");
   var theMath = "";
   var pushed = "";
+  var returnedTotal = 0;
   var buttonOne = document.getElementById("one");
   var buttonTwo = document.getElementById("two");
   var buttonThree = document.getElementById("three");
@@ -45,7 +46,29 @@ window.onload = function() {
   var buttonEqual = document.getElementById("equals");
   var containerDisplay = document.getElementById("display");
   var buttonClear = document.getElementById("clear");
+  var buttonGet = document.getElementById("get-balance");
+  var buttonDeposit = document.getElementById("deposit-cash");
+  var buttonWithdraw = document.getElementById("withdraw-cash");
+  var buttonClearMem = document.getElementById("clear-memory");
 
+  var parsedNumber = 0;
+
+  buttonGet.addEventListener("click", function(){
+   clearDisplay();
+   containerDisplay.innerHTML = Calculator.recallMemory();
+  });
+
+  buttonDeposit.addEventListener("click", function(){
+   Calculator.depositMemory(parseInt(containerDisplay.innerHTML));
+  });
+
+  buttonWithdraw.addEventListener("click", function(){
+   Calculator.withdrawMemory(parseInt(containerDisplay.innerHTML));
+  });
+
+  buttonClearMem.addEventListener("click", function(){
+   Calculator.clearMemory();
+  });
 
   buttonOne.addEventListener("click", function() {
     clearDisplay();
@@ -116,13 +139,13 @@ window.onload = function() {
     containerDisplay.innerHTML = "-";
     pushed = arrayPush.join('');
     loadingCalculator(parseInt(pushed));
-    theMath = "minus";
+    theMath = "subtract";
   });
   buttonMult.addEventListener("click", function() {
     containerDisplay.innerHTML = "x";
     pushed = arrayPush.join('');
     loadingCalculator(parseInt(pushed));
-    theMath = "times";
+    theMath = "multiply";
   });
   buttonDivide.addEventListener("click", function() {
     containerDisplay.innerHTML = "/";
@@ -132,21 +155,14 @@ window.onload = function() {
   });
   buttonEqual.addEventListener("click", function() {
     pushed = arrayPush.join('');
-    if(theMath === "add") {
-      Calculator.add(parseInt(pushed));
-    }
-    else if(theMath === "minus") {
-      Calculator.subtract(parseInt(pushed));
-    }
-    else if(theMath === "times") {
-      Calculator.multiply(parseInt(pushed));
-    }
-    else if(theMath === "divide") {
-      Calculator.divide(parseInt(pushed));
-    }
-    containerDisplay.innerHTML = Calculator.getTotal();
-    Calculator.load(0);
+    parsedNumber = parseInt(pushed);
+    Calculator[theMath](parsedNumber);
+    returnedTotal = Calculator.getTotal();
+    containerDisplay.innerHTML = returnedTotal;
+    arrayPush = [];
+    arrayPush.push(returnedTotal);
   });
+
   buttonClear.addEventListener("click", function() {
     containerDisplay.innerHTML = "0";
     loadingCalculator(0);
