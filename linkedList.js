@@ -50,20 +50,38 @@ function linkedListGenerator(){
     }
   };
   methods.insert = function(){};
-  methods.remove = function(number) {
-    var i = 0;
+  methods.remove = function(number){
     var currentNode = head;
-    if(i === number) {
-      head.value = currentNode.next;
-    } else{
-      while(i !== number) {
-        if(currentNode.next === null && i!== number) {
-          return false;
+    var nextNode = currentNode.next;
+    var i = 0;
+    var previousNode  = currentNode;
+
+    if(number === 0) {
+      head = currentNode.next;
+    }
+    // else if (nextNode === tail) {
+    //   tail = currentNode;
+    // }
+    while (i !== number) {
+      if(i === number - 1) {
+        currentNode.next = nextNode.next;
+        console.log(nextNode, nextNode.next);
+        if(nextNode.next === null) {
+          tail = currentNode;
+        }
+        return false;
+      // } else if(nextNode === null) {
+      //   tail = nextNode;
       } else {
-        currentNode = currentNode.next;
+
+        currentNode = nextNode;
+        nextNode = nextNode.next;
+      i++;
       }
     }
-  }
-  return methods;
-};
 
+  };
+  return methods;
+}
+
+// 4 remove scenarios: 1 = head; 1 = tail, in the middle, and if it can't find smth

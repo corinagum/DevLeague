@@ -242,8 +242,15 @@ describe('Linked List Generator', function() {
         // test new node at position 2
         expect(urlList.get(2).value).to.equal('icann.org');
 
+
+
         // remove last node
         urlList.remove(2);
+        console.log(urlList.get(0).value);
+        console.log(urlList.get(1).value);
+        console.log(urlList.get(2).value);
+        console.log(urlList.get(3).value);
+        console.log(urlList.getTail().value);
 
         // retrieve new node at position 2
         expect(urlList.get(2)).to.be.false;
