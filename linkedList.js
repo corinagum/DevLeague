@@ -49,12 +49,39 @@ function linkedListGenerator(){
       return currentNode;
     }
   };
-  methods.insert = function(){};
+  methods.insert = function(value, index){
+    var i = 0;
+    var currentNode = head;
+    var nextNode = currentNode.next;
+    var nextHolder;
+    if(index === 0) {
+      nextHolder = head;
+      head.value = value;
+      head.next = nextHolder;
+    }
+    // if(index === 1) {
+    //   nextHolder = nextNode;
+    //   currentNode.next = value;
+    //   nextNode = nextHolder;
+
+    // }
+    while (i !== index) {
+      currentNode = nextNode;
+      nextNode = nextNode.next;
+      i++;
+    }
+    if(currentNode === tail) {
+      return false;
+    }
+    nextNode.value = currentNode.value;
+    currentNode.value = value;
+    currentNode.next = nextNode.value;
+  };
   methods.remove = function(number){
     var currentNode = head;
     var nextNode = currentNode.next;
     var i = 0;
-    var previousNode  = currentNode;
+    var previousNode = currentNode;
 
     if(number === 0) {
       head = currentNode.next;
@@ -66,8 +93,6 @@ function linkedListGenerator(){
           tail = currentNode;
         }
         return false;
-      // } else if(nextNode === null) {
-      //   return false;
       } else {
         currentNode = nextNode;
         if (currentNode.next === null) {
