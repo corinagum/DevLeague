@@ -7,13 +7,29 @@
  */
 module.exports = {
   sumFibs : _sumFibs,
-  highestFibonacciNumber : _highestFibonacciNumber
+  highestFibonacciNumber : highestFibonacciNumber
 };
+
+var fibSeq = [0,1];
+var i = fibSeq[0];
+var j = fibSeq[i + 1];
+
+for (var h = 0; h <= 100; h++) {
+  fibSeq.push(fibSeq[i] + fibSeq[j]);
+  i++;
+  j++;
+}
 
 function _sumFibs( maxFibValue ) {
   var sum = 0;
+  var i = 0;
+  while(fibSeq[i] <= maxFibValue) {
 
-  // do your work here
+    if(fibSeq[i]%2 === 0) {
+      sum += fibSeq[i];
+    }
+    i++;
+  }
 
   return sum;
 }
@@ -21,11 +37,13 @@ function _sumFibs( maxFibValue ) {
 // bonus round
 function highestFibonacciNumber (maxFibValue){
   var highest = 0;
+  var i = 0;
 
-  //define your base case, validate your input
-
-
-  //do your work here
+ while (fibSeq[i] <= maxFibValue) {
+  highest = fibSeq[i];
+  i++;
+  console.log(fibSeq[i]);
+ }
 
   return highest;
-};
+}
