@@ -5,29 +5,49 @@
  */
 function linkedListGenerator(){
   var methods = {};
+  var head = null;
+  var tail = null;
 
   methods.getHead = function(){
-    if(this.value === undefined) {
-      return null;
-    }
-      return this.value;
+    return head;
   };
+
   methods.getTail = function(){
-    if(this.value === undefined) {
-      return null;
-    }
-    else if(this.value!==null) {
-      return this.next;
-    }
-    return this.value.getTail();
+    return tail;
   };
-  methods.add = function(){
-    this.getTail().next === {
-      value: null,
+
+  methods.add = function(value){
+    var newNode = {
+      value: value,
       next: null
     };
 
+    if(head === null && tail === null) {
+      head = newNode;
+      tail = newNode;
+      return newNode;
+    } else {
+      tail.next = newNode;
+      tail = newNode;
+    }
+
+    // if(value === undefined) {
+    //   this.value = value;
+    //   this.next = null;
+    //   head = this.value;
+    //   tail = this.value;
+    //   return this;
+    // }
+    // else if(this.value===null) {
+    //   this.value = Value;
+    //   this.next = null;
+    //   return this;
+    // }
+    // else {
+    //   this.next.add();
+    // }
   };
+
   methods.remove = function(){};
   methods.get = function(){};
   methods.insert = function(){};
@@ -36,4 +56,3 @@ function linkedListGenerator(){
 }
 
 var linkedList = linkedListGenerator();
-linkedList.getHead();
