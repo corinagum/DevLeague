@@ -59,23 +59,26 @@ function linkedListGenerator(){
       head.value = value;
       head.next = nextHolder;
     }
-    // if(index === 1) {
-    //   nextHolder = nextNode;
-    //   currentNode.next = value;
-    //   nextNode = nextHolder;
-
-    // }
     while (i !== index) {
+      // currentNode = nextNode;
+    // console.log('hello', i, index, currentNode.next, nextNode.next);
+    // console.log('head', head);
+      if(currentNode.next === null) {
+        return false;
+      } else {
+        currentNode = currentNode.next;
+      console.log(currentNode, nextNode);
+      }
       currentNode = nextNode;
-      nextNode = nextNode.next;
+      currentNode = value;
+      currentNode.next = nextNode;
       i++;
     }
-    if(currentNode === tail) {
-      return false;
-    }
-    nextNode.value = currentNode.value;
-    currentNode.value = value;
-    currentNode.next = nextNode.value;
+// console.log(currentNode);
+// if i = index, invoke add
+    // nextHolder = currentNode;
+    // currentNode.value = value;
+    // currentNode.next = nextHolder.value;
   };
   methods.remove = function(number){
     var currentNode = head;
@@ -106,5 +109,3 @@ function linkedListGenerator(){
   };
   return methods;
 }
-
-// 4 remove scenarios: 1 = head; 1 = tail, in the middle, and if it can't find smth
