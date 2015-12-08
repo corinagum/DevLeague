@@ -29,30 +29,41 @@ function linkedListGenerator(){
     } else {
       tail.next = newNode;
       tail = newNode;
+      return tail; // do we need to fix this?
     }
-
-    // if(value === undefined) {
-    //   this.value = value;
-    //   this.next = null;
-    //   head = this.value;
-    //   tail = this.value;
-    //   return this;
-    // }
-    // else if(this.value===null) {
-    //   this.value = Value;
-    //   this.next = null;
-    //   return this;
-    // }
-    // else {
-    //   this.next.add();
-    // }
   };
 
-  methods.remove = function(){};
-  methods.get = function(){};
+  methods.get = function(number){
+    var i = 0;
+    var currentNode = head;
+    if(i === number) {
+      return currentNode;
+    } else {
+      while(i !== number) {
+        if(currentNode.next === null && i!== number) {
+          return false;
+        } else { currentNode = currentNode.next;
+          i++;
+        }
+      }
+      return currentNode;
+    }
+  };
   methods.insert = function(){};
-
+  methods.remove = function(number) {
+    var i = 0;
+    var currentNode = head;
+    if(i === number) {
+      head.value = currentNode.next;
+    } else{
+      while(i !== number) {
+        if(currentNode.next === null && i!== number) {
+          return false;
+      } else {
+        currentNode = currentNode.next;
+      }
+    }
+  }
   return methods;
-}
+};
 
-var linkedList = linkedListGenerator();
