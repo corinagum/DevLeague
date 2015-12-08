@@ -59,22 +59,20 @@ function linkedListGenerator(){
     if(number === 0) {
       head = currentNode.next;
     }
-    // else if (nextNode === tail) {
-    //   tail = currentNode;
-    // }
     while (i !== number) {
       if(i === number - 1) {
         currentNode.next = nextNode.next;
-        console.log(nextNode, nextNode.next);
         if(nextNode.next === null) {
           tail = currentNode;
         }
         return false;
       // } else if(nextNode === null) {
-      //   tail = nextNode;
+      //   return false;
       } else {
-
         currentNode = nextNode;
+        if (currentNode.next === null) {
+          return false;
+        }
         nextNode = nextNode.next;
       i++;
       }
