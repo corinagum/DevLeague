@@ -33,7 +33,8 @@ function Item(name) {
 Weapon.prototype = Object.create(Item.prototype);
 
 function Weapon(name, damage) {
-
+  Item.call(this, name);
+  this.damage = damage;
 }
 
 /**
