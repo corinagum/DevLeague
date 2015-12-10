@@ -30,18 +30,22 @@ function Item(name) {
  * @param {number} damage   The weapon's damage.
  * @property {number} damage
  */
-Weapon.prototype = Object.create(Item.prototype);
 
-function Weapon(name, damage) {
-  Item.call(this, name);
-  this.damage = damage;
-}
 
 /**
  * Weapon Extends Item Class
  * -----------------------------
  */
+Weapon.prototype = Object.create(Item.prototype);
 
+function Weapon(name, damage) {
+  Item.call(this, name);
+  if(typeof (damage) === 'number') {
+    this.damage = damage;
+  } else {
+    throw new TypeError('Item should be a number');
+  }
+}
 
 
 /**
@@ -59,8 +63,12 @@ function Weapon(name, damage) {
  * @param {number} energy     The energy the food provides.
  * @property {number} energy
  */
+Food.prototype = Object.create(Item.prototype);
 
-
+function Food(name, energy) {
+  Item.call(this, name);
+  this.energy = energy;
+}
 /**
  * Food Extends Item Class
  * -----------------------------
