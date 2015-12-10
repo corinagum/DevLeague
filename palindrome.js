@@ -1,25 +1,19 @@
-debugger;
-function palindromeNumberGenerator(num) {
-  num = num.toString();
-  var numArray = num.split('');
-  var arrayReverse = numArray;
-  arrayReverse.reverse();
-  // var plusArray = arrayReverse.concat(numArray);
-  var steps = 0;
+function palindromeNumberGenerator(num, steps) {
+  steps = steps || 0;
   var obj = {};
 
-  if(numArray === arrayReverse) {
-    obj.value = plusArray;
-    obj.steps = steps;
-    console.log(obj);
+  var arrayReverse = num.toString().split('').reverse().join('');
+
+  if(num.toString() === arrayReverse) {
+    obj.value = num;
+    obj.steps = parseInt(steps);
+
     return (obj);
   } else {
-    var newNum = "";
-    for(var i = 0; i <= plusArray.length; i++) {
-      newNum += plusArray[i];
-    }
-    palindromeNumberGenerator(newNum);
+    steps = parseInt(steps) + 1 ;
+    var newNum = num + parseInt(arrayReverse);
+    return palindromeNumberGenerator(newNum, steps);
   }
 }
 
-palindromeNumberGenerator(87);
+console.log(palindromeNumberGenerator(87));
