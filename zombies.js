@@ -40,12 +40,8 @@ Weapon.prototype = Object.create(Item.prototype);
 
 function Weapon(name, damage) {
   Item.call(this, name);
-  if(typeof (damage) === 'number') {
     this.damage = damage;
-  } else {
-    throw new TypeError('Item should be a number');
   }
-}
 
 
 /**
@@ -221,7 +217,24 @@ Player.prototype.discardItem = function(item) {
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
 
-
+Player.prototype.equip = function(itemToEquip) {
+  if(itemToEquip instanceof Weapon) {
+    if(this.discardItem(itemToEquip)) {
+      if(this.equipped === false) {
+        this.equipped = itemToEquip;
+        return true;
+      } else {
+        this.takeItem(this.equipped); //doesn't seem to work
+        this.equipped = itemToEquip;
+        return true;
+      }
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+};
 /**
  * Player Class Method => eat(itemToEat)
  * -----------------------------
@@ -240,7 +253,21 @@ Player.prototype.discardItem = function(item) {
  * @name eat
  * @param {Food} itemToEat  The food item to eat.
  */
-
+Player.prototype.eat = function(itemToEat) {
+  if(itemToEat instanceof Food) {
+    if(this.discardItem(itemToEat)) {
+      if(this.health + itemToEat.energy >= this.getMaxHealth()) {
+        this.health = this.getMaxHealth();
+      } else {
+        this.health += itemToEat.energy;
+      }
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+};
 
 /**
  * Player Class Method => useItem(item)
