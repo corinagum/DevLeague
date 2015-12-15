@@ -22,7 +22,12 @@ var hundredThousandairs = dataset.bankBalances.filter(datafiltering);
     }
   assign the resulting array to `roundedDollar`
 */
-var roundedDollar = null;
+function roundingDollars (element) {
+  return { amount: element.amount, state: element.state, rounded: Math.round(element.amount)};
+}
+var roundedDollar = dataset.bankBalances.map(roundingDollars);
+console.log(dataset.bankBalances);
+
 
 /*
   set a the `amount` value for each object in bankBalances
@@ -34,10 +39,18 @@ var roundedDollar = null;
     }
   assign the resulting array to `roundedDime`
 */
-var roundedDime = null;
+function roundingDimes (element) {
+  var toDimes = Number((Number(element.amount)).toFixed(1));
+  return { amount: toDimes, state: element.state};
+}
+var roundedDime = dataset.bankBalances.map(roundingDimes);
+console.log(roundedDime);
 
 // set sumOfBankBalances to the sum of all amounts in bankBalances
-var sumOfBankBalances = null;
+function summingBalances (previous, next) {
+  return Number(previous + next);
+}
+var sumOfBankBalances = dataset.bankBalances.reduce(summingBalances);
 
 /*
   set sumOfInterests to the sum of the 18.9% interest
