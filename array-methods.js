@@ -26,8 +26,6 @@ function roundingDollars (element) {
   return { amount: element.amount, state: element.state, rounded: Math.round(element.amount)};
 }
 var roundedDollar = dataset.bankBalances.map(roundingDollars);
-console.log(dataset.bankBalances);
-
 
 /*
   set a the `amount` value for each object in bankBalances
@@ -44,13 +42,15 @@ function roundingDimes (element) {
   return { amount: toDimes, state: element.state};
 }
 var roundedDime = dataset.bankBalances.map(roundingDimes);
-console.log(roundedDime);
+
 
 // set sumOfBankBalances to the sum of all amounts in bankBalances
-function summingBalances (previous, next) {
-  return Number(previous + next);
+function summingBalances (prev, current) {
+  return prev + parseFloat(Number(current.amount).toFixed(2));
 }
-var sumOfBankBalances = dataset.bankBalances.reduce(summingBalances);
+var returnSum = dataset.bankBalances.reduce(summingBalances, 0);
+var sumOfBankBalances = Number(Number(returnSum).toFixed(2));
+
 
 /*
   set sumOfInterests to the sum of the 18.9% interest
@@ -64,8 +64,24 @@ var sumOfBankBalances = dataset.bankBalances.reduce(summingBalances);
     Delaware
   the result should be rounded to the nearest cent
  */
-var sumOfInterests = null;
-
+ function stateFiltering (element) {
+  if (element.state === "WI" ||
+      element.state === "IL" ||
+      element.state === "WY" ||
+      element.state === "OH" ||
+      element.state === "GA" ||
+      element.state === "DE") {
+    return true;
+  }
+ }
+var statesCalcInterest = dataset.bankBalances.filter(stateFiltering);
+statesCalcInterest = statesCalcInterest.map( function (element) {
+  return element.amount;
+});
+var sumOfInterests = statesCalcInterest.reduce(function (prev, current) {
+  return (prev + Math.round(Number(current)*0.189*100)/100);
+}, 0);
+sumOfInterests = Number(sumOfInterests.toFixed(2));
 /*
   set sumOfHighInterests to the sum of the 18.9% interest
   for all amounts in bankBalances
@@ -80,7 +96,38 @@ var sumOfInterests = null;
     Delaware
   the result should be rounded to the nearest cent
  */
-var sumOfHighInterests = null;
+function stateHighFiltering (element) {
+  if (element.state !== "WI" &&
+      element.state !== "IL" &&
+      element.state !== "WY" &&
+      element.state !== "OH" &&
+      element.state !== "GA" &&
+      element.state !== "DE") {
+    return true;
+  }
+ }
+var statesHighInterest = dataset.bankBalances.filter(stateHighFiltering);
+var statesObject = {};
+
+statesHighInterest.map(function(element) {
+  if(!statesObject[element.state]) {
+    statesObject[element.state] = ((element.amount*0.189*100)/100);
+  } else {
+    statesObject[element.state] += ((element.amount*0.189*100)/100);
+  }
+});
+
+var statesArray = [];
+for (var key in statesObject) {
+  if(statesObject[key] > 50000) {
+    statesArray.push(statesObject[key]);
+  }
+}
+sumOfHighInterests = statesArray.reduce(function(prev, current){
+  return prev + parseFloat(current.toFixed(2));
+},0);
+sumOfHighInterests = (Math.round(sumOfHighInterests*100))/100;
+
 
 /*
   aggregate the sum of bankBalance amounts
