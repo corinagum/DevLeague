@@ -486,7 +486,13 @@ Person.prototype.earnMoney = function (moreMoney) {
  *
  */
 
-
+function purchaseLaptop (brand) {
+  if(laptopCosts.hasOwnProperty(brand)) {
+    return laptopCosts[brand].toString();
+  } else {
+    return -1;
+  }
+}
 /* Step 29
  *
  * Define a function named "canTalkAbout" that takes
