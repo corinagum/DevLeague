@@ -979,6 +979,10 @@ function Animal (species, gender) {
  * @param {string} model The vehicle's model
  */
 
+function Vehicle (make, model) {
+  this.make = make;
+  this.model = model;
+}
 
 /**
  * Step 52
