@@ -5,7 +5,7 @@
  *
  */
 
-
+var unicorn = null;
 /* Step 2
  *
  * Declare a variable named "videogame_system"
