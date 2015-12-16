@@ -1402,8 +1402,8 @@ var closeAnOpenDoor = new Door(true).openClose();
  * and assign the values to each variable below.
  *
  */
-var redShoesSize7;
-var blackShoesSize10;
+var redShoesSize7 = new Shoe(7, "red").findShoes();
+var blackShoesSize10 = new Shoe(10, "black").findShoes();
 
 
  /* Step 97
