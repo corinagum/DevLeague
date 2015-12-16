@@ -181,7 +181,14 @@ var rainbow = {
  * "Bieber Linux"
  *
  */
-var linuxFlavors = ["Gentoo", "Fedora", "Debian", "Slackware", "Red Hat", "Bieber Linux"];
+var linuxFlavors = [
+  "Gentoo",
+  "Fedora",
+  "Debian",
+  "Slackware",
+  "Red Hat",
+  "Bieber Linux"
+];
 
 /* Step 15
  *
@@ -195,7 +202,13 @@ var linuxFlavors = ["Gentoo", "Fedora", "Debian", "Slackware", "Red Hat", "Biebe
  * "cytosine"
  *
  */
-var DNA = ["nucleatides", "guanine", "adenine", "thymine", "cytosine"];
+var DNA = [
+  "nucleatides",
+  "guanine",
+  "adenine",
+  "thymine",
+  "cytosine"
+  ];
 
 /* Step 16
  *
@@ -251,7 +264,13 @@ var livingOrganismClassification = [
  * "cvs"
  *
  */
-
+var scmList = [
+  "git",
+  "svn",
+  "mercurial",
+  "bazaar",
+  "cvs"
+];
 
 /* Step 19
  *
