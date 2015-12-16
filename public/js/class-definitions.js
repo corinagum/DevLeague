@@ -1033,6 +1033,10 @@ function Door () {
  * @param {string} color The shoe color
  */
 
+function Shoe (size, color) {
+  this.size = size;
+  this.color = color;
+};
 
 /**
  * Step 56
