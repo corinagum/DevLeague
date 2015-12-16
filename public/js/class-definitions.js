@@ -401,7 +401,15 @@ function browseURL (browser) {
  * @return {String}
  *
  */
-
+function listLivingOrgClass () {
+  var ul = document.createElement('ul');
+  for(i = 0; i < livingOrganismClassification.length; i++) {
+    var li = document.createElement('li'); //needs to be inside the for loop, otherwise will overwrite the previous li
+    ul.appendChild(li);
+    li.innerHTML = livingOrganismClassification[i];
+  }
+  return ul.outerHTML;
+}
 
 /* Step 26
  *
