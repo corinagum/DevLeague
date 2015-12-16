@@ -1010,9 +1010,9 @@ function Shape (sides) {
  * @param {boolean} isOpen     Whether the box is opened or closed
  */
 
-function Box (anything) {
+function Box (anything, isOpen) {
   this.contents = anything;
-  this.isOpen = true;
+  this.isOpen = isOpen;
 };
 /**
  * Step 54
@@ -1106,8 +1106,9 @@ var square = new Shape(4);
 var hexagon = new Shape(6);
 
 // Create 2 boxes
-var catBox;
-var christmasPresent;
+var cat = new Animal ("Cat", 'female');
+var catBox = new Box(cat, true);
+var christmasPresent = new Box("present", false);
 
 // Create 2 doors
 var automaticDoor;
