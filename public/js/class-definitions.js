@@ -366,7 +366,6 @@ function drink (beerType) {
     return false;
   } else {
     if (Array.isArray(beers[beerType])) {
-      // console.log("This " + beerType + " is " + beers.beerType[0] + " and " + beers.beerType[1]);
       return "This " + beerType + " is " + beers[beerType].join(" and ") + ".";
     } else {
       return "This " + beerType + " is " + beers[beerType] + ".";
@@ -430,7 +429,14 @@ function listLivingOrgClass () {
  * @return {String}
  *
  */
-
+function favoritePlanet (currentPlanet) {
+  if(planets.indexOf(currentPlanet) !== -1) {
+    var randomPlanet = Math.floor(Math.random() * planets.length);
+    return "I'm from " + currentPlanet + ", but I wish I could go to " + planets[randomPlanet];
+  } else {
+    return currentPlanet + " is not a planet!";
+  }
+}
 
 /* Step 27
  *
