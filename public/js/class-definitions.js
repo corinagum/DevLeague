@@ -1382,8 +1382,8 @@ var polygon = new Shape(null).getType();
  * and assign the values to each variable below.
  *
  */
-var openAClosedBox = openBox();
-var closeAnOpenBox = openBox();
+var openAClosedBox = new Box("something", false).openBox();
+var closeAnOpenBox = new Box("something", true).openBox(false);
 
 
  /* Step 95
