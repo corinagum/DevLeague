@@ -62,7 +62,7 @@ var earths_water_composition = 0.71;
  * and assign the value of club_name to "Fight Club"
  *
  */
-
+var club_name = "Fight Club";
 
 /* Step 9
  *
