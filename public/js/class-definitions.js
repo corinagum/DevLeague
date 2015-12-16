@@ -361,8 +361,18 @@ function installLinux (type) {
  * @return {Bool when False, String when True}
  *
  */
-
-
+function drink (beerType) {
+  if(!beers[beerType]) {
+    return false;
+  } else {
+    if (Array.isArray(beers[beerType])) {
+      // console.log("This " + beerType + " is " + beers.beerType[0] + " and " + beers.beerType[1]);
+      return "This " + beerType + " is " + beers[beerType].join(" and ") + ".";
+    } else {
+      return "This " + beerType + " is " + beers[beerType] + ".";
+    }
+  }
+}
 /* Step 24
  *
  * Define a function named "browseURL" that takes
