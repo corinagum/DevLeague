@@ -385,7 +385,13 @@ function drink (beerType) {
  *
  */
 
-
+function browseURL (browser) {
+  if(!browsers[browser]) {
+    return false;
+  } else {
+    return browsers[browser];
+  }
+}
 /* Step 25
  *
  * Define a function named "listLivingOrgClass" that
