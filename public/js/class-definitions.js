@@ -1021,8 +1021,8 @@ function Box (anything, isOpen) {
  * @param {boolean} isOpen Whether the door is opened or closed
  */
 
-function Door () {
-  this.isOpen = true;
+function Door (isOpen) {
+  this.isOpen = isOpen;
 }
 
 /**
@@ -1111,8 +1111,8 @@ var catBox = new Box(cat, true);
 var christmasPresent = new Box("present", false);
 
 // Create 2 doors
-var automaticDoor;
-var bankVault;
+var automaticDoor = new Door(true);
+var bankVault = new Door(false);
 
 // Create 2 shoes
 var rubySlippers;
