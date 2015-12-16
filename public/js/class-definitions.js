@@ -504,7 +504,13 @@ function purchaseLaptop (brand) {
  * @return {Bool}
  *
  */
-
+function canTalkAbout (club) {
+  if(club_name === club) {
+    return false;
+  } else {
+    return true;
+  }
+}
 
 /* Step 30
  *
