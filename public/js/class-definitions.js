@@ -1224,10 +1224,10 @@ Shape.prototype.getType = function () {
  *
  */
  Box.prototype.openBox = function () {
-  if (this.isOpen === false) {
+  if (!this.isOpen) {
     this.isOpen = true;
     return true;
-  } else if (this.isOpen === true) {
+  } else if (this.isOpen) {
     return false;
   }
  };
@@ -1239,7 +1239,15 @@ Shape.prototype.getType = function () {
  * Return true if openClose opens the door, false if openClose closes the door.
  *
  */
-
+Door.prototype.openClose = function () {
+  if(!this.isOpen) {
+    this.isOpen = true;
+    return true;
+  } else {
+    this.isOpen = false;
+    return false;
+  }
+};
 
 /* Step 86
  *
