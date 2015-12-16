@@ -784,6 +784,16 @@ Scientist.prototype.addDiscovery = function (stringDiscovery) {
  *
  */
 
+function BankAccount (balance, owner) {
+  this.balance = balance;
+  this.owner = owner;
+}
+BankAccount.prototype.withdraw = function (withdrawal) {
+  this.balance -= withdrawal;
+};
+BankAccount.prototype.deposit = function (deposits) {
+  this.balance += deposits;
+};
 
 /* Step 37
  *
@@ -957,7 +967,10 @@ Scientist.prototype.addDiscovery = function (stringDiscovery) {
  * @param {string} gender  male or female
  */
 
-
+function Animal (species, gender) {
+  this.species = species;
+  this.gender = gender;
+}
 /**
  * Step 51
  *
