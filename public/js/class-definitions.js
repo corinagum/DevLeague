@@ -321,7 +321,9 @@ function sahara_river () {
  * @return {Number}
  *
  */
-
+function addNumbers (a, b) {
+  return a + b;
+}
 
 /* Step 22
  *
