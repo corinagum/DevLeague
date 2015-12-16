@@ -1085,13 +1085,6 @@ function Meal (foods) {
  * Steps 60-80 (each variable is a 'step')
  */
 
-// Scientist.prototype = Object.create(Person.prototype);
-// function Scientist(name, money, age, gender) {
-//   Person.call(this, name, money, age, gender);
-//   this.disciplines = [];
-//   this.discoveries = [];
-// }
-
 // Create 2 different species of animals
 var george = new Animal("Monkey", "male");
 
@@ -1156,7 +1149,15 @@ var dinner = new Meal ("fish and vegetables");
  *       Any other species => "Could not determine if warm-blooded"
  *
  */
-
+Animal.prototype.isWarmBlooded = function () {
+  if (this.species === "Fish") {
+    return false;
+  } else if (this.species === "Monkey" || this.species === "Bird"){
+    return true;
+  } else {
+    return "Could not determine if warm-blooded";
+  }
+};
 
 /* Step 82
  *
@@ -1165,7 +1166,15 @@ var dinner = new Meal ("fish and vegetables");
  * return "Driving on {streetName}", else return "Driving forward".
  *
  */
-
+Vehicle.prototype.drive = function (streetName) {
+  if (typeof streetName !== 'string' || streetName === null) {
+    return "Driving forward";
+  } else if (streetName === "") {
+    return "Driving forward";
+    } else {
+    return "Driving on " + streetName;
+  }
+};
 
  /* Step 83
  *
