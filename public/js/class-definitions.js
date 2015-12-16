@@ -1085,10 +1085,17 @@ function Meal (foods) {
  * Steps 60-80 (each variable is a 'step')
  */
 
+// Scientist.prototype = Object.create(Person.prototype);
+// function Scientist(name, money, age, gender) {
+//   Person.call(this, name, money, age, gender);
+//   this.disciplines = [];
+//   this.discoveries = [];
+// }
 
 // Create 2 different species of animals
-var george;
-var nemo;
+var george = new Animal("Monkey", "male");
+
+var nemo = new Animal("Fish", "male");
 
 // Create 2 different vehicles
 var civic;
