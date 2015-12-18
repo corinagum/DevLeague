@@ -1,0 +1,23 @@
+{
+  "name": "sum-of-squareroot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corinajacobson/sum-of-squareroot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corinajacobson/sum-of-squareroot/issues"
+  },
+  "homepage": "https://github.com/corinajacobson/sum-of-squareroot#readme",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
