@@ -59,18 +59,23 @@ body {
   top:10px;
   right:10px;
   background-color: #FFFFFF;
-  border: 1px solid orange;
-  height: 25px;
-  width: 25px;
+  border: 2px groove orange;
+  height: 30px;
+  width: 30px;
 
   p {
     font-family: Lato;
-    line-height:20px;
+    line-height:25px;
     text-align: center;
-    font-size: 25px;
-    color: rgb(179,  0, 0 );
+    font-size: 35px;
+    color: rgb(179, 0, 0 );
   }
 }
+
+.plus:hover {
+  background-color:red;
+}
+
 .navigation {
   background-color: rgb(58, 58, 60);
   height: 40px;
@@ -94,17 +99,41 @@ body {
 
 .block {
   margin: auto;
-  background-color: red;
-  padding: 25px;
-  width: 100%;
+  background-color: #444;
+  width: 455px;
+  height:100%;
+  // display: inline-block;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  // justify-content: space-between;
 
+  .post {
+    max-width: 100%;
+    background-color: #FFF;
+    margin-top: 10px;
+    padding: 20px;
+    padding-top: 25px;
+    height: 475px;
+    flex: 0 0 100%;
+
+    img {
+      max-width: 100%;
+    }
+
+    &.post-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    color: rgb(44, 44,  46);
+    }
+
+    &.post-meta {
+      font-family: 'Oswald', sans-serif;
+    }
+
+    &.post-blurb {
+      font-family: 'Oswald', sans-serif;
+    }
+
+  }
 }
-.post {
-  background-color: #grey;
-  margin: 10px;
-  height: 100px;
-  flex: 0 0 30%;
-}
+
