@@ -22,7 +22,7 @@
 // Mixins
 
 // MEDIA QUERY RANGES
-$medium: "only screen and (min-width: 600px)";
+$medium: "only screen and (min-width: 630px)";
 $large: "only screen and (min-width:900px)";
 
 // GENERAL STYLES
@@ -71,7 +71,7 @@ body {
 
   p {
     font-family: Lato;
-    line-height:25px;
+    line-height:22px;
     text-align: center;
     font-size: 35px;
     color: rgb(179, 0, 0 );
@@ -133,8 +133,9 @@ body {
   // align-content: flex-start;
 
   @media #{$medium}{
-    width: 325px;
-    // justify-content: space-around;
+    width: 690px;
+    margin-top: 40px;
+    justify-content: space-between;
   }
 
   .post {
@@ -147,20 +148,26 @@ body {
     flex: 0 0 100%;
 
     @media #{$medium}{
-      width: 325px;
+      background-color: #FFF;
+      max-width: 325px;
       height: 400px;
-      flex: 0 0 100%;
+      flex: 0 0 48%;
+      margin:auto;
+      margin-left: 5px;
+      margin-bottom: 20px;
     }
 
     .img {
       width: 410px;
       height: 250px;
       background-color: pink;
+      margin: auto;
       margin-bottom: 20px;
 
       @media #{$medium}{
         width: 275px;
         height: 170px;
+        margin-bottom: 15px;
       }
     }
 
@@ -172,7 +179,7 @@ body {
     font-size: 25px;
     line-height: 30px;
     color: rgb(44, 44, 46);
-    margin:0px;
+    margin:auto;
     font-weight: normal;
 
     @media #{$medium}{
@@ -189,13 +196,14 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 17px;
     line-height: 17px;
+    margin: auto;
     margin-top:10px;
     font-weight: 100;
     color: rgb(110,  111, 114 );
     @media #{$medium}{
       width: 275px;
       font-size: 15px;
-      line-height:16fpx;
+      line-height:16px;
     }
   }
 
@@ -219,5 +227,25 @@ body {
   }
 
   }
+}
+
+.footer {
+  display: none;
+
+  @media #{$large}{
+  display: block;
+  background-color: rgb(58, 58, 60);
+  height: 40px;
+  width: 100%;
+
+  .fb {
+    background-image: url("../assets/header_bg.svg");
+  }
+    background-image: url("../assets/header_bg.svg");
+  .insta {
+
+  }
+}
+
 }
 
