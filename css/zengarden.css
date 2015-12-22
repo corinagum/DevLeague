@@ -107,10 +107,10 @@ header {
   height: 230px;
   padding: 20px 0 70px 0;
 
-  background: #2d6360 50% 0 url(huntington.jpg) no-repeat; /* old IE fallback */
+  /*background: #2d6360 50% 0 url(huntington.jpg) no-repeat; /* old IE fallback */*/
 
   background-attachment: fixed, fixed, fixed, scroll;
-  background-image: url(contours.png), url(noise.png), url(gridlines.png), url(huntington.jpg);
+  /*background-image: url(contours.png), url(noise.png), url(gridlines.png), url(huntington.jpg);*/
   background-position: 0 0, 0 0, -5px -25px, 0 50%;
   background-repeat: repeat, repeat, repeat, no-repeat;
   background-size: auto, auto, auto, cover;
@@ -140,7 +140,7 @@ h1::before {
   width: 80px;
   height: 80px;
   margin: -20px 20px 0 0;
-  background: url(enso.svg);
+  /*background: url(enso.svg);*/
   background-repeat: no-repeat;
   background-size: 100%;
   opacity: 0.6;
@@ -229,7 +229,7 @@ p {
 
 
   /* icomoon.io defaults */
-  font-family: 'verdemoderna';
+  /*font-family: 'verdemoderna';*/
   speak: none;
   font-weight: normal;
   font-variant: normal;
@@ -251,7 +251,7 @@ p {
 div.participation, div.benefits {
   background-attachment: scroll, scroll, fixed;
   background-color: rgba(138,188,159,0.5);
-  background-image: url(contours-opaque.png), url(gridlines-opaque.png), url(bamboo.png);
+  /*background-image: url(contours-opaque.png), url(gridlines-opaque.png), url(bamboo.png);*/
   background-repeat: repeat, repeat, no-repeat;
   background-size: auto, auto, cover;
 }
@@ -409,7 +409,7 @@ div.participation p, div.benefits p {
   font-size: 44px;
 
   /* icomoon.io defaults */
-  font-family: 'verdemoderna';
+  /*font-family: 'verdemoderna';*/
   speak: none;
   font-weight: normal;
   font-variant: normal;
@@ -435,7 +435,7 @@ div.participation p, div.benefits p {
 .zen-resources {
   overflow: hidden;
   background-color: rgba(138,188,159,0.5);
-  background-image: url(bamboo.png);
+  /*background-image: url(bamboo.png);*/
 }
 .zen-resources li {
   border-top: solid 1px #a0b9ad;
@@ -476,7 +476,7 @@ div.participation p, div.benefits p {
   background: #3e5d67;
 
   background-attachment: fixed, fixed, fixed, scroll;
-  background-image: url(contours.png), url(gridlines.png), url(noise.png), url(koi.jpg);
+  /*background-image: url(contours.png), url(gridlines.png), url(noise.png), url(koi.jpg);*/
   background-position: 0 0, -5px -25px, 0 0, 0 50%;
   background-repeat: repeat, repeat, repeat, no-repeat;
   background-size: auto, auto, auto, cover;
@@ -530,7 +530,7 @@ footer a::before {
   text-indent: 0;
 
   /* icomoon.io defaults */
-  font-family: 'verdemoderna';
+  /*font-family: 'verdemoderna';*/
   speak: none;
   font-weight: normal;
   font-variant: normal;
@@ -735,7 +735,7 @@ footer a::before {
     width: 125px;
     height: 125px;
     margin: -65px 40px 0 0;
-    background: url(enso.svg);
+    /*background: url(enso.svg);*/
     background-size: 100%;
     opacity: 0.6;
 
@@ -968,12 +968,12 @@ footer a::before {
     (min-resolution: 1.5dppx) {
 
     header {
-        background-image: url(contours@2x.png), url(noise.png), url(gridlines.png), url(huntington.jpg);
+        /*background-image: url(contours@2x.png), url(noise.png), url(gridlines.png), url(huntington.jpg);*/
         background-size: 50% auto, auto, auto, cover;
     }
 
     .requirements p:last-child {
-        background-image: url(contours@2x.png), url(gridlines.png), url(noise.png), url(koi.jpg);
+        /*background-image: url(contours@2x.png), url(gridlines.png), url(noise.png), url(koi.jpg);*/
         background-size: 50% auto, auto, auto, cover;
     }
 
@@ -989,13 +989,13 @@ footer a::before {
 }
 
 /* icon fonts */
-@font-face {
+/*@font-face {
   font-family: 'verdemoderna';
   src:url('verdemoderna.eot');
   src:url('verdemoderna.eot?#iefix') format('embedded-opentype'),
     url('verdemoderna.woff') format('woff'),
     url('verdemoderna.ttf') format('truetype'),
-    url('verdemoderna.svg#verdemoderna') format('svg');
+    url('verdemoderna.svg#verdemoderna') format('svg');*/
   font-weight: normal;
   font-style: normal;
 }                                                                                                               /* 1000 lines?! */

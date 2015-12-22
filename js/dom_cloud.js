@@ -1,49 +1,42 @@
 window.onload = function () {
-
-  var node = document.body.childNodes;
-console.log(node, 'hi');
-  function recurs (node) {
-    if ( node.hasChildNodes === true ) {
-      console.log(node, 'woo');
-      recurs( this );
-    } else {
-      var str = this.node.innerHTML;
-      var wordArray = [];
-      wordArray = str.split();
-      var wordCount = {};
-      // for ( var i = 0; i <= wordArray.length; i++ ) {
-      //   if
-      // }
-      console.log(wordArray);
+  var tagArray = [];
+  var body = document.body;
+  function recursive (node) {
+    var child = node.children;
+    for (var i = 0; i < child.length; i++) {
+      if(child[i] === undefined) {
+        continue;
+      } else {
+        tagArray.push(child[i].tagName);
+        for(var j = 0; j < child[i].attributes.length; j++) {
+          tagArray.push(child[i].attributes[j].name);
+        }
+        if(child[i].children) {
+          recursive(child[i]);
+        }
+      }
     }
-}
-// iterate thru DOM
-// ... getElementByTagName... body
 
-// function recursion (on body)
-// if (this.childNodes) {
-  //recursion(this)
-//}
-// else {
-  //this.innerHTML
-  // var str = '';
-  // str = this.innerHTML;z
-  //set to variable and iterate through that variable as a string... use string.length
-  //
-// for in loop...
-// object wordCount {word: 1}
-//word ++
+  }
+  recursive(body);
+  // console.log(tagArray);
+  var countingObject = {};
+  // console.log(countingObject);
+  for(var k = 0; k < tagArray.length; k++ )  {
+    var key = tagArray[k];
+    if ( !(key in countingObject) ) {
+      countingObject[key] = 1;
+    } else {
+      countingObject[key] ++;
 
-// else create key, set val 1
-
-
-
-
-// list words by count...
-
-
-recurs(node);
-
+    }
+  }
+    var sorting = [];
+    for (var keys in countingObject) {
+      sorting.push(keys, countingObject[keys]);
+      // document.getElementById('dom_cloud_container').textContent += countingObject[keys];
+    }
+      console.log(sorting);
 };
 
 
