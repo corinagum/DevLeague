@@ -1,0 +1,35 @@
+body {
+  background-image: url("./images/bg.jpg");
+  background-repeat: no-repeat;
+}
+
+#star {
+  width: 50%;
+  margin:auto;
+  margin-top: 100px;
+  text-align: center;
+  color: yellow;
+  font-weight:800;
+  font-size: 40px;
+  text-shadow: 2px 2px 3px #FFFFE0;
+  line-height: 35px;
+}
+#tree {
+  width: 50%;
+  margin:auto;
+  text-align: center;
+  color: #143306;
+  font-weight:800;
+  font-size: 30px;
+  text-shadow: 2px 2px 3px #FFFFE0;
+}
+
+#trunk {
+  width: 50%;
+  margin:auto;
+  text-align: center;
+  color: #3c1500;
+  font-weight:800;
+  font-size: 40px;
+  text-shadow: 2px 2px 3px #FFFFE0;
+}
