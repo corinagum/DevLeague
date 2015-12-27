@@ -11,8 +11,8 @@ gulp.task('sass', function () {
 });
 
 //es6 task
-gulp.task('default', function () {
-  return gulp.src('src/test.js')
+gulp.task('babel', function () {
+  return gulp.src('src/**/*.js')
     .pipe(babel({
       presets: ['es2015']
     }))
