@@ -18,3 +18,5 @@ gulp.task('babel', function () {
     }))
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('dev', ['sass', 'babel']);
