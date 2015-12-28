@@ -1,5 +1,3 @@
-module.exports = function () {
-  function bubbleSort () {
-    console.log('yo');
-  }
+module.exports = function bubbleSort (array) {
+
 };
