@@ -1,8 +1,7 @@
 var bubbleModule = module.exports = (function () {
-
   return {
     bubbleSort: function (array) {
-    var switching = true;
+      var switching = true;
 
       while( switching ) {
         switching = false;
@@ -16,15 +15,13 @@ var bubbleModule = module.exports = (function () {
             array[i] = smaller;
             array[i+1] = bigger;
 
-          }
           switching = true;
+          }
         }
-        console.log(array);
-        return array;
       }
+      return array;
     }
   };
-
 })();
 
 // Array.prototype.bubbleModule = bubbleSort;
