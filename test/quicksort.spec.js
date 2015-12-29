@@ -2,7 +2,7 @@ var chai = require('chai');
 var mocha = require('mocha');
 chai.should();
 var expect = chai.expect;
-var quickSort = require('./../quicksort.js');
+var quickSort = require('./../js/quicksort.js');
 
 describe ('quickSort', function () {
   it('should be a function', function () {

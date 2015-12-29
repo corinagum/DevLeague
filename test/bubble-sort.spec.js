@@ -2,7 +2,7 @@ var chai = require('chai');
 var mocha = require('mocha');
 chai.should();
 var expect = chai.expect;
-var bubbleModule = require('../bubble-sort.js');
+var bubbleModule = require('./../js/bubble-sort.js');
 
 describe ('bubbleModule', function () {
   it('should be a function', function () {
