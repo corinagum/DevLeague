@@ -1,12 +1,12 @@
 function bubbleSort (unsortedArray) {
   var switching = false;
 
-  while(!switching) {
+  while( !switching ) {
     switching = true;
 
     for ( var i = 0; i < this.length; i++ ) {
 
-      if(this[i] > this[i+1]) {
+      if( this[i] > this[i+1] ) {
         var bigger = this[i];
         var smaller = this[i+1];
 
@@ -21,10 +21,5 @@ function bubbleSort (unsortedArray) {
 }
 
 Array.prototype.bubbleSort = bubbleSort;
-
-console.log([2,1,3].bubbleSort());
-
-
-
 
 module.exports = bubbleSort;
