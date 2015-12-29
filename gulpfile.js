@@ -9,4 +9,9 @@ gulp.task('build', function() {
         .pipe(gulp.dest('./js/build'));
 });
 
+gulp.task('watch', function () {
+  gulp.watch('./js/*', ['build', 'livereload']);
+  gulp.watch('./css/*', ['livereload']);
+});
+
 gulp.task('default', ['build']);

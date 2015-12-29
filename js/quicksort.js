@@ -1,24 +1,24 @@
 var quickSort = module.exports = (function () {
   return {
-    quicksort: function(unsortedArray) {
+    quicksort: function(array) {
       var left = [];
       var right = [];
 
-      for (var i = 1; i < unsortedArray.length; i++) {
-        if (unsortedArray[i] <= unsortedArray[0]) {
-          left.push(unsortedArray[i]);
+      for (var i = 1; i < array.length; i++) {
+        if (array[i] <= array[0]) {
+          left.push(array[i]);
         }
         else {
-          right.push(unsortedArray[i]);
+          right.push(array[i]);
         }
       }
 
       //Recursively apply the steps to the sub-array of elements
-      if (unsortedArray.length <= 1) {
-        return unsortedArray;
+      if (array.length <= 1) {
+        return array;
       }
       else {
-        return this.quickSort(left).concat(unsortedArray[0], this.quickSort(right));
+        return this.quicksort(left).concat(array[0], this.quicksort(right));
       }
     }
   };
