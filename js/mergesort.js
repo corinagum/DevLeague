@@ -1,7 +1,11 @@
 var mergeModule = module.exports = (function () {
   return {
     mergeSort: function (array) {
+      var index = 0;
+      if(index < array.length) {
+        var half = Math.floor(array.length/2);
 
+      }
 
       return array;
     }
