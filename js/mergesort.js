@@ -6,7 +6,7 @@ var mergeModule = module.exports = (function () {
       return array;
     }
   };
-});
+})();
 
 
 // if array is longer than 0 or 1, return it - it is already sorted
