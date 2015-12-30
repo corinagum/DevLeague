@@ -1432,18 +1432,14 @@ var bubble = bubbleModule;
 var array = [5,4,7,2,3,1,19];
 console.log(bubble.bubbleSort(array), 'Bubble Sort');
 
-// start creating DOM
+// === start creating DOM ===
 var bubbleVisual = document.getElementById("bubble-sort");
 
-var navigation = document.createElement('div');
-  navigation.classList.add('navigation');
-  $('.body').append(navigation);
-
-  for (var i = 0; i < array.length; i++) {
-    var element = document.createElement('li');
-    element.id = array[i];
-    element.innerHTML = array[i];
-    $(bubbleVisual).append(element);
-  }
-}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b16e9e00.js","/")
+for (var i = 0; i < array.length; i++) {
+  var element = document.createElement('li');
+  element.id = array[i];
+  element.innerHTML = array[i];
+  $(bubbleVisual).append(element);
+}
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b1a493f3.js","/")
 },{"./bubble-sort.js":5,"buffer":2,"pBGvAp":4}]},{},[6])

@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  background-color: #f1f1f1; }
+
+#navigation {
+  width: 100%;
+  height: 40px;
+  color: brown;
+  background-color: #222; }
