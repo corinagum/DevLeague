@@ -1,11 +1,23 @@
 var mergeModule = module.exports = (function () {
   return {
     mergeSort: function (array) {
-      var index = 0;
-      if(index < array.length) {
+      while(array.length > 1) {
         var half = Math.floor(array.length/2);
+          var left  = [];
+          var right = [];
+        for ( var i = 0; i <= half; i++ ) {
+          left.push(array[i]);
+        }
 
+        for (var j = (half + 1); j < array.length; j++) {
+          right.push(array[j]);
+
+        }
+          console.log("left side: " + left);
+          console.log("right side: " + right);
+        return mergeSort(left).concat(mergeSort(right));
       }
+
 
       return array;
     }
