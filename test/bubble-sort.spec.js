@@ -13,6 +13,5 @@ describe ('bubbleModule', function () {
   it('should deep equal array', function() {
     expect(bubbleModule.bubbleSort([3,2,1])).to.deep.equal([1,2,3]);
     expect(bubbleModule.bubbleSort([3,2,1,4,12,8,5])).to.deep.equal([1, 2, 3, 4, 5, 8, 12]);
-
   });
 });
