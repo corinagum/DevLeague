@@ -10,3 +10,10 @@ var bubbleVisual = document.getElementById("bubble-sort");
 var navigation = document.createElement('div');
   navigation.classList.add('navigation');
   $('.body').append(navigation);
+
+  for (var i = 0; i < array.length; i++) {
+    var element = document.createElement('li');
+    element.id = array[i];
+    element.innerHTML = array[i];
+    $(bubbleVisual).append(element);
+  }

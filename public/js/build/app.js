@@ -1438,5 +1438,12 @@ var bubbleVisual = document.getElementById("bubble-sort");
 var navigation = document.createElement('div');
   navigation.classList.add('navigation');
   $('.body').append(navigation);
-}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_9b4b60f4.js","/")
+
+  for (var i = 0; i < array.length; i++) {
+    var element = document.createElement('li');
+    element.id = array[i];
+    element.innerHTML = array[i];
+    $(bubbleVisual).append(element);
+  }
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b16e9e00.js","/")
 },{"./bubble-sort.js":5,"buffer":2,"pBGvAp":4}]},{},[6])
