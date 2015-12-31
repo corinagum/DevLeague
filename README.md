@@ -23,8 +23,8 @@ end program when switching is false (when program iterates through array without
 ```
 
 * Performance explanations
-1. Best-case Scenario: If the array only has one value, checking the array will produce the best-case scenario.
-2. Worst-case Scenario: If the array is in reverse order, where the largest number is at the front of the array and the smallest is at the end of the array, this produces the worst-case scenario because the program will have to compare each number to every other number in order to produce the smallest-to-largest array.
+- Best-case Scenario: O(N), where the array is already sorted. If the array only has one value, checking the array will produce the best-case scenario.
+- Worst-case Scenario: O(n^2), where the performance/efficiency gets worse exponentially as the length of the array increases. If the array is in reverse order, where the largest number is at the front of the array and the smallest is at the end of the array, this produces the worst-case scenario because the program will have to compare each number to every other number in order to produce the smallest-to-largest array.
 
 ## Quick Sort
 
@@ -43,3 +43,39 @@ function quicksort:
 
 return (quicksort left) concat to (quicksort right)
 ```
+
+* Performance explanations
+- Best-case Scenario: O(*n* log *n*)
+- Worst-case Scenario: O(n^2)
+
+## Merge Sort
+
+* Merge sort takes a line of numbers and splits the lines up over and over until every line is equal to one. Then it goes back up the chain, comparing the last 'line' that was split and arranging the first and second half according to whichever line's first value is smaller. It continues to join each line together until all numbers are sorted and are returned to one line.
+
+* Pseudo Code for Merge Sort:
+
+```
+function mergesort (parameter: array)
+  if array is empty or 1 then return array
+
+  variables 'left' and 'right' - empty arrays
+  find location of middle of array with Math floor array.length/2
+  'left' equals first half of array
+  'right' equals second half of array
+
+  left equals mergesort of left
+  right equals mergesort of right
+
+  merge left and right.
+  function merge (parameters: left and right)
+  var result equals empty array
+  if left <= right then
+  append left to result
+  else append right to result
+run recursively through function until array is rejoined
+
+```
+
+* Performance explanations:
+- Best-case Scenario: O(*n* log *n*)
+- Worst-case Scenario: O *n* log *n* - (n-1)
