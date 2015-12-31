@@ -1399,47 +1399,88 @@ process.chdir = function (dir) {
 var bubbleModule = module.exports = (function () {
   return {
     bubbleSort: function (array) {
+
+      // var bubbleVisual = document.getElementById("bubble-sort");
+      // console.log(bubbleElements);
       var switching = true;
+      var i = 0;
+      var switchCount = 0;
 
       while( switching ) {
         switching = false;
 
-        for ( var i = 0; i < array.length; i++ ) {
-
+        var interval = setInterval( function() {
+          if(i === array.length) {
+            i = 0;
+            if(switchCount === 0) {
+              clearInterval(interval);
+            }
+          }
+          var bubbleElements = $('.bs-element');
           if( array[i] > array[i+1] ) {
             var bigger = array[i];
             var smaller = array[i+1];
 
+            var biggerEl = $(bubbleElements[i]).slideDown();
+            var smallerEl = $(bubbleElements[i+1]).detach();
+            // smallerEl.css("background-color", 'green');
+
             array[i] = smaller;
             array[i+1] = bigger;
 
-          switching = true;
-          }
+            $(biggerEl).before(smallerEl);
+            switching = true;
+            switchCount++;
         }
+        i++;
+      }, 500);
       }
+      // console.log(bubbleElements);
       return array;
     }
   };
 })();
 
 // Array.prototype.bubbleModule = bubbleSort;
+
 }).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/bubble-sort.js","/")
 },{"buffer":2,"pBGvAp":4}],6:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var bubbleModule = require("./bubble-sort.js");
 
 var bubble = bubbleModule;
-var array = [5,4,7,2,3,1,19];
-console.log(bubble.bubbleSort(array), 'Bubble Sort');
-
-// === start creating DOM ===
-var bubbleVisual = document.getElementById("bubble-sort");
+var array = [30,5,21,4,7,2,19,3,1,25,13,6,8,42];
 
 for (var i = 0; i < array.length; i++) {
-  var element = document.createElement('li');
-  element.id = array[i];
-  element.innerHTML = array[i];
-  $(bubbleVisual).append(element);
+
+  var bubbleElement = $('<li>',{
+    class: 'bs-element',
+    id: "bb" + array[i],
+    width: array[i]*1.25 + "%",
+    text: array[i]
+  });
+  $('#bubble-sort').append(bubbleElement);
 }
-}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b1a493f3.js","/")
+$("#bubble-button").click(function() {
+  $("#bubble-sort").css('display', 'block');
+});
+$("#bubble-button").click(function() {
+  bubble.bubbleSort(array);
+});
+// console.log(bubble.bubbleSort(array), 'Bubble Sort');
+
+// === start creating DOM ===
+// var bubbleVisual = document.getElementById("bubble-sort");
+
+// for (var i = 0; i < array.length; i++) {
+//   var element = document.createElement('li');
+//   element.id = array[i];
+//   element.innerHTML = array[i];
+//   $(bubbleVisual).append(element);
+// }
+
+
+
+
+}).call(this,require("pBGvAp"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_4b702e13.js","/")
 },{"./bubble-sort.js":5,"buffer":2,"pBGvAp":4}]},{},[6])
