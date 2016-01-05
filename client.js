@@ -1,11 +1,30 @@
 var net = require('net');
 
-var PORT = 80;
 var uri = process.argv[2];
-  uri = uri.split('/');
 
-var HOST = uri[0] || localhost;
-var pathName = ('/' + uri[1]) || '/';
+if (uri === undefined) {
+  console.log('USE NODE CLIENT.JS');
+  console.log('To view manual, run "node client.js" in the terminal');
+  console.log('To access local host, run "node client.js localhost" in the terminal');
+  console.log('To access external server, run "node client.js <hostname/pathname>" in the terminal');
+  console.log('e.g.: "node client.js www.google.com/search"');
+  return;
+}
+
+uri = uri + '/';
+uri = uri.split('/');
+var HOST = uri[0];
+
+var pathName = ('/' + uri[1]);
+if (pathName === '/undefined') {
+  var pathName = '/';
+}
+
+var PORT = 8080;
+if(HOST !== 'localhost') {
+  PORT = 80;
+}
+
 var fileType = pathName.split('.');
     fileType = fileType[fileType.length-1];
     console.log(uri, fileType);
@@ -27,5 +46,5 @@ var client = net.connect({
 
 client.on('end', function() {
   client.end();
+  console.log('client disconnect');
 });
-

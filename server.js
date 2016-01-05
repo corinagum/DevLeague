@@ -16,6 +16,7 @@ function onConnect(socket) {
   });
   socket.on('end', function(){
     socket.end();
+    console.log('server diconnect');
   });
 }
 
