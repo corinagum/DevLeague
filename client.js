@@ -18,9 +18,8 @@ var client = net.connect({port:PORT}, function() {
 
 client.on('data', function(data) {
   console.log(data.toString());
-  client.end();
 });
 client.on('end', function() {
-
+  client.end();
 });
 

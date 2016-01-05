@@ -14,6 +14,9 @@ function onConnect(socket) {
 
     request(socket, requestPage, fileType);
   });
+  socket.on('end', function(){
+    socket.end();
+  });
 }
 
 function request(socket, requestPage, fileType) {
@@ -31,7 +34,6 @@ function request(socket, requestPage, fileType) {
       socket.write("Content-Length : " + data.length + "\n");
       socket.write("Connection : keep-alive\n\n");
       socket.write(data);
-      socket.end();
       });
     }
 
@@ -48,8 +50,8 @@ function request(socket, requestPage, fileType) {
     socket.write("Content-Length : " + data.length + "\n");
     socket.write("Connection : keep-alive\n\n");
     socket.write(data);
-    socket.end();
   });
+
 }
 
 server.listen({port: 8080}, function() {
