@@ -10,7 +10,7 @@ function onConnect(socket) {
     var bufferArray = buffer.toString().split(' ');
     var requestPage = bufferArray[1];
     var fileType = requestPage.split('.');
-    fileType = fileType[fileType.length];
+    fileType = fileType[fileType.length-1];
 
     request(socket, requestPage, fileType);
   });
