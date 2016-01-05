@@ -4,6 +4,9 @@ var server = net.createServer(onConnect);
 var date = new Date();
 
 function onConnect(socket) {
+  socket.on('connect', function(){
+    console.log('client connecting');
+  });
 
   socket.on('data', function(buffer) {
     // something on socket, data response
@@ -16,7 +19,7 @@ function onConnect(socket) {
   });
   socket.on('end', function(){
     socket.end();
-    console.log('server diconnect');
+    console.log('server disconnect');
   });
 }
 
@@ -25,7 +28,7 @@ function request(socket, requestPage, fileType) {
     requestPage = '/index.html';
   }
   return fs.readFile('.'+requestPage, 'utf-8', function(err, data) {
-
+    // console.log(requestPage);
     if (err) {
       requestPage = '/404.html';
       return fs.readFile('.'+requestPage, 'utf-8', function(err, data) {

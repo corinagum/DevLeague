@@ -38,9 +38,16 @@ var client = net.connect({
   client.write("Connection: keep-alive\n");
   client.write("Content-Type : text/" + fileType);
   client.write("Accept: text/html, application/json\n\n");
+  client.write("User-Agent: clientname");
   // client.write('world!\r\n');
   client.on('data', function(data) {
     console.log(data.toString());
+
+    // dataSplit = data.split('\n\n');
+    // var header = dataSplit[0];
+    // var headerHash = [];
+    // headerHash.push(header);
+    // console.log(headerHash);
   });
 });
 
