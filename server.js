@@ -9,7 +9,8 @@ function onConnect(socket) {
     // something on socket, data response
     var bufferArray = buffer.toString().split(' ');
     var requestPage = bufferArray[1];
-    var fileType = requestPage.split('.')[1];
+    var fileType = requestPage.split('.');
+    fileType = fileType[fileType.length];
 
     request(socket, requestPage, fileType);
   });
