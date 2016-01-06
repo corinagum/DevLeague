@@ -23,7 +23,8 @@ if (url === undefined) {
   '"-head" will change request method from GET to HEAD, and will retrieve header only\n' +
   '"-put" will change request method from GET to PUT\n' +
   '"-delete" will change request method from GET to DELETE\n' +
-  '"-options" will change request method from GET to OPTIONS\n\n');
+  '"-options" will change request method from GET to OPTIONS\n' +
+  '"-port:#" will change the port number, where # is the new port to be switched to\n');
   return;
 }
 
