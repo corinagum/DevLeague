@@ -6,7 +6,6 @@ process.argv.forEach(function(val) {
   argsArray.push(val);
 });
 var argsString = argsArray.join(' ');
-console.log(argsString);
 
 if(/(-)post/.test(argsString)) {
   requestMethod = 'POST';
@@ -23,17 +22,16 @@ if(/(-)post/.test(argsString)) {
 } else {
   requestMethod = 'GET';
 }
-
-var uri = process.argv[2];
+var uri = process.argv[3] || process.argv[2];
 
 if (uri === undefined) {
-  console.log('USE NODE CLIENT.JS');
-  console.log('To view manual, run "node client.js" in the terminal');
-  console.log('To access local host, run "node client.js localhost" in the terminal');
-  console.log('To access external server, run "node client.js <hostname/pathname>" in the terminal');
-  console.log('e.g.: "node client.js www.google.com/search"');
-  console.log(' ');
-  console.log('"-post" listed after the url will change request method from GET to POST');
+  console.log('USE NODE CLIENT.JS \n' +
+  'To view manual, run "node client.js" in the terminal\n' +
+  'To access local host, run "node client.js localhost" in the terminal\n' +
+  'To access external server, run "node client.js <hostname/pathname>" in the terminal\n' +
+  'e.g.: "node client.js www.google.com/search"\n' +
+  ' \n' +
+  '"-post" listed after the url will change request method from GET to POST\n');
   return;
 }
 

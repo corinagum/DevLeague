@@ -31,24 +31,18 @@ function request(socket, requestPage, fileType, requestMethod) {
     if (err) {
       requestPage = '/404.html';
       return fs.readFile('.'+requestPage, 'utf-8', function(err, data) {
-      socket.write("HTTP/1.1 404 OK\n" +
-      "Server : servername\n" +
-      "Date : " + date +"\n" +
-      "Content-Length : " + data.length + "\n" +
-      "Connection : keep-alive\n\n" +
-      data);
+      socket.write(header(date, data) + data);
       socket.end();
       });
     }
-
-    socket.write("HTTP/1.1 200 OK\n" +
-    "Server : servername\n" +
-    "Date : " + date +"\n" +
-    "Content-Type : text/css; charset=UTF-8\n" +
-    "Content-Length : " + data.length + "\n" +
-    "Connection : keep-alive\n\n" +
+    if (requestMethod === 'HEAD') {
+      socket.write(header(date, data));
+      socket.end();
+    } else {
+    socket.write( header(date, data)+
     data);
     socket.end();
+    }
   });
 
 }
@@ -57,3 +51,13 @@ server.listen({port: 8080}, function() {
   address = server.address();
   console.log("opened server on %j", address);
 });
+
+function header(date, data) {
+  return ("HTTP/1.1 200 OK\n" +
+    "Server : servername\n" +
+    "Date : " + date +"\n" +
+    "Content-Type : text/css; charset=UTF-8\n" +
+    "Content-Length : " + data.length + "\n" +
+    "Connection : keep-alive\n\n"
+  );
+}
