@@ -7,43 +7,33 @@ process.argv.forEach(function(val) {
 });
 var argsString = argsArray.join(' ');
 
-if(/(-)post/.test(argsString)) {
-  requestMethod = 'POST';
-} else if(/(-)get/.test(argsString)) {
-  requestMethod = 'GET';
-} else if(/(-)put/.test(argsString)) {
-  requestMethod = 'PUT';
-} else if(/(-)delete/.test(argsString)) {
-  requestMethod = 'DELETE';
-} else if(/(-)head/.test(argsString)) {
-  requestMethod = 'HEAD';
-} else if(/(-)options/.test(argsString)) {
-  requestMethod = 'OPTIONS';
-} else {
-  requestMethod = 'GET';
-}
-var uri = process.argv[3] || process.argv[2];
+getRequestMethod(argsString);
 
-if (uri === undefined) {
+
+var url = process.argv[3] || process.argv[2];
+
+if (url === undefined) {
   console.log('USE NODE CLIENT.JS \n' +
   'To view manual, run "node client.js" in the terminal\n' +
   'To access local host, run "node client.js localhost" in the terminal\n' +
   'To access external server, run "node client.js <hostname/pathname>" in the terminal\n' +
   'e.g.: "node client.js www.google.com/search"\n' +
   ' \n' +
-  '"-post" listed after the url will change request method from GET to POST\n');
+  '"-post" will change request method from GET to POST\n' +
+  '"-head" will change request method from GET to HEAD, and will retrieve header only\n' +
+  '"-put" will change request method from GET to PUT\n' +
+  '"-delete" will change request method from GET to DELETE\n' +
+  '"-options" will change request method from GET to OPTIONS\n\n');
   return;
 }
 
-uri = uri + '/';
-uri = uri.split('/');
+url = url + '/'; // handles case for if user does not enter any /
+urlSplit = url.split('/');
 
+var HOST = urlSplit[0];
 
-
-var HOST = uri[0];
-
-var pathName = ('/' + uri[1]);
-if (pathName === '/undefined') {
+var pathName = ('/' + urlSplit[1]);
+if (pathName === '/undefined') { //if user provides no edge case
   var pathName = '/index.html';
 }
 
@@ -51,10 +41,11 @@ var PORT = 8080;
 if(HOST !== 'localhost') {
   PORT = 80;
 }
+findPort(argsString);
 
 var fileType = pathName.split('.');
     fileType = fileType[fileType.length-1];
-  // console.log(uri, HOST, pathName + " " + PORT);
+  // console.log(url, HOST, pathName + " " + PORT);
 // END DEFINITIONS
 
 // start client net connect
@@ -82,6 +73,8 @@ client.on('end', function() {
   console.log('client disconnect');
 });
 
+
+// start helper methods
 function writeHash(data) {
   var hashTable = []; // to hold all recorded headers
   var hash = {}; // holds one header, to be pushed into hashTable
@@ -100,3 +93,31 @@ function writeHash(data) {
     hashTable: hashTable
   };
 }
+
+function getRequestMethod(argsString) {
+    if(/(-)post/.test(argsString)) {
+    requestMethod = 'POST';
+  } else if(/(-)get/.test(argsString)) {
+    requestMethod = 'GET';
+  } else if(/(-)put/.test(argsString)) {
+    requestMethod = 'PUT';
+  } else if(/(-)delete/.test(argsString)) {
+    requestMethod = 'DELETE';
+  } else if(/(-)head/.test(argsString)) {
+    requestMethod = 'HEAD';
+  } else if(/(-)options/.test(argsString)) {
+    requestMethod = 'OPTIONS';
+  } else {
+    requestMethod = 'GET';
+  }
+  return requestMethod;
+}
+
+function findPort(argsString) {
+  if(/(-)port:[0-9]*/.test(argsString)) {
+    var portNumber = argsString.match(/(-)port:[0-9]*/);
+    PORT = 4;
+  }
+}
+
+//replace, search, or match methods
