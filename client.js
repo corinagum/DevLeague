@@ -41,13 +41,13 @@ var PORT = 8080;
 if(HOST !== 'localhost') {
   PORT = 80;
 }
-findPort(argsString);
+PORT = findPort(argsString, PORT);
 
 var fileType = pathName.split('.');
     fileType = fileType[fileType.length-1];
   // console.log(url, HOST, pathName + " " + PORT);
 // END DEFINITIONS
-
+console.log(PORT);
 // start client net connect
 var client = net.connect({
     'port':PORT,
@@ -60,7 +60,7 @@ var client = net.connect({
       "Content-Type : text/" + fileType + "\n" +
       "User-Agent: clientname\n" +
       "Accept: text/html, application/json\n\n");
-});
+  });
 
 client.on('data', function(data) {
   console.log(data.toString());
@@ -113,11 +113,13 @@ function getRequestMethod(argsString) {
   return requestMethod;
 }
 
-function findPort(argsString) {
+function findPort(argsString, PORT) {
   if(/(-)port:[0-9]*/.test(argsString)) {
-    var portNumber = argsString.match(/(-)port:[0-9]*/);
-    PORT = 4;
+    var portNumber = argsString.match(/-port:([0-9])*/);
+    PORT = portNumber[0].substring(portNumber[0].indexOf(':')+1);
+    return PORT;
   }
 }
 
-//replace, search, or match methods
+
+// fs module blahhhhhhhhh
