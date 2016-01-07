@@ -29,6 +29,14 @@ function onRequest(request, response) {
     request.on('data', function(chunk) {
       parsedChunk = querystring.parse(chunk.toString());
     });
+    // RESPONSE
+    response.writeHead(200, {
+      'Content-Type' : 'application/json'
+    });
+    response.write('{ "success" : true }');
+    // END RESPONSE
+
+    //WRITE FILE
     fs.readFile('./public/template.html', function(err, data) {
       if(err) console.log(err);
       newElement = data.toString();
@@ -36,13 +44,15 @@ function onRequest(request, response) {
       for (var key in parsedChunk) {
         newElement = newElement.replace(key, parsedChunk[key]);
       }
-      console.log(parsedChunk);
+
+      fs.writeFile("./public/" + parsedChunk.elementName + ".html", newElement, 'utf8', function (err) {
+        if(err) console.log(err);
+        console.log("New file saved!");
+      });
     });
     response.end();
   }
-    // console.log(requestHeader);
-
-
+  // on end of request
     request.on('end', function() {
       console.log('end of request');
     });
