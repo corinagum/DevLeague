@@ -19,63 +19,10 @@ function onRequest(request, response) {
   // console.log(request);
 
   getRequest(request, response, method, uri, fileType, body, parsedChunk, newElement);
-
-  // START POST REQUEST
-  if(method === "POST") {
-
-    request.on('data', function(chunk) {
-      parsedChunk = querystring.parse(chunk.toString());
-    });
-
-    //POST FILE
-    fs.readFile('./public/template.html', function(err, data) {
-      if(err) return console.log(err);
-      newElement = data.toString(); // newElement is a string of the template.html file, to be altered
-      parsedChunkCheck(parsedChunk);
-
-      console.log(parsedChunk);
-      for (var key in parsedChunk) {
-        newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
-        newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
-      }
-
-      fs.writeFile("./public/" + parsedChunk.elementName + ".html", newElement, 'utf8', function (err) {
-        if(err) return console.log(err);
-        console.log("New file saved!");
-      });
-      fs.readFile("./public/index.html", 'utf-8', function(err, indexTemplate) {
-        if(err) return console.log(err);
-
-        if(indexTemplate.indexOf(parsedChunk.elementName) !== -1) return console.log("index did not need alteration");
-        renderedTemplate = indexTemplate.replace('<!-- insert comment here -->',
-          '<li><a href="/' + parsedChunk.elementName + '.html">' + parsedChunk.elementName +
-          '</a></li>\n' + '<!-- insert comment here -->');
-
-          // begin count of elements
-          fs.readdir('./public', function(err, numFiles) {
-            listedElements = (numFiles.length-4);
-            console.log(listedElements);
-            renderedTemplate = renderedTemplate.replace(/(These are )\d*/, "These are " + listedElements);
-            fs.writeFile('./public/index.html', renderedTemplate, function(err) {
-              if(err) return console.log(err);
-              return;
-            });
-          });
-
-      });
-    response.writeHead(200, {
-      'Content-Type' : 'application/json'
-    });
-
-    response.write('{ "success" : true }');
-    response.end();
-    });
-  }
+  makePost(request, response, method, uri, fileType, body, parsedChunk, newElement);
 
   // START PUT REQUEST
-    // =====================
-    //PUT FILE
-  if(method === "POST") {
+  if(method === "PUT") {
 
     request.on('data', function(chunk) {
       parsedChunk = querystring.parse(chunk.toString());
@@ -158,7 +105,75 @@ function getRequest(request, response, method, uri, fileType, body, parsedChunk,
   }
 }
 // END GET REQUEST
+// START POSt REQUEST
 
+function makePost(request, response, method, uri, fileType, body, parsedChunk, newElement) {
+  if(method === "POST") {
+
+    request.on('data', function(chunk) {
+      parsedChunk = querystring.parse(chunk.toString());
+    });
+
+    //POST FILE
+    fs.readFile('./public/template.html', function(err, data) {
+      if(err) return console.log(err);
+      newElement = data.toString(); // newElement is a string of the template.html file, to be altered
+      parsedChunkCheck(parsedChunk);
+
+      console.log(parsedChunk);
+      for (var key in parsedChunk) {
+        newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
+        newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
+      }
+
+      fs.writeFile("./public/" + parsedChunk.elementName + ".html", newElement, 'utf8', function (err) {
+        if(err) return console.log(err);
+        console.log("New file saved!");
+      });
+      fs.readFile("./public/index.html", 'utf-8', function(err, indexTemplate) {
+        if(err) return console.log(err);
+
+        if(indexTemplate.indexOf(parsedChunk.elementName) !== -1) {
+            response.writeHead(200, {
+              'Content-Type' : 'application/json'
+            });
+
+            var responseMsg = {
+               "success" : true,
+                "message" : "index did not need to be changed"
+               };
+              response.write(JSON.stringify(responseMsg));
+              response.end();
+              return;
+          }
+
+        renderedTemplate = indexTemplate.replace('<!-- insert comment here -->',
+          '<li><a href="/' + parsedChunk.elementName + '.html">' + parsedChunk.elementName +
+          '</a></li>\n' + '<!-- insert comment here -->');
+
+          // begin count of elements
+          fs.readdir('./public', function(err, numFiles) {
+            listedElements = (numFiles.length-4);
+            console.log(listedElements);
+            renderedTemplate = renderedTemplate.replace(/(These are )\d*/, "These are " + listedElements);
+            fs.writeFile('./public/index.html', renderedTemplate, function(err) {
+              if(err) return console.log(err);
+
+            response.writeHead(200, {
+              'Content-Type' : 'application/json'
+            });
+              response.write('{ "success" : true }');
+              response.end();
+              return;
+            });
+          });
+
+      });
+    });
+  }
+}
+
+// END POST REQUEST
 function parsedChunkCheck(parsedChunk) {
   if (!parsedChunk.elementName || !parsedChunk.elementSymbol || !parsedChunk.elementAtomicNumber || !parsedChunk.elementDescription) {
         response.writeHead(400, {
