@@ -16,15 +16,18 @@ function onRequest(request, response) {
   var newElement;
   // console.log(request);
 
-  var listedElements = 4;
-
   //START GET REQUEST
   if(method === "GET") {
+
     response.writeHead(200, {
       'Content-Type' : 'text/' + fileType
     });
     fs.readFile('./public' + uri, function(err, data) {
-      if(err) console.log(err);
+      if(err) {
+        return fs.readFile('./public/404.html', function(err, data){
+          response.end(data.toString());
+        });
+      }
       response.end(data.toString());
     });
   }
@@ -36,14 +39,13 @@ function onRequest(request, response) {
     request.on('data', function(chunk) {
       parsedChunk = querystring.parse(chunk.toString());
     });
-    // RESPONSE
     response.writeHead(200, {
       'Content-Type' : 'application/json'
     });
     response.write('{ "success" : true }');
-    // END RESPONSE
 
-    //WRITE FILE
+
+    //POST FILE
     fs.readFile('./public/template.html', function(err, data) {
       if(err) return console.log(err);
       newElement = data.toString();
@@ -61,16 +63,22 @@ function onRequest(request, response) {
         if(err) return console.log(err);
 
         if(indexTemplate.indexOf(parsedChunk.elementName) !== -1) return console.log("index did not need alteration");
+
         renderedTemplate = indexTemplate.replace('<!-- insert comment here -->',
           '<li><a href="/' + parsedChunk.elementName + '.html">' + parsedChunk.elementName +
           '</a></li>\n' + '<!-- insert comment here -->');
-          listedElements ++;
-        renderedTemplate = renderedTemplate.replace(/(These are )\d*/, "These are " + listedElements);
 
-        fs.writeFile('./public/index.html', renderedTemplate, function(err) {
-          if(err) return console.log(err);
-          return;
-        });
+          // begin count of elements
+          fs.readdir('./public', function(err, numFiles) {
+            listedElements = (numFiles.length-4);
+            console.log(listedElements);
+            renderedTemplate = renderedTemplate.replace(/(These are )\d*/, "These are " + listedElements);
+            fs.writeFile('./public/index.html', renderedTemplate, function(err) {
+              if(err) return console.log(err);
+              return;
+            });
+          });
+
       });
 
     response.end();
