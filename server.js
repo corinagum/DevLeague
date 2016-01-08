@@ -39,17 +39,27 @@ function onRequest(request, response) {
     request.on('data', function(chunk) {
       parsedChunk = querystring.parse(chunk.toString());
     });
-    response.writeHead(200, {
-      'Content-Type' : 'application/json'
-    });
-    response.write('{ "success" : true }');
+
 
 
     //POST FILE
     fs.readFile('./public/template.html', function(err, data) {
       if(err) return console.log(err);
-      newElement = data.toString();
+      newElement = data.toString(); // newElement is a string of the template.html file, to be altered
+      if (!parsedChunk.elementName || !parsedChunk.elementSymbol || !parsedChunk.elementAtomicNumber || !parsedChunk.elementDescription) {
+            response.writeHead(400, {
+              'Content-Type' : 'application/json'
+            });
 
+          response.write('{ ' +
+            '"success" : false, ' +
+            '"message" : "must fill out all required keys to POST"' +
+           '}');
+          response.end();
+        return console.log("to POST, be sure to fill out all required keys");
+      }
+
+      console.log(parsedChunk);
       for (var key in parsedChunk) {
         newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
         newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
@@ -63,7 +73,6 @@ function onRequest(request, response) {
         if(err) return console.log(err);
 
         if(indexTemplate.indexOf(parsedChunk.elementName) !== -1) return console.log("index did not need alteration");
-
         renderedTemplate = indexTemplate.replace('<!-- insert comment here -->',
           '<li><a href="/' + parsedChunk.elementName + '.html">' + parsedChunk.elementName +
           '</a></li>\n' + '<!-- insert comment here -->');
@@ -80,7 +89,11 @@ function onRequest(request, response) {
           });
 
       });
+    response.writeHead(200, {
+      'Content-Type' : 'application/json'
+    });
 
+    response.write('{ "success" : true }');
     response.end();
     });
   }
