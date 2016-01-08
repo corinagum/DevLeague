@@ -6,23 +6,30 @@ var server = http.createServer(onRequest);
 function onRequest(request, response) {
   var method = request.method;
   var uri = request.url;
+  if(uri === "/") { // handles case where client did not enter a pathname.
+    uri = '/index.html';
+  }
+  var fileType = uri.split('.');
+  fileType = fileType[fileType.length-1];
   var body = "";
   var parsedChunk;
   var newElement;
+  // console.log(request);
 
-  if(uri === "/") {
-    uri = '/index.html';
-  }
+  var listedElements = 4;
+
   //START GET REQUEST
   if(method === "GET") {
     response.writeHead(200, {
-      'Content-Type' : 'text/html'
+      'Content-Type' : 'text/' + fileType
     });
     fs.readFile('./public' + uri, function(err, data) {
       if(err) console.log(err);
       response.end(data.toString());
     });
   }
+  // END GET REQUEST
+
   // START POST REQUEST
   if(method === "POST") {
 
@@ -38,19 +45,36 @@ function onRequest(request, response) {
 
     //WRITE FILE
     fs.readFile('./public/template.html', function(err, data) {
-      if(err) console.log(err);
+      if(err) return console.log(err);
       newElement = data.toString();
 
       for (var key in parsedChunk) {
-        newElement = newElement.replace(key, parsedChunk[key]);
+        newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
+        newElement = newElement.replace('{' + key + '}', parsedChunk[key]);
       }
 
       fs.writeFile("./public/" + parsedChunk.elementName + ".html", newElement, 'utf8', function (err) {
-        if(err) console.log(err);
+        if(err) return console.log(err);
         console.log("New file saved!");
       });
-    });
+      fs.readFile("./public/index.html", 'utf-8', function(err, indexTemplate) {
+        if(err) return console.log(err);
+
+        if(indexTemplate.indexOf(parsedChunk.elementName) !== -1) return console.log("index did not need alteration");
+        renderedTemplate = indexTemplate.replace('<!-- insert comment here -->',
+          '<li><a href="/' + parsedChunk.elementName + '.html">' + parsedChunk.elementName +
+          '</a></li>\n' + '<!-- insert comment here -->');
+          listedElements ++;
+        renderedTemplate = renderedTemplate.replace(/(These are )\d*/, "These are " + listedElements);
+
+        fs.writeFile('./public/index.html', renderedTemplate, function(err) {
+          if(err) return console.log(err);
+          return;
+        });
+      });
+
     response.end();
+    });
   }
   // on end of request
     request.on('end', function() {
