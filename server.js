@@ -80,7 +80,7 @@ function makePost(request, response, method, uri, parsedChunk, newElement) {
   fs.readFile('./public/template.html', function(err, data) {
     if(err) return console.log(err);
     newElement = data.toString(); // newElement is a string of the template.html file, to be altered
-    parsedChunkCheck(parsedChunk);
+    chunkValidation(parsedChunk);
 
     console.log(parsedChunk);
     for (var key in parsedChunk) {
@@ -160,7 +160,7 @@ function makePut(request, response, method, uri, parsedChunk, newElement) {
         return;
         }
         newElement = data.toString(); // newElement is a string of the template.html file, to be altered
-        parsedChunkCheck(parsedChunk);
+        chunkValidation(parsedChunk);
 
         console.log(parsedChunk);
         for (var key in parsedChunk) {
@@ -228,7 +228,7 @@ function deleteRequest(request, response, method, uri) {
   });
 }
 // END DELETE REQUEST
-function parsedChunkCheck(parsedChunk) {
+function chunkValidation(parsedChunk) {
   if (!parsedChunk.elementName || !parsedChunk.elementSymbol || !parsedChunk.elementAtomicNumber || !parsedChunk.elementDescription) {
         response.writeHead(400, {
           'Content-Type' : 'application/json'
@@ -236,7 +236,7 @@ function parsedChunkCheck(parsedChunk) {
 
       response.write('{ ' +
         '"success" : false, ' +
-        '"message" : "must fill out all required keys to POST"' +
+        '"message" : "must fill out all required keys to POST or PUT"' +
        '}');
       response.end();
     return console.log("to POST, be sure to fill out all required keys");
