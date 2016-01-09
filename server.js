@@ -17,15 +17,15 @@ function onRequest(request, response) {
   var parsedChunk;
   var newElement;
 
-  getRequest(request, response, method, uri, fileType, body, parsedChunk, newElement);
-  makePost(request, response, method, uri, fileType, body, parsedChunk, newElement);
-  makePut(request, response, method, uri, fileType, body, parsedChunk, newElement);
-  deleteRequest(request, response, method, uri, fileType, body, parsedChunk, newElement);
+  getRequest(request, response, method, uri, fileType);
+  makePost(request, response, method, uri, parsedChunk, newElement);
+  makePut(request, response, method, uri, parsedChunk, newElement);
+  deleteRequest(request, response, method, uri);
 
   // on end of request
-    request.on('end', function() {
-      console.log('end of request');
-    });
+  request.on('end', function() {
+    console.log('end of request');
+  });
 }
 
 server.listen({
@@ -39,9 +39,8 @@ server.listen({
 // START HELPER FUNCTIONS
 
 //START GET REQUEST
-function getRequest(request, response, method, uri, fileType, body, parsedChunk, newElement) {
+function getRequest(request, response, method, uri, fileType) {
   if(method === "GET") {
-
     response.writeHead(200, {
       'Content-Type' : 'text/' + fileType
     });
@@ -58,7 +57,7 @@ function getRequest(request, response, method, uri, fileType, body, parsedChunk,
 // END GET REQUEST
 // START POST REQUEST
 
-function makePost(request, response, method, uri, fileType, body, parsedChunk, newElement) {
+function makePost(request, response, method, uri, parsedChunk, newElement) {
   if(method === "POST") {
 
     request.on('data', function(chunk) {
@@ -126,7 +125,7 @@ function makePost(request, response, method, uri, fileType, body, parsedChunk, n
 // END POST REQUEST
 
 // START PUT REQUEST
-function makePut(request, response, method, uri, fileType, body, parsedChunk, newElement) {
+function makePut(request, response, method, uri, parsedChunk, newElement) {
   if(method === "PUT") {
 
     request.on('data', function(chunk) {
@@ -198,7 +197,7 @@ function makePut(request, response, method, uri, fileType, body, parsedChunk, ne
 
 // START DELETE REQUEST
 
-function deleteRequest(request, response, method, uri, fileType, body, parsedChunk, newElement) {
+function deleteRequest(request, response, method, uri) {
   if(method === "DELETE") {
     console.log(uri);
     fs.access('./public' + uri, function(err){
