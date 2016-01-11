@@ -1,34 +1,39 @@
 var net = require('net');
-var clientList = [];
+var clientList = []; // list of clients signed on
 
 var Server = net.createServer(function(clientSocket) {
-
-  clientSocket.name = clientSocket.remoteAddress + ":" + clientSocket.remotePort;
-  clientList.push(clientSocket);
-  clientSocket.write("Welcome to Network Broadcast News. " + clientSocket.name);
-  broadcast(clientSocket.name + " joined chat\n", clientSocket);
-
-  var body = ''; // do I need this really?
   clientSocket.setEncoding('utf-8');
+  clientSocket.name = clientSocket.remoteAddress + ":" + clientSocket.remotePort;
+  clientSocket.write("Welcome to Network Broadcast News. Enter your username. " + '\n');
+
+
+  // on data
   clientSocket.on('data', function(data){
-    body += data;
-    broadcast(clientSocket.name + " wrote: " + data);
+    if(clientList.indexOf(clientSocket) === -1) {
+      clientSocket.username = data.replace("\n", "");
+      clientSocket.write("You are now signed on as " + clientSocket.username + '\n');
+      broadcast("joined chat\n", clientSocket);
+      clientList.push(clientSocket);
+    } else {
+    broadcast(data, clientSocket);
     // clientSocket.write(clientSocket.name + " wrote: " + data);
+  }
 
   });
+
+  // socket.on("end") actually works.
   clientSocket.on('end', function() {
     clientList.splice(clientList.indexOf(clientSocket), 1);
-    broadcast(clientSocket.name + " left the chat.");
-
+    broadcast("left the chat.", clientSocket); // says so and so left chat when connection ends
   });
 
   function broadcast(msg, clientSender) {
     clientList.forEach(function (clientSocket) {
-      if (clientSocket === clientSender) return;
-      clientSocket.write(msg);
+      // if (clientSocket === clientSender) return;
+      clientSocket.write(clientSender.username + ": " + msg);
     });
 
-    process.stdout.write(msg);
+    // process.stdout.write(msg);
   }
 });
 

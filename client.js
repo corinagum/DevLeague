@@ -6,15 +6,15 @@ var Server = net.connect({host: 'localhost', port: 6969}, function() {
 
   var user = "you";
 
-  process.stdout.write(user + ": ");
+  // process.stdout.write(user + ": ");
   process.stdin.on('data', function(data) {
     Server.write(data);
   });
 
   Server.on('data', function(data) {
-    process.stdout.write(user + ': ' + data);
+    process.stdout.write(data);
   });
   Server.on('end', function() {
-    console.log("End client event");
+    console.log("Your session has ended");
   });
 });
