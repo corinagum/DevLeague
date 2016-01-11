@@ -8,6 +8,7 @@ var Server = net.connect({host: 'localhost', port: 6969}, function() {
 
   // process.stdout.write(user + ": ");
   process.stdin.on('data', function(data) {
+    // console.log(user+ '\r');
     Server.write(data);
   });
 
