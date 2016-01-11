@@ -29,7 +29,7 @@ var Server = net.createServer(function(clientSocket) {
 
   function broadcast(msg, clientSender) {
     clientList.forEach(function (clientSocket) {
-      // if (clientSocket === clientSender) return;
+      if (clientSocket === clientSender) return;
       clientSocket.write(clientSender.username + ": " + msg);
     });
 
