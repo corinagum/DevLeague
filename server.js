@@ -5,7 +5,7 @@ var Server = net.createServer(function(clientSocket) {
 
   clientSocket.name = clientSocket.remoteAddress + ":" + clientSocket.remotePort;
   clientList.push(clientSocket);
-  clientSocket.write("Welcome to Network Broadcast News, " + clientSocket.name);
+  clientSocket.write("Welcome to Network Broadcast News. " + clientSocket.name);
   broadcast(clientSocket.name + " joined chat\n", clientSocket);
 
   var body = ''; // do I need this really?
@@ -18,15 +18,14 @@ var Server = net.createServer(function(clientSocket) {
   });
   clientSocket.on('end', function() {
     clientList.splice(clientList.indexOf(clientSocket), 1);
-    broadcast(clientSocket.name + " left the chat.\n");
+    broadcast(clientSocket.name + " left the chat.");
 
   });
 
   function broadcast(msg, clientSender) {
     clientList.forEach(function (clientSocket) {
       if (clientSocket === clientSender) return;
-      // clientSocket.write(msg);
-      // broadcast(clientSocket.name + ": " + msg);
+      clientSocket.write(msg);
     });
 
     process.stdout.write(msg);

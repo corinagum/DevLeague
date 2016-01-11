@@ -4,7 +4,7 @@ var Server = net.connect({host: 'localhost', port: 6969}, function() {
   process.stdin.setEncoding('utf-8');
   Server.setEncoding('utf-8');
 
-  var user = "disuser";
+  var user = "you";
 
   process.stdout.write(user + ": ");
   process.stdin.on('data', function(data) {
@@ -12,7 +12,7 @@ var Server = net.connect({host: 'localhost', port: 6969}, function() {
   });
 
   Server.on('data', function(data) {
-    process.stdout.write('\r' + data + '\n' + user + ': ');
+    process.stdout.write(user + ': ' + data);
   });
   Server.on('end', function() {
     console.log("End client event");
