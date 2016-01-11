@@ -4,20 +4,20 @@ var clientList = []; // list of clients signed on
 // counts as client.connect; establishes server. clientSocket is individual user connection
 var Server = net.createServer(function(clientSocket) {
   clientSocket.setEncoding('utf-8');
-  clientSocket.write("Welcome to Network Broadcast News. Enter your username. " + '\n');
-
+  clientSocket.write("[ADMIN] Welcome to Network Broadcast News. Enter your username. ");
   // on data. first if statement handles sit. if user is not among clientList - gets username
   clientSocket.on('data', function(data){
+
     if(clientList.indexOf(clientSocket) === -1) {
       clientSocket.username = data.replace("\n", "");
-      clientSocket.write("You are now signed on as " + clientSocket.username + '\n');
-      broadcast("joined chat\n", clientSocket);
+      clientSocket.write("[ADMIN] You are now signed on as " + clientSocket.username);
+      broadcast("joined chat ", clientSocket);
       clientList.push(clientSocket);
     } else {
     broadcast(data, clientSocket);
     // clientSocket.write(clientSocket.name + " wrote: " + data);
   }
-
+  // ADMIN MESSAGES
   });
 
   // socket.on("end") actually works.
@@ -29,13 +29,13 @@ var Server = net.createServer(function(clientSocket) {
   function broadcast(msg, clientSender) {
     clientList.forEach(function (clientSocket) {
       if (clientSocket === clientSender) return;
-      clientSocket.write(clientSender.username + ": " + msg);
+      clientSocket.write("\r" + clientSender.username + ": " + msg);
     });
 
-    process.stdout.write(clientSender.username + ": " + msg);
+    process.stdout.write(clientSender.username + ": " + msg + '\n');
   }
 });
 
 Server.listen(6969, function() {
-  console.log("Chatroom Server is online");
+  console.log("[ADMIN] Chatroom Server is online");
 });
