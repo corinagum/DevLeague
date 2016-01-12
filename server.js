@@ -14,40 +14,44 @@ var Server = net.createServer(function(clientSocket) {
     if(clientList.indexOf(clientSocket) === -1) {
       clientSocket.username = data.replace("\n", "");
       clientSocket.write("[ADMIN]: You are now signed on as " + clientSocket.username);
-      broadcast("joined chat ", clientSocket);
+      announce("joined the chat ", clientSocket);
       clientList.push(clientSocket);
     } else {
     broadcast(data, clientSocket);
   }
   });
 
-// ADMIN MESSAGES
+
+  // socket.on("end") actually works.
+  clientSocket.on('end', function() {
+    clientList.splice(clientList.indexOf(clientSocket), 1);
+    announce("left the chat.", clientSocket); // says so and so left chat when connection ends
+  });
+
+});
+
+// ADMIN CAPABILITIES
 process.stdin.on('data', function(data) {
   if(data.indexOf("\kick") !== -1) {
     var kicking = data.replace("\\kick ", "");
     kicking = kicking.replace('\n', "");
     clientList.forEach(function(clientSocket) {
+
       if(clientSocket.username === kicking) {
+        console.log("Kicking: ", kicking);
         clientSocket.write("You have been kicked by [ADMIN]");
+        announce("was kicked from the chat.", clientSocket);
         clientSocket.end();
-        broadcast("kicked from the chat.", clientSocket);
-        clientList.splice(clientList.indexOf(clientSocket, 1));
+      } else {
+        console.log("boo");
       }
+
     });
 
   } else {
-    broadcast(data.trim(), admin);
+    broadcast(data.trim(), admin); // writes what admin says
   }
 });
-
-  // socket.on("end") actually works.
-  clientSocket.on('end', function() {
-    clientList.splice(clientList.indexOf(clientSocket), 1);
-    broadcast("left the chat.", clientSocket); // says so and so left chat when connection ends
-  });
-
-});
-
 
 Server.listen(6969, function() {
   console.log("[ADMIN]: Chatroom Server is online");
@@ -60,4 +64,11 @@ function broadcast(msg, clientSender) {
   });
   if(clientSender === admin) return;
   process.stdout.write(clientSender.username + ": " + msg + '\n');
+}
+function announce(msg, client) {
+  clientList.forEach(function (clientSocket) {
+    clientSocket.write("\r" + client.username + " " + msg);
+  });
+  if(client === admin) return;
+  process.stdout.write(client.username + " " + msg + '\n');
 }
