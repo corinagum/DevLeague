@@ -12,43 +12,44 @@ var Server = net.createServer(function(clientSocket) {
 
 // username validation
   clientSocket.on('data', function(data){
-    // if(clientList.indexOf(clientSocket) === -1) {
+    if(clientList.indexOf(clientSocket) === -1) {
       if(data === "[ADMIN]" || data === 'admin' || data === "ADMIN") {
+        console.log("data: " + data);
         return clientSocket.write("Invalid username. Try another");
       }
      var username = data.replace("\n", "");
+     console.log(clientList.length);
       if(clientList.length === 0) {
-         clientSocket.write("[ADMIN]: You are now signed on as " + username);
-          announce("joined the chat ", username);
+        clientSocket.write("[ADMIN]: You are now signed on as " + username);
+        clientSocket.username = username;
+        clientList.push(clientSocket);
+        return announce("joined the chat ", username);
       } else {
-        clientList.every(function(listCheck) {
-          // console.log(listCheck.username);
-          if(username === listCheck.username) {
+        clientList.every(function(client) {
+          console.log(client.username);
+          if(username === client.username) {
             return clientSocket.write(data + " is already taken. Choose another username");
           } else {
-            username = data.replace("\n", "");
-
-            console.log(username, data, "what");
+            client.username = username;
+            console.log("reachers here");
             clientSocket.write("[ADMIN]: You are now signed on as " + username);
-            announce("joined the chat ", username);
+            clientList.push(client);
+            return announce("joined the chat ", username);
           }
         });
       }
-      var cleanData = data.replace("\n", "");
 
 
-        clientList.push(clientSocket);
-
-    // } else {
-    // broadcast(data, clientSocket);
-  // }
+    } else {
+    broadcast(data, clientSocket);
+  }
   });
 
 
   // Closes socket
   clientSocket.on('end', function() {
     clientList.splice(clientList.indexOf(clientSocket), 1);
-    announce("left the chat.", clientSocket); // says so and so left chat when connection ends
+    announce("left the chat.", clientSocket.username); // says so and so left chat when connection ends
   });
 
 });
