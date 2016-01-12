@@ -12,6 +12,9 @@ var Server = net.createServer(function(clientSocket) {
 
   clientSocket.on('data', function(data){
     if(clientList.indexOf(clientSocket) === -1) {
+      if(data === "[ADMIN]" || data === 'admin' || data === "ADMIN") {
+        return clientSocket.write("Invalid username. Try another");
+      }
       clientSocket.username = data.replace("\n", "");
       clientSocket.write("[ADMIN]: You are now signed on as " + clientSocket.username);
       announce("joined the chat ", clientSocket);
