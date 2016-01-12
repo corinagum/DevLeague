@@ -10,22 +10,31 @@ var Server = net.createServer(function(clientSocket) {
   clientSocket.write("[ADMIN]: Welcome to Network Broadcast News. Enter your username. ");
   // on data. first if statement handles situation if user is not among clientList - gets username
 
+// username validation
   clientSocket.on('data', function(data){
-    if(clientList.indexOf(clientSocket) === -1) {
+    // if(clientList.indexOf(clientSocket) === -1) {
       if(data === "[ADMIN]" || data === 'admin' || data === "ADMIN") {
         return clientSocket.write("Invalid username. Try another");
       }
-      clientSocket.username = data.replace("\n", "");
-      clientSocket.write("[ADMIN]: You are now signed on as " + clientSocket.username);
-      announce("joined the chat ", clientSocket);
-      clientList.push(clientSocket);
-    } else {
-    broadcast(data, clientSocket);
-  }
+      clientList.every(function(listCheck) {
+        if(data === listCheck.username) {
+          return clientSocket.write(data + " is already taken. Choose another username");
+        }
+
+      });
+      if (data !== clientSocket.username) {
+        clientSocket.username = data.replace("\n", "");
+        clientSocket.write("[ADMIN]: You are now signed on as " + clientSocket.username);
+        announce("joined the chat ", clientSocket);
+        clientList.push(clientSocket);
+      }
+    // } else {
+    // broadcast(data, clientSocket);
+  // }
   });
 
 
-  // socket.on("end") actually works.
+  // Closes socket
   clientSocket.on('end', function() {
     clientList.splice(clientList.indexOf(clientSocket), 1);
     announce("left the chat.", clientSocket); // says so and so left chat when connection ends
@@ -51,7 +60,7 @@ process.stdin.on('data', function(data) {
   } else {
     broadcast(data.trim(), admin); // writes what admin says
   }
-});
+}); // end admin capabilities
 
 Server.listen(6969, function() {
   console.log("[ADMIN]: Chatroom Server is online");
