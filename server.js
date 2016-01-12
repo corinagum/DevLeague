@@ -14,32 +14,27 @@ var Server = net.createServer(function(clientSocket) {
   clientSocket.on('data', function(data){
     if(clientList.indexOf(clientSocket) === -1) {
       if(data === "[ADMIN]" || data === 'admin' || data === "ADMIN") {
-        console.log("data: " + data);
         return clientSocket.write("Invalid username. Try another");
       }
      var username = data.replace("\n", "");
      console.log(clientList.length);
       if(clientList.length === 0) {
-        clientSocket.write("[ADMIN]: You are now signed on as " + username);
         clientSocket.username = username;
+        clientSocket.write("[ADMIN]: You are now signed on as " + username);
         clientList.push(clientSocket);
         return announce("joined the chat ", username);
       } else {
         clientList.every(function(client) {
-          console.log(client.username);
           if(username === client.username) {
             return clientSocket.write(data + " is already taken. Choose another username");
           } else {
-            client.username = username;
-            console.log("reachers here");
-            clientSocket.write("[ADMIN]: You are now signed on as " + username);
-            clientList.push(client);
+            clientSocket.username = username;
+            clientSocket.write("[ADMIN]: You are now signed on as " + clientSocket.username);
+            clientList.push(clientSocket);
             return announce("joined the chat ", username);
           }
         });
       }
-
-
     } else {
     broadcast(data, clientSocket);
   }
@@ -62,7 +57,6 @@ process.stdin.on('data', function(data) {
     clientList.forEach(function(clientSocket) {
 
       if(clientSocket.username === kicking) {
-        console.log("Kicking: ", kicking);
         clientSocket.write("You have been kicked by [ADMIN]");
         clientSocket.end();
       }
@@ -75,7 +69,7 @@ process.stdin.on('data', function(data) {
 }); // end admin capabilities
 
 Server.listen(6969, function() {
-  console.log("[ADMIN]: Chatroom Server is online");
+  process.stdout.write("[ADMIN]: Chatroom Server is online");
 });
 
 function broadcast(msg, clientSender) {
