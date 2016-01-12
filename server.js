@@ -25,11 +25,16 @@ var Server = net.createServer(function(clientSocket) {
 process.stdin.on('data', function(data) {
   if(data.indexOf("\kick") !== -1) {
     var kicking = data.replace("\\kick ", "");
-    console.log(kicking);
-    clientList.splice(clientList.indexOf(clientSocket.username[kicking], 1));
-    console.log(clientList);
-    clientSocket.write("You have been kicked by [ADMIN]");
-    clientSocket.end();
+    kicking = kicking.replace('\n', "");
+    clientList.forEach(function(clientSocket) {
+      if(clientSocket.username === kicking) {
+        clientSocket.write("You have been kicked by [ADMIN]");
+        clientSocket.end();
+        broadcast("kicked from the chat.", clientSocket);
+        clientList.splice(clientList.indexOf(clientSocket, 1));
+      }
+    });
+
   } else {
     broadcast(data.trim(), admin);
   }
