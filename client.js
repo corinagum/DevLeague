@@ -5,7 +5,6 @@ var Server = net.connect({host: 'localhost', port: 6969}, function() {
   Server.setEncoding('utf-8');
 
   process.stdin.on('data', function(data) {
-    send = data.replace("\n", "");
     Server.write(data.trim());
     process.stdout.write("you: ");
   });
@@ -13,6 +12,8 @@ var Server = net.connect({host: 'localhost', port: 6969}, function() {
   Server.on('data', function(data) {
     process.stdout.write('\r' + data + '\nyou: ');
   });
+
+  // if there is a disconnect:
   Server.on('end', function() {
     console.log("Your session has ended");
   });
