@@ -40,10 +40,7 @@ process.stdin.on('data', function(data) {
       if(clientSocket.username === kicking) {
         console.log("Kicking: ", kicking);
         clientSocket.write("You have been kicked by [ADMIN]");
-        announce("was kicked from the chat.", clientSocket);
         clientSocket.end();
-      } else {
-        console.log("boo");
       }
 
     });
