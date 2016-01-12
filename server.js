@@ -16,18 +16,29 @@ var Server = net.createServer(function(clientSocket) {
       if(data === "[ADMIN]" || data === 'admin' || data === "ADMIN") {
         return clientSocket.write("Invalid username. Try another");
       }
-      clientList.every(function(listCheck) {
-        if(data === listCheck.username) {
-          return clientSocket.write(data + " is already taken. Choose another username");
-        }
+     var username = data.replace("\n", "");
+      if(clientList.length === 0) {
+         clientSocket.write("[ADMIN]: You are now signed on as " + username);
+          announce("joined the chat ", username);
+      } else {
+        clientList.every(function(listCheck) {
+          // console.log(listCheck.username);
+          if(username === listCheck.username) {
+            return clientSocket.write(data + " is already taken. Choose another username");
+          } else {
+            username = data.replace("\n", "");
 
-      });
-      if (data !== clientSocket.username) {
-        clientSocket.username = data.replace("\n", "");
-        clientSocket.write("[ADMIN]: You are now signed on as " + clientSocket.username);
-        announce("joined the chat ", clientSocket);
-        clientList.push(clientSocket);
+            console.log(username, data, "what");
+            clientSocket.write("[ADMIN]: You are now signed on as " + username);
+            announce("joined the chat ", username);
+          }
+        });
       }
+      var cleanData = data.replace("\n", "");
+
+
+        clientList.push(clientSocket);
+
     // } else {
     // broadcast(data, clientSocket);
   // }
@@ -74,10 +85,10 @@ function broadcast(msg, clientSender) {
   if(clientSender === admin) return;
   process.stdout.write(clientSender.username + ": " + msg + '\n');
 }
-function announce(msg, client) {
+function announce(msg, username) {
   clientList.forEach(function (clientSocket) {
-    clientSocket.write("\r" + client.username + " " + msg);
+    clientSocket.write("\r" + username + " " + msg);
   });
-  if(client === admin) return;
-  process.stdout.write(client.username + " " + msg + '\n');
+  if(username === admin) return;
+  process.stdout.write(username + " " + msg + '\n');
 }
