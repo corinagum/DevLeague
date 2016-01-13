@@ -17,7 +17,6 @@ var Server = net.createServer(function(clientSocket) {
         return clientSocket.write("Invalid username. Try another");
       }
      var username = data.replace("\n", "");
-     console.log(clientList.length);
       if(clientList.length === 0) {
         clientSocket.username = username;
         clientSocket.write("[ADMIN]: You are now signed on as " + username);
@@ -64,12 +63,14 @@ process.stdin.on('data', function(data) {
     });
 
   } else {
-    broadcast(data.trim(), admin); // writes what admin says
+    data = data.toString();
+    var trimmedData = data.trim();
+    broadcast(trimmedData, admin); // writes what admin says
   }
 }); // end admin capabilities
 
 Server.listen(6969, function() {
-  process.stdout.write("[ADMIN]: Chatroom Server is online");
+  process.stdout.write("[ADMIN]: Chatroom Server is online\n[ADMIN]: ");
 });
 
 function broadcast(msg, clientSender) {
