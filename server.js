@@ -19,11 +19,16 @@ server.get('/buzzwords', function (req, res) {
 // accept POST request on buzzword page
 server.post('/buzzwords', function(req, res) {
   var request = req.body;
-  if(typeof request.buzzWord === 'string' && request.points === 'number') {
+  request.points = parseInt(request.points);
+  buzzWords.push(request);
+  if( typeof request.buzzWord === 'string' && typeof request.points === 'number') {
     res.send( {
       'success': true
     });
   }
+  res.send( {
+    'success' : false
+  });
 });
 
 
