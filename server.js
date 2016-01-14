@@ -3,6 +3,7 @@ var express = require('express');
 var server = express();
 
 var buzzWords = [];
+var score = 0;
 
 server.use(express.static('public'));
 server.use(bodyParser.urlencoded({"extended":true}));
@@ -37,12 +38,19 @@ server.post('/buzzwords', function(req, res) {
 // accept PUT request on buzzword page
 server.put('/buzzwords', function(req, res) {
   var putRequest = req.body;
-  if( typeof putRequest.buzzWord === 'string' && putRequest.heard === 'true') {
-    lookup(putRequest);
-    res.send( {
-      'success': true
-    });
+  if(buzzWords.length < 5) {
+    if( typeof putRequest.buzzWord === 'string' && putRequest.heard === 'true') {
+      lookup(putRequest);
+      res.send( {
+        'success': true
+      });
     }
+   } else {
+      res.send( {
+        'success': false,
+        'status': 'You have too many buzzwords'
+      });
+   }
 });
 
 //accept DELETE request on buzzword page
@@ -53,7 +61,7 @@ server.delete('/buzzwords', function(req, res) {
     res.send( {
       'success': true
     });
-    }
+  }
 });
 //accept RESET request on buzzword
 server.post('/reset', function(req, res) {
@@ -74,7 +82,8 @@ function lookup (putRequest) {
   for (var i = 0; i < buzzWords.length; i++) {
     if(buzzWords[i].buzzWord === putRequest.buzzWord) {
       buzzWords[i].heard = true;
-      return true;
+      score += buzzWords[i].points;
+      return score;
     }
     return false;
   }
