@@ -55,6 +55,14 @@ server.delete('/buzzwords', function(req, res) {
     });
     }
 });
+//accept RESET request on buzzword
+server.post('/reset', function(req, res) {
+  buzzWords  = [];
+  score = 0;
+  res.send({
+    'success': true
+  });
+});
 
 var app = server.listen(3000, function () {
   var host = app.address().address;
