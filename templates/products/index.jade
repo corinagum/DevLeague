@@ -1,0 +1,8 @@
+extends ./../layout
+
+block content
+  ul
+    each product in products
+      li
+        a(href="/products/#{product.id}")= product.name
+  h1 RIZZZZZZZZ
