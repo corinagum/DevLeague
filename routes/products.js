@@ -6,22 +6,37 @@ var bodyParser = require('body-parser');
 router.use(bodyParser.json({type: 'application/json' }));
 
 
-router.post( '/', function (req, res) {
-  Products.add(req.body, function(err) {
-    if(err) return res.send( {success: false, message: err.message} );
+router.route('/')
+  .get(function(req, res) {
+    res.render('products/index', {
+      products: Products.all()
+    });
+  })
 
-    return res.send( {success: true} );
-  });
-});
+  .post(function (req, res) {
+    Products.add(req.body, function(err) {
+      if(err) return res.send( {success: false, message: err.message} );
 
-router.put( '/:id', function (req, res) {
-  Products.editById( req.params.id, req.body, function(err) {
-    if(err) return res.send({success: false, message: err.message});
+      return res.send( {success: true} );
+    });
+  })
+;
 
-    return res.send({success: true});
+router.route('/:id')
+  .get(function(req,res) {
+    res.render('products/single', {
+      product: Products.getById( req.params.id)
+    });
+  })
+  .put(function (req, res) {
+    Products.editById( req.params.id, req.body, function(err) {
+      if(err) return res.send({success: false, message: err.message});
 
-  });
-});
+      return res.send({success: true});
+
+    });
+  })
+  ;
 
 router.delete( '/:id', function (req, res) {
   Products.deleteById( req.params.id, function(err) {
