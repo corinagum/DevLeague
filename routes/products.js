@@ -8,7 +8,7 @@ router.post( '/', function (req, res) {
 });
 
 router.put( '/:id', function (req, res) {
-  Product.editByName(req.body, res);
+  Products.editByName(req.body, res);
   res.send( {"success": true});
 });
 
