@@ -4,11 +4,11 @@ var router = express.Router();
 
 router.post( '/', function (req, res) {
   Products.add(req.body, res);
-
   res.send( {"success": true} );
 });
 
 router.put( '/:id', function (req, res) {
+  Product.editByName(req.body, res);
   res.send( {"success": true});
 });
 
