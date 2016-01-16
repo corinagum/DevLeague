@@ -21,8 +21,17 @@ router.put( '/:id', function (req, res) {
     return res.send({success: true});
 
   });
-  // res.send( {"success": true});
 });
+
+router.delete( '/:id', function (req, res) {
+  Products.deleteById( req.params.id, function(err) {
+    if(err) return res.send({success: false, message: err.message});
+
+    return res.send({success: true});
+
+  });
+});
+
 
 // Products.all();
 

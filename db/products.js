@@ -35,9 +35,21 @@ module.exports = (function(){
         updateP = productList[i];
         for(var key in productOptions) {
           updateP[key] = productOptions[key];
-          console.log(productList[i]);
-          return callback(null);
         }
+          return callback(null);
+      } else {
+        callback(new Error("Can't find ID"));
+      }
+    }
+  }
+
+
+  function _deleteById (id, callback) {
+    for ( var i = 0; i < productList.length; i++) {
+      if( productList[i].id === parseInt(id) ) {
+        productList.splice(i,1);
+        console.log(productList);
+        return callback(null);
       } else {
         callback(new Error("Can't find ID"));
       }
@@ -48,6 +60,7 @@ module.exports = (function(){
     // all: _all,
     add: _add,
     // getByName: _getByName,
-    editById: _editById
+    editById: _editById,
+    deleteById: _deleteById
   };
 }());
