@@ -1,11 +1,22 @@
-var Products = require('db/products.js');
+var Products = require('./../db/products.js');
+var express = require('express');
+var router = express.Router();
 
-Products.all();
+router.post( '/', function (req, res) {
+  Products.add(req.body, res);
 
-Products.add({});
+  res.send( {"success": true} );
+});
 
-Products.getByName('NAME');
+router.put( '/:id', function (req, res) {
+  res.send( {"success": true});
+});
 
-Products.editByName('NAME', {name: 'whatevs'});
+// Products.all();
 
 
+// Products.getByName('NAME');
+
+// Products.editByName('NAME', {name: 'whatevs'});
+
+module.exports = router;
