@@ -1,10 +1,8 @@
 var express = require('express');
 var server = express();
 var products = require('./routes/products.js');
-var bodyParser = require('body-parser');
 // var articles = require('./routes/articles.js');
 
-server.use(bodyParser.json({type: 'application/json' }));
 server.set('view engine', 'jade');
 server.set('views', './templates/');
 
