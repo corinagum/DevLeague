@@ -1,6 +1,31 @@
 module.exports = (function(){
-  var productList = [];
+  var productList = [
+    {
+        //MOCK DATA
+      'inventory' : "inventory",
+      'name' : "wut",
+      'price' : "price",
+      'id' : 1
+    }, {
+      'inventory' : "inventory",
+      'name' : "kay",
+      'price' : "price",
+      'id' : 2
+    }, {
+      'inventory' : "inventory",
+      'name' : "whyy",
+      'price' : "price",
+      'id' : 3
+    }];
 
+
+  function _all () {
+    return productList;
+  }
+
+  function _getById (id) {
+    return productList[id];
+  }
   function _add (req, callback) {
 
     var inventory = req.inventory;
@@ -57,9 +82,9 @@ module.exports = (function(){
   }
 
   return {
-    // all: _all,
+    all: _all,
     add: _add,
-    // getByName: _getByName,
+    getById: _getById,
     editById: _editById,
     deleteById: _deleteById
   };
