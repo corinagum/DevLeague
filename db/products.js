@@ -19,10 +19,14 @@ module.exports = (function(){
     console.log( productList );
   }
 
+  function _editByName (req, res) {
+    console.log("hello");
+  }
+
   return {
     // all: _all,
     add: _add,
     // getByName: _getByName,
-    // editByName: _editByName
+    editByName: _editByName
   };
 }());
