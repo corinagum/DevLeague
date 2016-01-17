@@ -6,6 +6,8 @@ block content
       li Product Name:&nbsp
         a(href="/products/#{item.id}") #{item.name}&nbsp
         a(href="/products/#{item.id}/edit") edit&nbsp
-        a() delete
+        form(name="edit-products", method="POST", action="/products/#{item.id}")
+          input(type="hidden", name="_method", value="DELETE")
+          button(type="submit", value="submit") delete
 
 
