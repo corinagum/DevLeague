@@ -1,8 +1,9 @@
 extends ./../layout
 
 block content
-  h1 #{product.id}
-  h2 #{product.name}
+  h1 #{item.id}: #{item.name}
+  p Inventory: ##{item.inventory}
+  p Price: #{item.price}
 
 //- h2
 //-   a(href="./index")

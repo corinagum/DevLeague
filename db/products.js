@@ -2,19 +2,19 @@ module.exports = (function(){
   var productList = [
     {
         //MOCK DATA
-      'inventory' : "inventory",
+      'inventory' : "234234",
       'name' : "wut",
-      'price' : "price",
+      'price' : "$5.00",
       'id' : 1
     }, {
-      'inventory' : "inventory",
+      'inventory' : "123",
       'name' : "kay",
-      'price' : "price",
+      'price' : "$5.63",
       'id' : 2
     }, {
-      'inventory' : "inventory",
+      'inventory' : "7452",
       'name' : "whyy",
-      'price' : "price",
+      'price' : "$5.54",
       'id' : 3
     }];
 
@@ -24,7 +24,11 @@ module.exports = (function(){
   }
 
   function _getById (id) {
-    return productList[id];
+    for(var i = 0; i < productList.length; i++) {
+      if(productList[i].id === parseInt(id)){
+        return productList[i];
+      }
+    }
   }
   function _add (req, callback) {
 

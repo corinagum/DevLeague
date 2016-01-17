@@ -2,7 +2,10 @@ extends ./../layout
 
 block content
   ul
-    each product in products
-      li
-        a(href="/products/#{product.id}")= product.name
-  h1 RIZZZZZZZZ
+    each item in products
+      li Product Name:&nbsp
+        a(href="/products/#{item.id}") #{item.name}&nbsp
+        a() edit&nbsp
+        a() delete
+
+

@@ -25,7 +25,7 @@ router.route('/')
 router.route('/:id')
   .get(function(req,res) {
     res.render('products/single', {
-      product: Products.getById( req.params.id)
+      item: Products.getById( req.params.id )
     });
   })
   .put(function (req, res) {
