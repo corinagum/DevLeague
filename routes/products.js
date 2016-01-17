@@ -1,10 +1,6 @@
 var Products = require('./../db/products.js');
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
-
-router.use(bodyParser.json({type: 'application/json' }));
-
 
 router.route('/')
   .get(function(req, res) {
@@ -36,10 +32,11 @@ router.route('/:id')
     });
   })
   .put(function (req, res) {
+    console.log('put request detected!');
     Products.editById( req.params.id, req.body, function(err) {
       if(err) return res.send({success: false, message: err.message});
 
-      return res.send({success: true});
+      return res.redirect('/products/' + req.params.id);
 
     });
   })
