@@ -22,11 +22,6 @@ server.use(methodOverride(function(req, res){
 server.use('/products', products);
 server.use('/articles', articles);
 
-// NOTE: when using req.body, you must fully parse the request body
-//       before you call methodOverride() in your middleware stack,
-//       otherwise req.body will not be populated.
-
-
 var app = server.listen(3000, function(){
   var host = app.address().address;
   var port = app.address().port;

@@ -1,17 +1,35 @@
-// module.exports = (function() {
-//   // function here
-
-//   return {
-//     all: _all,
-//     add: _add,
-//     getByTitle: _getByTitle,
-//     editByTitle: _editByTitle
-//   };
-// })();
-
 module.exports = (function(){
-  var articleList = [];
+  var articleList = [
+  {
+        //MOCK DATA
+      'title' : "wut",
+      'author' : "riz",
+      'id' : 1,
+      'urlTitle': "wut"
+    }, {
+      'title' : "noo",
+      'author' : "riz",
+      'id' : 2,
+      'urlTitle': "noo"
+    }, {
+      'title' : "shaaab",
+      'author' : "riz",
+      'id' : 3,
+      'urlTitle': "shaaab"
+    }];
 
+
+  function _all () {
+    return articleList;
+  }
+
+  function _getByTitle (title) {
+    for(var i = 0; i < articleList.length; i++) {
+      if(articleList[i].title === title){
+        return articleList[i];
+      }
+    }
+  }
   function _add (req, callback) {
 
     var title = req.title;
@@ -45,7 +63,6 @@ module.exports = (function(){
         for(var key in articleOptions) {
           updateA[key] = articleOptions[key];
         }
-          console.log(articleList);
           return callback(null);
       } else {
         callback(new Error("Can't find title"));
@@ -67,9 +84,9 @@ module.exports = (function(){
   }
 
   return {
-    // all: _all,
+    all: _all,
     add: _add,
-    // getByName: _getByName,
+    getByTitle: _getByTitle,
     editByTitle: _editByTitle,
     deleteByTitle: _deleteByTitle
   };

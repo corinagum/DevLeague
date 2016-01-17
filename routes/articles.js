@@ -1,52 +1,64 @@
-// var Articles = require('db/articles.js');
-
-// //return entire collection:
-// Articles.all();
-
-// //add new article to collection:
-// Articles.add({/*...*/});
-
-// // returns correct object from collection
-
-// Articles.getByTitle('TITLE');
-
-// //find article in collection by title - update article based on object ... etc.
-// Articles.editByTitle('TITLE', {title: "blahblah"});
-
-
 var Articles = require('./../db/articles.js');
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
 
-router.use(bodyParser.json({type: 'application/json' }));
+router.route('/')
+  .get(function(req, res) {
+    res.render('articles/index', {
+      art: Articles.all()
+    });
+  })
 
+  .post(function (req, res) {
+    console.log(req.body.title);
+    Articles.add(req.body, function(err) {
+      if(err) return res.send( {success: false, message: err.message} );
 
-router.post( '/', function (req, res) {
-  Articles.add(req.body, function(err) {
-    if(err) return res.send( {success: false, message: err.message} );
+      return res.send( {success: true} );
+    });
+  })
+;
 
-    return res.send( {success: true} );
+router.route('/new')
+  .get(function(req,res) {
+    res.render('articles/new');
   });
-});
 
-router.put( '/:title', function (req, res) {
-  Articles.editByTitle( req.params.title, req.body, function(err) {
-    if(err) return res.send({success: false, message: err.message});
-
-    return res.send({success: true});
-
+router.route('/:title/edit')
+  .get(function(req, res) {
+    console.log(req.params.title);
+    res.render('articles/edit', {
+      articles: Articles.getByTitle( req.params.title )
+    });
   });
-});
 
-router.delete( '/:title', function (req, res) {
-  Articles.deleteByTitle( req.params.title, function(err) {
-    if(err) return res.send({success: false, message: err.message});
+router.route('/:title')
+  .get(function(req, res) {
+    console.log('HEYLO', req.params.title);
+    res.render('articles/single', {
+      articles: Articles.getByTitle( req.params.title)
+    });
+  })
 
-    return res.send({success: true});
+  .put(function (req, res) {
+    console.log(req.body);
+    console.log("PARAMS",req.params.title);
 
+    Articles.editByTitle( req.params.title, req.body, function(err) {
+      if(err) return res.send({success: false, message: err.message});
+
+      return res.redirect('/articles/' + req.params.title);
+    });
+  })
+
+  .delete(function (req, res) {
+    Articles.deleteByTitle( req.params.title, function(err) {
+      if(err) return res.send({success: false, message: err.message});
+
+      return res.send({success: true});
   });
-});
+})
+;
 
 
 

@@ -14,7 +14,6 @@ router.route('/')
     Products.add(req.body, function(err) {
       if(err) return res.send( {success: false, message: err.message} );
 
-      console.log(res, "hi");
       return res.redirect('/products/');
     });
   })
@@ -56,13 +55,6 @@ router.route('/:id')
     });
   })
   ;
-
-
-
-
-// Products.all();
-
-// Products.getByName('NAME');
 
 
 module.exports = router;
