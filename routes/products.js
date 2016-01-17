@@ -21,9 +21,16 @@ router.route('/')
     });
   })
 ;
+//creating router for edit link
+router.route('/:id/edit')
+  .get(function(req, res) {
+    res.render('products/edit', {
+      item: Products.getById( req.params.id )
+    });
+  });
 
 router.route('/:id')
-  .get(function(req,res) {
+  .get(function(req, res) {
     res.render('products/single', {
       item: Products.getById( req.params.id )
     });

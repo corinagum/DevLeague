@@ -1,4 +1,12 @@
 extends ./../layout
 
 block content
-  form
+  form(name="edit-products", method="post", action="")
+      div.name Name:&nbsp
+        input(type="text", value="#{item.name}")
+      div.price Price:&nbsp
+        input(type="text", value="#{item.price}")
+      div.inventory Inventory:&nbsp
+        input(type="text", value="#{item.inventory}")
+    div.submit
+      input(type="submit", value="submit")
