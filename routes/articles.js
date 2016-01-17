@@ -47,7 +47,7 @@ router.route('/:title')
     Articles.editByTitle( req.params.title, req.body, function(err) {
       if(err) return res.send({success: false, message: err.message});
 
-      return res.redirect('/articles/' + req.params.title);
+      return res.redirect('/articles/' + req.body.title);
     });
   })
 
