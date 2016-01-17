@@ -30,6 +30,7 @@ module.exports = (function(){
       }
     }
   }
+
   function _add (req, callback) {
 
     var inventory = req.inventory;

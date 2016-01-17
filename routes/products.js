@@ -10,20 +10,28 @@ router.route('/')
   })
 
   .post(function (req, res) {
+    console.log(req.body.id);
     Products.add(req.body, function(err) {
       if(err) return res.send( {success: false, message: err.message} );
 
-      return res.send( {success: true} );
+      console.log(res, "hi");
+      return res.redirect('/products/');
     });
   })
 ;
-//creating router for edit link
+
+router.route('/new')
+  .get(function(req, res) {
+    res.render('products/new');
+  });
+
 router.route('/:id/edit')
   .get(function(req, res) {
     res.render('products/edit', {
       item: Products.getById( req.params.id )
     });
   });
+
 
 router.route('/:id')
   .get(function(req, res) {
@@ -32,7 +40,6 @@ router.route('/:id')
     });
   })
   .put(function (req, res) {
-    console.log('put request detected!');
     Products.editById( req.params.id, req.body, function(err) {
       if(err) return res.send({success: false, message: err.message});
 

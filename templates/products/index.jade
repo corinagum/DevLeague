@@ -11,9 +11,7 @@ block content
         form(name="delete-products", method="POST", action="/products/#{item.id}")
           input(type="hidden", name="_method", value="DELETE")
           button(type="submit", value="submit") delete
-  //- ul
-  //-   form(name="new-product", method="POST", action="/products/#{item.id}")
-  //-     input(type="hidden", name="_method", value="POST")
-  //-     button(type="submit", value="submit") new
+
+  a(href="/products/new") New
 
 
