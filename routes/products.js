@@ -1,7 +1,26 @@
 var Products = require('./../db/products.js');
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+//NOTE WE MUST USE FS TO WRITE TO A FILE
+//FS.APPENDFILE
 
+//MIDDLEWARE
+router.use(function(req, res, next) {
+  var date = new Date();
+  var reqMethod = req.originalMethod;
+  var reqUrl = req.originalUrl;
+  var reqHeaders = req.headers;
+  console.log('Time:', date);
+  console.log('method:', reqMethod);
+  console.log('url:', reqUrl);
+  console.log('headers:', reqHeaders);
+
+  next();
+});
+
+
+// end middleware
 router.route('/')
   .get(function(req, res) {
     res.render('products/index', {

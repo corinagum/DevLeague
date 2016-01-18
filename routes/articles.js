@@ -2,6 +2,15 @@ var Articles = require('./../db/articles.js');
 var express = require('express');
 var router = express.Router();
 
+//MIDDLEWARE
+router.use(function(req, res, next) {
+  console.log('Time:', Date.now());
+  next();
+});
+
+
+// end middleware
+
 router.route('/')
   .get(function(req, res) {
     res.render('articles/index', {
