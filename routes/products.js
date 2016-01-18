@@ -11,12 +11,24 @@ router.use(function(req, res, next) {
   var reqMethod = req.originalMethod;
   var reqUrl = req.originalUrl;
   var reqHeaders = req.headers;
-  console.log('Time:', date);
-  console.log('method:', reqMethod);
-  console.log('url:', reqUrl);
-  console.log('headers:', reqHeaders);
 
+  var logData = {
+    method : reqMethod,
+    url : reqUrl,
+    timestamp : date,
+    headers : reqHeaders
+  };
+  console.log('logssss', logData);
+
+
+  return fs.appendFile('./../logs/' + 'date' + '.log', function( err ) {
+    if( err ) {
+      console.log('error');
+    }
+    console.log('WRITING FILE');
   next();
+  });
+
 });
 
 
