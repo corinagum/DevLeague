@@ -1,22 +1,23 @@
 module.exports = (function(){
   var articleList = [
-  {
-        //MOCK DATA
-      'title' : "wut",
-      'author' : "riz",
-      'id' : 1,
-      'urlTitle': "wut"
-    }, {
-      'title' : "noo",
-      'author' : "riz",
-      'id' : 2,
-      'urlTitle': "noo"
-    }, {
-      'title' : "shaaab",
-      'author' : "riz",
-      'id' : 3,
-      'urlTitle': "shaaab"
-    }];
+  // {
+  //       //MOCK DATA
+  //     'title' : "wut",
+  //     'author' : "riz",
+  //     'id' : 1,
+  //     'urlTitle': "wut"
+  //   }, {
+  //     'title' : "noo",
+  //     'author' : "riz",
+  //     'id' : 2,
+  //     'urlTitle': "noo"
+  //   }, {
+  //     'title' : "shaaab",
+  //     'author' : "riz",
+  //     'id' : 3,
+  //     'urlTitle': "shaaab"
+  //   }
+  ];
 
 
   function _all () {
@@ -33,6 +34,7 @@ module.exports = (function(){
   function _add (req, callback) {
 
     var title = req.title;
+    console.log("hi", req, req.body);
     var author = req.author;
     var urlTitle = title.replace(/ /g, "%20");
 
@@ -76,7 +78,8 @@ module.exports = (function(){
       if( articleList[i].title === title ) {
         articleList.splice(i,1);
         console.log(articleList);
-        return callback(null);
+        return;
+        // callback(null);
       } else {
         callback(new Error("Can't find title"));
       }

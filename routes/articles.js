@@ -14,7 +14,7 @@ router.route('/')
     Articles.add(req.body, function(err) {
       if(err) return res.send( {success: false, message: err.message} );
 
-      return res.send( {success: true} );
+      return res.redirect('/articles/');
     });
   })
 ;
@@ -55,7 +55,7 @@ router.route('/:title')
     Articles.deleteByTitle( req.params.title, function(err) {
       if(err) return res.send({success: false, message: err.message});
 
-      return res.send({success: true});
+      return res.redirect('/articles/');
   });
 })
 ;
