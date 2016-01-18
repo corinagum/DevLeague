@@ -78,8 +78,7 @@ module.exports = (function(){
       if( articleList[i].title === title ) {
         articleList.splice(i,1);
         console.log(articleList);
-        return;
-        // callback(null);
+        return callback(null);
       } else {
         callback(new Error("Can't find title"));
       }
