@@ -25,8 +25,6 @@ router.use(function(req, res, next) {
     HEADERS : req.headers
   };
 
-  // var prettyfy = prettyjson.render( logData );
-
   // this will take object and make it human readable
   var prettyLogData = Object.keys(logData).reduce(function ( string, c ){
     var prettyMeAlready = logData[c];
@@ -34,7 +32,6 @@ router.use(function(req, res, next) {
     return "\n" + string + c + " : " + prettyjson.render(logData[c]) + "\n";
   }, "");
 
-  console.log( 'PRETTTTYY', prettyLogData );
   //if file not created
   fs.appendFile( path.join(process.cwd(), 'logs', fullDate), prettyLogData, "utf8", function (err) {
     if (err) {
