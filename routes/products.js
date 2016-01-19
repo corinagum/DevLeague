@@ -12,6 +12,7 @@ router.use(function(req, res, next) {
   var reqMethod = req.originalMethod;
   var reqUrl = req.originalUrl;
   var reqHeaders = req.headers;
+  var detailsArray = [];
 
   var logData = {
     METHOD : reqMethod,
@@ -20,15 +21,36 @@ router.use(function(req, res, next) {
     HEADERS : reqHeaders
   };
 
-  var fileName = new Date() + ".log";
+  detailsArray.push( logData );
 
-  return fs.appendFile( path.join(process.cwd(), 'logs', fileName), JSON.stringify(logData), function (err) {
-    if (err) {
-      return new Error( 'Can\'t write file!' );
+  var fileName = new Date();
+  var day = fileName.getDate();
+  var month  = fileName.getMonth() + 1;
+  var year = fileName.getFullYear() + ".log";
+
+  var fullDate = month + '-' + day + '-' + year;
+
+  //if file not created
+  if (!fs.access ('../logs' + fullDate, function (err) {
+
+    // if (err) {
+    for(var i = 0; i < detailsArray.length; i++ ) {
+      return fs.writeFile( path.join(process.cwd(), 'logs', fullDate), JSON.stringify(detailsArray) , function (err) {
+        if (err) {
+          return new Error( 'Can\'t write file!' );
+        }
+        next();
+      });
     }
-    next();
-  });
-});
+  // }
+    // return fs.appendFile( '../logs' + fullDate, JSON.stringify(logData), function (err) {
+    //   if (err) {
+    //     return new Error( 'log error' );
+    //   }
+    //   next();
+    // });
+  })); // end of if (!fs.access ('../lo
+}); // end of router.use(functio
 
 
 // end middleware
@@ -40,7 +62,6 @@ router.route('/')
   })
 
   .post(function (req, res) {
-    console.log(req.body.id);
     Products.add(req.body, function(err) {
       if(err) return res.send( {success: false, message: err.message} );
 
