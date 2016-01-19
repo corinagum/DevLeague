@@ -1,4 +1,5 @@
 var Products = require('./../db/products.js');
+var path = require('path');
 var express = require('express');
 var router = express.Router();
 var fs = require('fs');
@@ -13,22 +14,20 @@ router.use(function(req, res, next) {
   var reqHeaders = req.headers;
 
   var logData = {
-    method : reqMethod,
-    url : reqUrl,
-    timestamp : date,
-    headers : reqHeaders
+    METHOD : reqMethod,
+    URL : reqUrl,
+    TIMESTAMP : date,
+    HEADERS : reqHeaders
   };
-  console.log('logssss', logData);
 
+  var fileName = new Date() + ".log";
 
-  return fs.appendFile('./../logs/' + 'date' + '.log', function( err ) {
-    if( err ) {
-      console.log('error');
+  return fs.appendFile( path.join(process.cwd(), 'logs', fileName), JSON.stringify(logData), function (err) {
+    if (err) {
+      return new Error( 'Can\'t write file!' );
     }
-    console.log('WRITING FILE');
-  next();
+    next();
   });
-
 });
 
 

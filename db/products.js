@@ -1,22 +1,5 @@
 module.exports = (function(){
-  var productList = [
-    {
-        //MOCK DATA
-      'inventory' : "234234",
-      'name' : "wut",
-      'price' : "$5.00",
-      'id' : 1
-    }, {
-      'inventory' : "123",
-      'name' : "kay",
-      'price' : "$5.63",
-      'id' : 2
-    }, {
-      'inventory' : "7452",
-      'name' : "whyy",
-      'price' : "$5.54",
-      'id' : 3
-    }];
+  var productList = [];
 
 
   function _all () {
