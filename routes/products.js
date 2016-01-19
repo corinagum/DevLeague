@@ -14,22 +14,25 @@ router.use(function(req, res, next) {
   var month    = fileName.getMonth() + 1;
   var year     = fileName.getFullYear() + ".log";
   var fullDate = month + '.' + day + '.' + year;
-
-  console.log( "zeee head", req.headers );
   var zeHeader = req.headers;
+
+  var prettyZeHeader = Object.keys(zeHeader).reduce(function ( string, c ){
+    var prettyMeAlready = zeHeader[c];
+    return string + c + " : " + zeHeader[c] + "\n";
+  }, "");
 
   var logData = {
     METHOD : req.originalMethod,
     URL : req.originalUrl,
     TIMESTAMP : new Date(),
-    HEADERS : req.headers
+    HEADERS : prettyZeHeader
   };
 
   // this will take object and make it human readable
   var prettyLogData = Object.keys(logData).reduce(function ( string, c ){
     var prettyMeAlready = logData[c];
 
-    return "\n" + string + c + " : " + prettyjson.render(logData[c]) + "\n";
+    return string + c + " : " + prettyjson.render(logData[c]) + "\n";
   }, "");
 
   //if file not created
