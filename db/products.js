@@ -36,13 +36,11 @@ module.exports = (function(){
     };
 
     productList.push(pObj);
-    console.log( productList );
     return callback(null);
   }
 
   function _editById (id, productOptions, callback) {
     var updateP = null;
-    console.log(productOptions);
     for ( var i = 0; i < productList.length; i++) {
       if( productList[i].id === parseInt(id) ) {
         updateP = productList[i];
@@ -61,7 +59,6 @@ module.exports = (function(){
     for ( var i = 0; i < productList.length; i++) {
       if( productList[i].id === parseInt(id) ) {
         productList.splice(i,1);
-        console.log(productList);
         return callback(null);
       } else {
         callback(new Error("Can't find ID"));
