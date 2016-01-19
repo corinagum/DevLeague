@@ -7,9 +7,9 @@ var fs       = require('fs');
 
 //MIDDLEWARE
 router.use(function(req, res, next) {
-  var date = new Date();
-  var reqMethod = req.originalMethod;
-  var reqUrl = req.originalUrl;
+  var date       = new Date();
+  var reqMethod  = req.originalMethod;
+  var reqUrl     = req.originalUrl;
   var reqHeaders = req.headers;
 
   var logData = {

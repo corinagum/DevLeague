@@ -1,0 +1,34 @@
+
+
+
+
+METHOD : GET
+URL : /products/
+TIMESTAMP : Mon Jan 18 2016 19:50:21 GMT-1000 (HST)
+HEADERS : [32mhost: [39m                     localhost:3000
+[32mconnection: [39m               keep-alive
+[32mcache-control: [39m            max-age=0
+[32maccept: [39m                   text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+[32mupgrade-insecure-requests: [39m1
+[32muser-agent: [39m               Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+[32mreferer: [39m                  http://localhost:3000/products/new
+[32maccept-encoding: [39m          gzip, deflate, sdch
+[32maccept-language: [39m          en-US,en;q=0.8
+[32mif-none-match: [39m            W/"ad-OAREIT74thpMSWW5MtyCzQ"
+
+
+
+
+METHOD : GET
+URL : /products/
+TIMESTAMP : Mon Jan 18 2016 19:50:34 GMT-1000 (HST)
+HEADERS : [32mhost: [39m                     localhost:3000
+[32mconnection: [39m               keep-alive
+[32mcache-control: [39m            max-age=0
+[32maccept: [39m                   text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+[32mupgrade-insecure-requests: [39m1
+[32muser-agent: [39m               Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+[32mreferer: [39m                  http://localhost:3000/products/new
+[32maccept-encoding: [39m          gzip, deflate, sdch
+[32maccept-language: [39m          en-US,en;q=0.8
+[32mif-none-match: [39m            W/"ad-OAREIT74thpMSWW5MtyCzQ"
