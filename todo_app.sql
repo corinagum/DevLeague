@@ -53,3 +53,7 @@ WHERE title = 'Study SQL';
 SELECT  title, description
 FROM tasks
 WHERE completed_at IS NULL;
+-- 8 ix
+SELECT  *
+FROM tasks
+ORDER BY created_at DESC;
