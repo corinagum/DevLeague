@@ -57,3 +57,16 @@ WHERE completed_at IS NULL;
 SELECT  *
 FROM tasks
 ORDER BY created_at DESC;
+-- 8 x
+INSERT INTO tasks (id, title, description, created_at, updated_at, completed_at)
+VALUES (DEFAULT, 'mistake 1', 'a test entry', now(), DEFAULT, NULL);
+-- 8 xi
+INSERT INTO tasks (id, title, description, created_at, updated_at, completed_at)
+VALUES (DEFAULT, 'mistake 2', 'another test entry', now(), DEFAULT, NULL);
+-- 8 xii
+INSERT INTO tasks (id, title, description, created_at, updated_at, completed_at)
+VALUES (DEFAULT, 'third mistake', 'another test entry', now(), DEFAULT, NULL);
+-- 8 xiii
+SELECT  title
+FROM tasks
+WHERE title LIKE '%mistake%';
