@@ -54,9 +54,9 @@ SELECT  title, description
 FROM tasks
 WHERE completed_at IS NULL;
 -- 8 ix
-SELECT  *
-FROM tasks
-ORDER BY created_at DESC;
+-- SELECT  *
+-- FROM tasks
+-- ORDER BY created_at DESC;
 -- 8 x
 INSERT INTO tasks (id, title, description, created_at, updated_at, completed_at)
 VALUES (DEFAULT, 'mistake 1', 'a test entry', now(), DEFAULT, NULL);
@@ -70,3 +70,19 @@ VALUES (DEFAULT, 'third mistake', 'another test entry', now(), DEFAULT, NULL);
 SELECT  title
 FROM tasks
 WHERE title LIKE '%mistake%';
+-- 8 xiv
+DELETE
+FROM tasks
+WHERE title = 'mistake 1';
+-- 8 xv
+SELECT  title
+FROM tasks
+WHERE title LIKE '%mistake%';
+-- 8 xvi
+DELETE
+FROM tasks
+WHERE title LIKE '%mistake%';
+-- 8 xvii
+SELECT  *
+FROM tasks
+ORDER BY title ASC;
