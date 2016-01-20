@@ -31,7 +31,7 @@ ALTER TABLE tasks ADD PRIMARY KEY (id);
 ALTER TABLE tasks DROP COLUMN completed;
 ALTER TABLE tasks ADD COLUMN completed_at timestamp;
 -- 8 ii
-ALTER TABLE tasks ALTER COLUMN completed_at SET DEFAULT null;
+ALTER TABLE tasks ALTER COLUMN completed_at SET DEFAULT NULL;
 -- 8 iii
 ALTER TABLE tasks ALTER COLUMN updated_at SET NOT NULL;
 ALTER TABLE tasks ALTER COLUMN updated_at SET DEFAULT now();
@@ -41,3 +41,7 @@ VALUES (DEFAULT, 'Study SQL', 'Complete this exercise', now(), DEFAULT, NULL);
 --8 v
 INSERT INTO tasks (id, title, description, created_at)
 VALUES (DEFAULT, 'Study PostgreSQl', 'Read all the documentation', now());
+-- vi
+SELECT *
+FROM tasks
+WHERE completed_at IS NULL
