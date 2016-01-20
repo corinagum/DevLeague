@@ -1,3 +1,4 @@
+\c Corina
 -- 1
 DROP USER IF EXISTS michael;
 
@@ -12,7 +13,7 @@ CREATE DATABASE todo_app;
 
 -- 5
 \c todo_app;
-
+DROP TABLE IF EXISTS tasks;
 -- 6
 CREATE TABLE tasks(
   id serial NOT NULL,
@@ -23,6 +24,17 @@ CREATE TABLE tasks(
   completed boolean NOT NULL
   );
 
---7
--- ALTER TABLE todo_app
--- ADD CONSTRAINT id PRIMARY KEY
+-- 7
+ALTER TABLE tasks ADD PRIMARY KEY (id);
+
+-- 8 i
+ALTER TABLE tasks DROP COLUMN completed;
+ALTER TABLE tasks ADD COLUMN completed_at timestamp;
+-- 8 ii
+ALTER TABLE tasks ALTER COLUMN completed_at SET DEFAULT null;
+-- 8 iii
+ALTER TABLE tasks ALTER COLUMN updated_at SET NOT NULL;
+ALTER TABLE tasks ALTER COLUMN updated_at SET DEFAULT now();
+--8 iv
+INSERT INTO tasks (id, title, description, created_at, updated_at, completed_at)
+VALUES (DEFAULT, 'Study SQL', 'Complete this exercise', now(), DEFAULT, NULL);
