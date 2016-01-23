@@ -34,13 +34,18 @@
 -- WHERE users.created_at >= '2015-01-01';
 
 -- 7
--- SELECT c.*, p.title
+-- SELECT p.title
 -- FROM comments c
 -- INNER JOIN posts p ON c.post_id = p.id;
 
 -- 8
+SELECT p.title, p.url
+FROM comments c
+INNER JOIN posts p ON c.post_id = p.id
+WHERE p.created_at >= '2015-01-01';
 
-SELECT c.*, p.title, p.url
+-- 9
+SELECT p.title, p.url, c.body
 FROM comments c
 INNER JOIN posts p ON c.post_id = p.id
 WHERE p.created_at >= '2015-01-01';
