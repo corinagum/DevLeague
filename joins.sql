@@ -57,8 +57,36 @@
 -- WHERE c.body LIKE '%USB%';
 
 -- 11
-SELECT p.title, u.first_name, u.last_name, c.body
-FROM comments c
-INNER JOIN posts p ON c.post_id = p.id
-INNER JOIN users u ON u.post_id = p.id
-WHERE c.body LIKE '%matrix%';
+-- SELECT p.title, u.first_name, u.last_name, c.body
+-- FROM comments c
+-- INNER JOIN posts p ON c.post_id = p.id
+-- INNER JOIN users u ON p.user_id = u.id
+-- WHERE c.body LIKE '%matrix%';
+
+-- 12
+-- SELECT u.first_name, u.last_name, c.body
+-- FROM comments c
+-- INNER JOIN posts p ON c.post_id = p.id
+-- INNER JOIN users u ON c.user_id = u.id
+-- WHERE c.body LIKE '%SSL%' AND p.content LIKE '%dolorum%';
+
+-- 13
+SELECT posts.id, posts.title,
+  users.first_name AS "author_first", users.last_name AS "author_last",
+  comments.body, comments_author.username
+FROM users
+LEFT JOIN posts ON posts.user_id = users.id
+INNER JOIN comments comments ON comments.post_id = posts.id
+INNER JOIN users comments_author ON comments.user_id = comments_author.id
+WHERE posts.content ILIKE '%nemo%'
+  AND ( comments.body ILIKE '%ssl%' OR comments.body ILIKE '%firewall%')
+;
+
+-- SELECT: first_name author of post
+--         last_name of author of post
+--         post title
+--         username of auth of comment
+--         comment body
+
+-- WHERE: comment body contains SSL or firewall
+--        post content contains 'nemo'
