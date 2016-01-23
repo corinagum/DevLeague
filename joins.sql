@@ -34,7 +34,9 @@
 -- WHERE users.created_at >= '2015-01-01'
 
 -- 7
-SELECT title, content, users.username
-FROM posts
-INNER JOIN users ON posts.user_id = users.id
-WHERE users.created_at >= '2015-01-01'
+-- SELECT c.*, p.title
+-- FROM comments c
+-- INNER JOIN posts p ON c.post_id = p.id
+
+-- 8
+
