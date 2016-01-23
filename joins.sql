@@ -1,7 +1,7 @@
 -- QUERIES ACROSS MULTIPLE TABLES
 -- -- 1
 -- SELECT *
--- FROM users
+-- FROM users;
 
 -- 2
 -- SELECT *
@@ -25,18 +25,22 @@
 -- SELECT username
 -- FROM users
 -- INNER JOIN posts ON posts.user_id = users.id
--- WHERE posts.created_at >= '2015-01-01'
+-- WHERE posts.created_at >= '2015-01-01';
 
 -- 6
 -- SELECT title, content, users.username
 -- FROM posts
 -- INNER JOIN users ON posts.user_id = users.id
--- WHERE users.created_at >= '2015-01-01'
+-- WHERE users.created_at >= '2015-01-01';
 
 -- 7
 -- SELECT c.*, p.title
 -- FROM comments c
--- INNER JOIN posts p ON c.post_id = p.id
+-- INNER JOIN posts p ON c.post_id = p.id;
 
 -- 8
 
+SELECT c.*, p.title, p.url
+FROM comments c
+INNER JOIN posts p ON c.post_id = p.id
+WHERE p.created_at >= '2015-01-01';
