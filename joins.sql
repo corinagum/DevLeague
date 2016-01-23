@@ -51,7 +51,14 @@
 -- WHERE p.created_at >= '2015-01-01';
 
 -- 10
-SELECT p.title, p.url, c.body
+-- SELECT p.title, p.url, c.body
+-- FROM comments c
+-- INNER JOIN posts p ON c.post_id = p.id
+-- WHERE c.body LIKE '%USB%';
+
+-- 11
+SELECT p.title, u.first_name, u.last_name, c.body
 FROM comments c
 INNER JOIN posts p ON c.post_id = p.id
-WHERE c.body LIKE '%USB%';
+INNER JOIN users u ON u.post_id = p.id
+WHERE c.body LIKE '%matrix%';
