@@ -62,7 +62,6 @@ router.route('/')
   .post(function (req, res) {
     Products.add(req.body)
     .then(function(data) {
-      console.log(data);
       res.redirect('/products/');
     })
     .catch(function(err) {
@@ -70,16 +69,26 @@ router.route('/')
     });
   });
 
-
+//when client clicks on 'new' btn
+//this renders 'products/new' page
 router.route('/new')
   .get(function(req, res) {
     res.render('products/new');
   });
 
+//when client clicks on edit btn
+//this renders page where it gives you option
+//to input different values of the same id
 router.route('/:id/edit')
   .get(function(req, res) {
-    res.render('products/edit', {
-      item: Products.getById( req.params.id )
+    Products.editById(req.params.id)
+    .then(function(data) {
+      res.render('products/edit', {
+        item: data
+      });
+    })
+    .catch(function(err) {
+      res.send(err);
     });
   });
 
@@ -88,7 +97,6 @@ router.route('/:id')
   .get(function(req, res) {
     Products.getById(req.params.id)
     .then(function(data){
-      console.log(data, 'hello');
       res.render('products/single', {
         item: data
       });
@@ -99,13 +107,16 @@ router.route('/:id')
   })
 
   .put(function (req, res) {
-    Products.editById( req.params.id, req.body, function(err) {
-      if(err) return res.send({success: false, message: err.message});
-
-      return res.redirect('/products/' + req.params.id);
-
-    });
+    Products.editById( req.params.id, req.body)
+      .then(function(data) {
+        console.log(data, 'yo');
+        res.redirect('/products/' + req.params.id);
+      })
+      .catch(function(err) {
+        res.send(err);
+      });
   })
+
   .delete(function (req, res) {
     Products.deleteById( req.params.id, function(err) {
       if(err) return res.send({success: false, message: err.message});

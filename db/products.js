@@ -33,33 +33,17 @@ module.exports  = (function(){
     });
   }
 
-// CREATE / insert
-  // db.one('insert into products_table(id, inventory, product_name, price) values(default, $1, $2, $3) returning id',
-  //   [8357, 'Pumpkin Pie', '500'])
-  //   .then(function (data) {
-  //       console.log(data.id); // print new user id;
-  //   })
-  //   .catch(function (error) {
-  //       console.log("ERROR:", error); // print error;
-  //   });
-
-
-
-  // function _editById (id, productOptions, callback) {
-  //   var updateP = null;
-  //   for ( var i = 0; i < productList.length; i++) {
-  //     if( productList[i].id === parseInt(id) ) {
-  //       updateP = productList[i];
-  //       for(var key in productOptions) {
-  //         updateP[key] = productOptions[key];
-  //       }
-  //         return callback(null);
-  //     } else {
-  //       callback(new Error("Can't find ID"));
-  //     }
-  //   }
-  // }
-
+  function _editById (id, productOptions) {
+    var updateP = null;
+    return new Promise(function(data, reject) {
+      db.tx(function (t) {
+        return t.batch([
+          t.one("insert into products_table(product_name) values($1 $2, $3) returning id", "dog")
+          ]);
+      // console.log(t);
+      });
+    });
+  }
 
   // function _deleteById (id, callback) {
   //   for ( var i = 0; i < productList.length; i++) {
@@ -71,9 +55,6 @@ module.exports  = (function(){
   //     }
   //   }
   // }
-
-
-  // READ / alter
 
 
   // UPDATE / transaction
@@ -107,8 +88,8 @@ module.exports  = (function(){
   return {
     all: _all,
     add: _add,
-    getById: _getById
-    // editById: _editById,
+    getById: _getById,
+    editById: _editById
     // deleteById: _deleteById
   };
 }());
