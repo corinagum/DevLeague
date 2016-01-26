@@ -4,6 +4,7 @@ var products       = require('./routes/products.js');
 var articles       = require('./routes/articles.js');
 var methodOverride = require('method-override');
 var bodyParser     = require('body-parser');
+var database       = require('./db/db.sql');
 var promise        = require('bluebird');
 
 var options = {
