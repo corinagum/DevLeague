@@ -19,30 +19,31 @@ module.exports  = (function(){
     });
   }
 
-  function _add (req, callback) {
-
+  function _add (req, callback) { //aka insert
     var inventory = req.inventory;
     var name = req.name;
     var price = req.price;
-    var id = productList.length + 1;
 
-    for( var i = 0; i < productList.length; i++ ) {
-      if( productList[i].name === name ) {
-        var err = new Error("Could not create new product");
-        return callback(err);
-      }
-    }
+    return new Promise(function(data, reject) {
+      db.one('insert into products_table(id, inventory, product_name, price) values(default, $1, $2, $3) returning id', [inventory, name, price])
+        .then(data)
+        .catch(function (reject) {
+            // error;
+        });
+    });
+  }
 
-  //   var pObj = {
-  //     'inventory' : inventory,
-  //     'name' : name,
-  //     'price' : price,
-  //     'id' : id
-  //   };
+// CREATE / insert
+  // db.one('insert into products_table(id, inventory, product_name, price) values(default, $1, $2, $3) returning id',
+  //   [8357, 'Pumpkin Pie', '500'])
+  //   .then(function (data) {
+  //       console.log(data.id); // print new user id;
+  //   })
+  //   .catch(function (error) {
+  //       console.log("ERROR:", error); // print error;
+  //   });
 
-  //   productList.push(pObj);
-  //   return callback(null);
-  // }
+
 
   // function _editById (id, productOptions, callback) {
   //   var updateP = null;
@@ -71,15 +72,6 @@ module.exports  = (function(){
   //   }
   // }
 
-  // CREATE / insert
-  // db.one('insert into products_table(id, inventory, product_name, price) values(default, $1, $2, $3) returning id',
-  //   [8357, 'Pumpkin Pie', '500'])
-  //   .then(function (data) {
-  //       console.log(data.id); // print new user id;
-  //   })
-  //   .catch(function (error) {
-  //       console.log("ERROR:", error); // print error;
-  //   });
 
   // READ / alter
 

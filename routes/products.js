@@ -62,6 +62,7 @@ router.route('/')
   .post(function (req, res) {
     Products.add(req.body)
     .then(function(data) {
+      console.log(data);
       res.redirect('/products/');
     })
     .catch(function(err) {
