@@ -1,33 +1,48 @@
 var Articles = require('./../db/articles.js');
+var path     = require('path');
 var express  = require('express');
 var router   = express.Router();
 var fs       = require('fs');
+var prettyjson = require( 'prettyjson' );
 //NOTE WE MUST USE FS TO WRITE TO A FILE
 //FS.APPENDFILE
 
 //MIDDLEWARE
 router.use(function(req, res, next) {
-  var date       = new Date();
-  var reqMethod  = req.originalMethod;
-  var reqUrl     = req.originalUrl;
-  var reqHeaders = req.headers;
+  var articleDateLog = new Date();
+  var day      = articleDateLog.getDate();
+  var month    = articleDateLog.getMonth() + 1;
+  var year     = articleDateLog.getFullYear() + ".log";
+  var fullDate = month + '.' + day + '.' + year;
+  var zeHeader = req.headers;
+
+
+  var prettyZeHeader = Object.keys(zeHeader).reduce(function ( string, c ){
+    var prettyMeAlready = zeHeader[c];
+    return string + c + " : " + zeHeader[c] + "\n";
+  }, "");
 
   var logData = {
-    METHOD : reqMethod,
-    URL : reqUrl,
-    TIMESTAMP : date,
-    HEADERS : reqHeaders
+    METHOD : req.originalMethod,
+    URL : req.originalUrl,
+    TIMESTAMP : new Date(),
+    HEADERS : prettyZeHeader
   };
 
-  var fileName = new Date() + ".log";
+  // this will take object and make it human readable
+  var prettyLogData = Object.keys(logData).reduce(function ( string, c ){
+    var prettyMeAlready = logData[c];
+    return string + c + " : " + prettyjson.render(logData[c]) + "\n";
+  }, "");
 
-  return fs.appendFile( path.join(process.cwd(), 'logs', fileName), JSON.stringify(logData), function (err) {
+  //if file not created
+  fs.appendFile( path.join(process.cwd(), 'logs', fullDate), prettyLogData, "utf8", function (err) {
     if (err) {
       return new Error( 'Can\'t write file!' );
     }
     next();
-  });
-});
+    });
+  }); // end of fs.access ('../lo
 
 
 // end middleware
