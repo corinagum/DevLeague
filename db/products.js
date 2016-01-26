@@ -1,7 +1,6 @@
 module.exports  = (function(){
   var db = require('../db-connect.js');
 
-var productList = [];
   function _all () {
     return new Promise(function(data, reject){
       db.query("select * from products_table", true)
@@ -10,27 +9,29 @@ var productList = [];
     });
   }
 
-  // function _getById (id) {
-  //   for(var i = 0; i < productList.length; i++) {
-  //     if(productList[i].id === parseInt(id)){
-  //       return productList[i];
-  //     }
-  //   }
-  // }
+  function _getById (id) {
+    return new Promise(function(data, reject) {
+        db.query("select * from products_table where id=$1", id)
+        .then(data)
+        .catch(function (reject) {
+            // error;
+        });
+    });
+  }
 
-  // function _add (req, callback) {
+  function _add (req, callback) {
 
-  //   var inventory = req.inventory;
-  //   var name = req.name;
-  //   var price = req.price;
-  //   var id = productList.length + 1;
+    var inventory = req.inventory;
+    var name = req.name;
+    var price = req.price;
+    var id = productList.length + 1;
 
-  //   for( var i = 0; i < productList.length; i++ ) {
-  //     if( productList[i].name === name ) {
-  //       var err = new Error("Could not create new product");
-  //       return callback(err);
-  //     }
-  //   }
+    for( var i = 0; i < productList.length; i++ ) {
+      if( productList[i].name === name ) {
+        var err = new Error("Could not create new product");
+        return callback(err);
+      }
+    }
 
   //   var pObj = {
   //     'inventory' : inventory,
@@ -112,9 +113,9 @@ var productList = [];
 
 
   return {
-    all: _all
-    // add: _add,
-    // getById: _getById
+    all: _all,
+    add: _add,
+    getById: _getById
     // editById: _editById,
     // deleteById: _deleteById
   };
