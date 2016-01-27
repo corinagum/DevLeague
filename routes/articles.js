@@ -84,8 +84,14 @@ router.route('/:title/edit')
 
 router.route('/:title')
   .get(function(req, res) {
-    res.render('articles/single', {
-      articles: Articles.getByTitle( req.params.title)
+    Articles.getByTitle(req.params.title)
+    .then(function(data) {
+      res.render('articles/single', {
+        article:data[0]
+      });
+    })
+    .catch(function(err) {
+      res.send(err);
     });
   })
 

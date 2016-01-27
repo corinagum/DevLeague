@@ -3,7 +3,9 @@ module.exports = (function(){
 
   function _all () {
     return new Promise(function(resolve, reject) {
-      db.query("select articles_table.*, authors_table.author from articles_table inner join authors_table on articles_table.fk_author_id = authors_table.id", true)
+      db.query("select articles_table.*, authors_table.author " +
+        "from articles_table inner join authors_table " +
+        "on articles_table.fk_author_id = authors_table.id", true)
         .then(function(data){
           return resolve(data);
         })
@@ -13,17 +15,17 @@ module.exports = (function(){
 
   function _getByTitle (title) {
     return new Promise(function(resolve, reject) {
-      db.query('select * from articles_table where title=$1', title)
-      .then(data)
+      db.query('select articles_table.*, authors_table.author ' +
+        'from articles_table inner join authors_table ' +
+        'on articles_table.fk_author_id = authors_table.id ' +
+        'where articles_table.title = $1', title)
+      .then(function(data) {
+        return resolve(data);
+      })
       .catch(function (reject) {
         console.log(reject);
       });
     });
-    // for(var i = 0; i < articleList.length; i++) {
-    //   if(articleList[i].title === title){
-    //     return articleList[i];
-    //   }
-    // }
   }
 
   function _add (req) {
