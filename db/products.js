@@ -14,7 +14,7 @@ module.exports  = (function(){
         db.query("select * from products_table where id=$1", id)
         .then(data)
         .catch(function (reject) {
-            // error;
+            console.log(reject);
         });
     });
   }
@@ -39,27 +39,27 @@ module.exports  = (function(){
       db.query("update products_table set inventory=$2, product_name=$3, price=$4 WHERE id = $1 returning id, inventory, product_name, price",[id, productOptions.inventory, productOptions.product_name, productOptions.price])
           .then(resolve)
           .catch(function (reject) {
-              console.log(reject);
+              //error
           });
       });
   }
 
-  // function _deleteById (id, callback) {
-  //   for ( var i = 0; i < productList.length; i++) {
-  //     if( productList[i].id === parseInt(id) ) {
-  //       productList.splice(i,1);
-  //       return callback(null);
-  //     } else {
-  //       callback(new Error("Can't find ID"));
-  //     }
-  //   }
-  // }
+  function _deleteById (id) {
+    return new Promise(function(resolve, reject) {
+      db.none("delete from products_table where id=$1", id)
+        .then(resolve)
+        .catch(function(reject) {
+          //error
+        });
+    });
+
+  }
 
   return {
     all: _all,
     add: _add,
     getById: _getById,
-    editById: _editById
-    // deleteById: _deleteById
+    editById: _editById,
+    deleteById: _deleteById
   };
 }());

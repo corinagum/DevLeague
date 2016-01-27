@@ -98,7 +98,7 @@ router.route('/:id')
     Products.getById(req.params.id)
     .then(function(data){
       res.render('products/single', {
-        item: data
+        data: data
       });
     })
     .catch(function(err) {
@@ -112,7 +112,7 @@ router.route('/:id')
         console.log(data);
         // res.get('/products/');
         res.render('products/single', {
-          item: data
+          data: data
         });
       })
       .catch(function(err) {
@@ -121,14 +121,16 @@ router.route('/:id')
   })
 
   .delete(function (req, res) {
-    Products.deleteById( req.params.id, function(err) {
-      if(err) return res.send({success: false, message: err.message});
-
-      return res.redirect('/products/');
-
+    Products.deleteById( req.params.id )
+      .then(function(data) {
+         res.render('products/index', {
+          products: data
+        })
+      .catch(function(err) {
+        res.send(err);
+      });
     });
-  })
-  ;
+  });
 
 
 module.exports = router;
