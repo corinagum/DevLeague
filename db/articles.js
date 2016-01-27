@@ -29,30 +29,19 @@ module.exports = (function(){
   }
 
   function _add (req) {
-
     var title = req.title;
     var author = req.author;
     var urlTitle = title.replace(/ /g, "%20");
 
-    // return new Promise(function(resolve, reject) {
-    //   db.one('insert into articles_table(id, title')
-    //     values(default,)
-    // })
-    for( var i = 0; i < articleList.length; i++ ) {
-      if( articleList[i].title === title ) {
-        var err = new Error("Could not create new article");
-        return callback(err);
-      }
-    }
+    return new Promise(function(resolve, reject) {
 
-    var aObj = {
-      'title' : title,
-      'author' : author,
-      'urlTitle' : urlTitle
-    };
-
-    articleList.push(aObj);
-    return callback(null);
+      db.query('insert into articles_table(id, title, urlTitle) '+
+        'values(default, $1, $2) returning id, title, urlTitle', [title, urlTitle])
+        .then(data)
+        .catch(function(reject) {
+          console.log(reject);
+        });
+    });
   }
 
   function _editByTitle (title, articleOptions, callback) {

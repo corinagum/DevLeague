@@ -81,15 +81,25 @@ router.route('/new')
 //to input different values of the same id
 router.route('/:id/edit')
   .get(function(req, res) {
-    Products.editById(req.params.id)
+    Products.getById(req.params.id)
     .then(function(data) {
+      console.log(data);
       res.render('products/edit', {
-        item: data
+        product:data[0]
       });
     })
     .catch(function(err) {
       res.send(err);
     });
+    // Products.editById(req.params.id)
+    // .then(function(data) {
+      // res.render('products/edit', {
+      //   item: data
+      // });
+    // })
+    // .catch(function(err) {
+    //   res.send(err);
+    // });
   });
 
 
@@ -110,13 +120,14 @@ router.route('/:id')
   .put(function (req, res) {
     Products.editById( req.params.id, req.body )
       .then(function(data) {
-        console.log(data);
+        console.log(data, 'hi');
         // res.get('/products/');
         res.render('products/single', {
           product: data
         });
       })
       .catch(function(err) {
+      console.log('sumting wrong');
         res.send(err);
       });
   })

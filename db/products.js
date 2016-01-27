@@ -37,7 +37,7 @@ module.exports  = (function(){
 
   function _editById (id, productOptions) {
     return new Promise(function(resolve, reject) {
-      db.query("update products_table set inventory=$2, product_name=$3, price=$4 WHERE id = $1 returning id, inventory, product_name, price",[id, productOptions.inventory, productOptions.product_name, productOptions.price])
+      db.query("update products_table set inventory=$2, product_name=$3, price=$4 WHERE id = $1 ",[id, productOptions.inventory, productOptions.product_name, productOptions.price])
           .then(resolve)
           .catch(function (reject) {
               //error
