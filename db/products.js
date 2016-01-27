@@ -45,20 +45,15 @@ module.exports  = (function(){
       });
   }
 
-  // function _deleteById (id) {
-  //   return new Promise(function(resolve, reject) {
-  //     db.query("delete from products_table where id=$1 returning id", id)
-  //       .then(resolve)
-  //       .catch(function(reject) {
-  //         //error
-  //       });
-  //   });
-
-  // }
-  //
-  //
   function _deleteById (id) {
-    return db.none('DELETE FROM products_table WHERE id = $1', id);
+    return new Promise(function(resolve, reject) {
+      db.none("delete from products_table where id=$1", id)
+        .then(resolve)
+        .catch(function(reject) {
+          //error
+        });
+    });
+
   }
 
   return {

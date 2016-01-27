@@ -1,10 +1,6 @@
 module.exports = (function(){
   var db       = require('../db-connect.js');
 
-  // function _all () {
-  //   return articleList;
-  // }
-
   function _all () {
     return new Promise(function(resolve, reject) {
       db.query("select articles_table.*, authors_table.author from articles_table inner join authors_table on articles_table.fk_author_id = authors_table.id", true)
@@ -16,11 +12,18 @@ module.exports = (function(){
   }
 
   function _getByTitle (title) {
-    for(var i = 0; i < articleList.length; i++) {
-      if(articleList[i].title === title){
-        return articleList[i];
-      }
-    }
+    return new Promise(function(resolve, reject) {
+      db.query('select * from articles_table where title=$1', title)
+      .then(data)
+      .catch(function (reject) {
+        console.log(reject);
+      });
+    });
+    // for(var i = 0; i < articleList.length; i++) {
+    //   if(articleList[i].title === title){
+    //     return articleList[i];
+    //   }
+    // }
   }
 
   function _add (req) {

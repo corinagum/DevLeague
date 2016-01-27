@@ -121,19 +121,6 @@ router.route('/:id')
       });
   })
 
-  // .delete(function (req, res) {
-  //   Products.deleteById( req.params.id )
-  //     .then(function(data) {
-  //       console.log(data);
-  //        res.redirect(301, '/products/', {
-  //         products: data
-  //       })
-  //     .catch(function(err) {
-  //       res.send(err);
-  //     });
-  //   });
-  // });
-
 .delete(function(req,res) {
   Products.deleteById( req.params.id )
   .then(function(){
@@ -146,13 +133,3 @@ router.route('/:id')
 
 module.exports = router;
 
-
-
-// router.route('/')
-//   .get(function(req, res) {
-//     Products.all()
-//     .then(function(data){
-//       res.render('products/index', {
-//       products: data
-//     });
-//    })
