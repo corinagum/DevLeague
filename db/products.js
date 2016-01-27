@@ -2,9 +2,11 @@ module.exports  = (function(){
   var db = require('../db-connect.js');
 
   function _all () {
-    return new Promise(function(data, reject){
+    return new Promise(function(resolve, reject){
       db.query("select * from products_table", true)
-        .then(data)
+        .then(function(data){
+          return resolve(data);
+        })
         .catch(reject);
     });
   }
@@ -34,7 +36,6 @@ module.exports  = (function(){
   }
 
   function _editById (id, productOptions) {
-    var updateP = null;
     return new Promise(function(resolve, reject) {
       db.query("update products_table set inventory=$2, product_name=$3, price=$4 WHERE id = $1 returning id, inventory, product_name, price",[id, productOptions.inventory, productOptions.product_name, productOptions.price])
           .then(resolve)
@@ -44,15 +45,20 @@ module.exports  = (function(){
       });
   }
 
-  function _deleteById (id) {
-    return new Promise(function(resolve, reject) {
-      db.none("delete from products_table where id=$1", id)
-        .then(resolve)
-        .catch(function(reject) {
-          //error
-        });
-    });
+  // function _deleteById (id) {
+  //   return new Promise(function(resolve, reject) {
+  //     db.query("delete from products_table where id=$1 returning id", id)
+  //       .then(resolve)
+  //       .catch(function(reject) {
+  //         //error
+  //       });
+  //   });
 
+  // }
+  //
+  //
+  function _deleteById (id) {
+    return db.none('DELETE FROM products_table WHERE id = $1', id);
   }
 
   return {

@@ -97,8 +97,9 @@ router.route('/:id')
   .get(function(req, res) {
     Products.getById(req.params.id)
     .then(function(data){
+        console.log(data);
       res.render('products/single', {
-        data: data
+        product: data
       });
     })
     .catch(function(err) {
@@ -112,7 +113,7 @@ router.route('/:id')
         console.log(data);
         // res.get('/products/');
         res.render('products/single', {
-          data: data
+          product: data
         });
       })
       .catch(function(err) {
@@ -120,17 +121,38 @@ router.route('/:id')
       });
   })
 
-  .delete(function (req, res) {
-    Products.deleteById( req.params.id )
-      .then(function(data) {
-         res.render('products/index', {
-          products: data
-        })
-      .catch(function(err) {
-        res.send(err);
-      });
-    });
-  });
+  // .delete(function (req, res) {
+  //   Products.deleteById( req.params.id )
+  //     .then(function(data) {
+  //       console.log(data);
+  //        res.redirect(301, '/products/', {
+  //         products: data
+  //       })
+  //     .catch(function(err) {
+  //       res.send(err);
+  //     });
+  //   });
+  // });
 
+.delete(function(req,res) {
+  Products.deleteById( req.params.id )
+  .then(function(){
+    return res.redirect('/products');
+  })
+  .catch(function(err) {
+    res.send(err);
+  });
+});
 
 module.exports = router;
+
+
+
+// router.route('/')
+//   .get(function(req, res) {
+//     Products.all()
+//     .then(function(data){
+//       res.render('products/index', {
+//       products: data
+//     });
+//    })
