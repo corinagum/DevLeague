@@ -1,10 +1,18 @@
 module.exports = (function(){
-  var dbConnect     = require('../db-connect.js');
-  var articleList = [];
+  var db       = require('../db-connect.js');
 
+  // function _all () {
+  //   return articleList;
+  // }
 
   function _all () {
-    return articleList;
+    return new Promise(function(resolve, reject) {
+      db.query("select articles_table.*, authors_table.author from articles_table inner join authors_table on articles_table.fk_author_id = authors_table.id", true)
+        .then(function(data){
+          return resolve(data);
+        })
+        .catch(reject);
+    });
   }
 
   function _getByTitle (title) {
@@ -14,12 +22,17 @@ module.exports = (function(){
       }
     }
   }
-  function _add (req, callback) {
+
+  function _add (req) {
 
     var title = req.title;
     var author = req.author;
     var urlTitle = title.replace(/ /g, "%20");
 
+    // return new Promise(function(resolve, reject) {
+    //   db.one('insert into articles_table(id, title')
+    //     values(default,)
+    // })
     for( var i = 0; i < articleList.length; i++ ) {
       if( articleList[i].title === title ) {
         var err = new Error("Could not create new article");

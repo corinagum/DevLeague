@@ -21,7 +21,7 @@ module.exports  = (function(){
     });
   }
 
-  function _add (req, callback) { //aka insert
+  function _add (req) { //aka insert
     var inventory = req.inventory;
     var name = req.name;
     var price = req.price;

@@ -9240,3 +9240,367 @@ HEADERS : """
   if-none-match : W/"238-79+uQfxpZn5TvcZWGTM8fw"
   
 """
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 17:37:59 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:38:29 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 3b088f99-99fb-f35b-9d76-2fa74f147fb4
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:40:21 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 985b989e-f1ce-6480-7186-873a162753f6
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:41:45 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 7cae286c-08b5-46e5-16cb-60bbb89fe8ee
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:42:23 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 1098f6f0-bfb0-c18f-7a2e-49049955349c
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:47:21 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 74db43a0-eee6-9d6e-fafd-3205213343ad
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:48:38 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : ef48ae30-3a74-05c4-224d-ccac035771b1
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 17:50:36 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"ad-wYbMQ8C+/5ePRR8Uhtgu0w"
+  
+"""
+METHOD : POST
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:54:06 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 0
+  cache-control : no-cache
+  origin : chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 3737f90a-cd7c-77cb-33c2-6a51e30badf9
+  accept : */*
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : POST
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:54:09 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 0
+  cache-control : no-cache
+  origin : chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 615aa82c-65b0-ffe4-67f1-d5f4c370d4fc
+  accept : */*
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 17:55:00 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : 526feea0-5f6d-107c-1789-97673ebb4001
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 17:59:55 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"25a-1bAw4SePiN7rIAMyjlPpFQ"
+  
+"""
+METHOD : GET
+URL : /articles/Harry%20Potter/edit?_method=PUT
+TIMESTAMP : Tue Jan 26 2016 17:59:59 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 18:00:02 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"25a-1bAw4SePiN7rIAMyjlPpFQ"
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 18:03:23 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"25a-1bAw4SePiN7rIAMyjlPpFQ"
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Tue Jan 26 2016 18:03:36 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : no-cache
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  postman-token : c1500700-372f-921f-5280-9b33b89c25ba
+  accept : */*
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/Harry%20Potter
+TIMESTAMP : Tue Jan 26 2016 18:04:32 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 18:05:21 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"25a-1bAw4SePiN7rIAMyjlPpFQ"
+  
+"""
+METHOD : GET
+URL : /articles/Harry%20Potter
+TIMESTAMP : Tue Jan 26 2016 18:05:23 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 18:05:47 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"268-x8Va3pLXiTHECPf1etVTXw"
+  
+"""
+METHOD : GET
+URL : /articles/Harry%20Potter
+TIMESTAMP : Tue Jan 26 2016 18:05:49 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/Harry%20Potter
+TIMESTAMP : Tue Jan 26 2016 18:06:05 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 18:06:34 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"26e-YBXm8gk0ngUed+QFcgK6hA"
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 18:09:39 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"26e-YBXm8gk0ngUed+QFcgK6hA"
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Tue Jan 26 2016 18:10:07 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"440-Lr752rfYM8xItj4+l2M8FQ"
+  
+"""
