@@ -35,14 +35,13 @@ module.exports  = (function(){
 
   function _editById (id, productOptions) {
     var updateP = null;
-    return new Promise(function(data, reject) {
-      db.tx(function (t) {
-        return t.batch([
-          t.one("insert into products_table(product_name) values($1 $2, $3) returning id", "dog")
-          ]);
-      // console.log(t);
+    return new Promise(function(resolve, reject) {
+      db.query("update products_table set inventory=$2, product_name=$3, price=$4 WHERE id = $1 returning id, inventory, product_name, price",[id, productOptions.inventory, productOptions.product_name, productOptions.price])
+          .then(resolve)
+          .catch(function (reject) {
+              console.log(reject);
+          });
       });
-    });
   }
 
   // function _deleteById (id, callback) {
@@ -55,35 +54,6 @@ module.exports  = (function(){
   //     }
   //   }
   // }
-
-
-  // UPDATE / transaction
-  // db.tx(function (t) {
-  //         // this = t = transaction protocol context;
-  //         // this.ctx = transaction config + state context;
-  //         return t.batch([
-  //           t.one("insert into products_table(product_name) values($1) returning id", "John")
-  //         ]);
-  //     })
-  //     // using .spread(function(user, event)) is best here, if supported;
-  //     .then(function (data) {
-  //         console.log(data[0].id); // print new user id;
-  //         // console.log(data[1].id); // print new event id;
-  //     })
-  //     .catch(function (error) {
-  //         // error;
-  //     });
-
-
-  // db.one("update products_table set inventory = 78 where id = $1 returning id", 2)
-  //     .then(function (data) {
-  //         console.log(data.id); // print new user id;
-  //     })
-  //     .catch(function (error) {
-  //         console.log("ERROR:", error); // print error;
-  //     });
-
-
 
   return {
     all: _all,

@@ -107,10 +107,13 @@ router.route('/:id')
   })
 
   .put(function (req, res) {
-    Products.editById( req.params.id, req.body)
+    Products.editById( req.params.id, req.body )
       .then(function(data) {
-        console.log(data, 'yo');
-        res.redirect('/products/' + req.params.id);
+        console.log(data);
+        // res.get('/products/');
+        res.render('products/single', {
+          item: data
+        });
       })
       .catch(function(err) {
         res.send(err);
