@@ -4,8 +4,13 @@ var db = require('./../models');
 
 router.route('/')
   .get(function(req, res) {
+    Gallery.all()
+    .then(function(data) {
 
+    })
   })
-  // .post
+  .post(function(req, res) {
+
+  });
 
 module.exports = router;

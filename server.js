@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use('/users', user);
+app.use('/post', postRoute);
 app.use('/gallery', gallery);
 
 app.listen(3000, function() {
