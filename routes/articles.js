@@ -59,7 +59,7 @@ router.route('/')
       res.send(err);
     });
   })
-
+  // add a new article (INSERT aka add)
   .post(function (req, res) {
     Articles.add(req.body)
       .then(function(data) {
