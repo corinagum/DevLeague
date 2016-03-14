@@ -2,44 +2,48 @@ function loadBoard (data) {
     var dataChild = data.data.children;
     $(".block").html("");
   for ( var i = 0; i < dataChild.length; i ++ ) {
-     var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
-     var thumbnail = dataChild[i].data.url;
-     var title = dataChild[i].data.title;
-     var author = dataChild[i].data.author;
-     var age = moment(dataChild[i].data.created, "X").fromNow();
-     var views = dataChild[i].data.score;
+     var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+       var thumbnail = dataChild[i].data.url;
+      var title = dataChild[i].data.title;
+      var author = dataChild[i].data.author;
+      var age = moment(dataChild[i].data.created, "X").fromNow();
+      var views = dataChild[i].data.score;
 
-     var reddit = "http://reddit.com";
-     var link = document.createElement("a");
+      var reddit = "http://reddit.com";
+      var link = document.createElement("a");
         $(link).addClass("permalink");
         link.setAttribute('href', reddit + dataChild[i].data.permalink);
         $(".block").append(link);
 
-     var newDiv = document.createElement('div');
+      var newDiv = document.createElement('div');
         $(newDiv).addClass('post');
         $(".permalink:last").append(newDiv);
 
 
-     var image = document.createElement("div");
-        $(image).css('background-image', 'url(' + thumbnail + ')');
-        image.className = "post-image";
+      var imageHolder = document.createElement("div");
+        imageHolder.className = "post-image";
 
-     var postTitle = document.createElement("h1");
+      var image = document.createElement("img");
+        $(image).attr('src', thumbnail);
+
+
+      var postTitle = document.createElement("h1");
         postTitle.className = "post-title";
         postTitle.innerHTML = title;
 
-     var postSub = document.createElement("h2");
+      var postSub = document.createElement("h2");
         postSub.className = "post-sub";
         postSub.innerHTML = author + " &#8226 " + age + " &#8226 " + views.toLocaleString() + " views";
 
-     var postSnippet = document.createElement("p");
+      var postSnippet = document.createElement("p");
         postSnippet.className = "post-snippet";
         postSnippet.innerHTML = lorem;
 
-    $(newDiv).append(image);
+    $(newDiv).append(imageHolder);
     $(newDiv).append(postTitle);
     $(newDiv).append(postSub);
     $(newDiv).append(postSnippet);
+    $(imageHolder).append(image);
   }
   // console.log(dataChild);
 }
@@ -61,12 +65,12 @@ window.onload = function() {
       });
     }
      else if(link === "myboards") {
-      $.getJSON("./api/my_boards.json", function(data) { //JSON equivalent of linking
+      $.getJSON("https://www.reddit.com/r/dogpictures.json", function(data) { //JSON equivalent of linking
         loadBoard(data);
       });
     }
      else if(link === "getapp") {
-      $.getJSON("./api/get_the_app.json", function(data) { //JSON equivalent of linking
+      $.getJSON("https://www.reddit.com/r/AnimalsBeingDerps.json", function(data) { //JSON equivalent of linking
         loadBoard(data);
       });
     }
