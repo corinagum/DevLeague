@@ -3,7 +3,7 @@ function loadBoard (data) {
     $(".block").html("");
   for ( var i = 0; i < dataChild.length; i ++ ) {
      var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.";
-     var thumbnail = dataChild[i].data.thumbnail;
+     var thumbnail = dataChild[i].data.url;
      var title = dataChild[i].data.title;
      var author = dataChild[i].data.author;
      var age = moment(dataChild[i].data.created, "X").fromNow();
