@@ -3,13 +3,12 @@ function loadBoard (data) {
     $(".block").html("");
   for ( var i = 0; i < dataChild.length; i ++ ) {
      var lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-       var thumbnail = dataChild[i].data.url;
+      var thumbnail = dataChild[i].data.url;
       var title = dataChild[i].data.title;
       var author = dataChild[i].data.author;
       var age = moment(dataChild[i].data.created, "X").fromNow();
       var views = dataChild[i].data.score;
 
-      var reddit = "http://reddit.com";
       var link = document.createElement("a");
         $(link).addClass("permalink");
         link.setAttribute('href', reddit + dataChild[i].data.permalink);
@@ -59,18 +58,13 @@ window.onload = function() {
 
   $('.buttons').click(function() {
     var link = $(this).data("link");
-    if(link === "random") {
-      $.getJSON("https://www.reddit.com/r/aww.json", function(data) { //JSON equivalent of linking
+    if(link === "hawaii") {
+      $.getJSON("https://www.reddit.com/r/ImagesOfHawaii/.json", function(data) { //JSON equivalent of linking
         loadBoard(data);
       });
     }
-     else if(link === "myboards") {
+     else if(link === "dogpictures") {
       $.getJSON("https://www.reddit.com/r/dogpictures.json", function(data) { //JSON equivalent of linking
-        loadBoard(data);
-      });
-    }
-     else if(link === "getapp") {
-      $.getJSON("https://www.reddit.com/r/AnimalsBeingDerps.json", function(data) { //JSON equivalent of linking
         loadBoard(data);
       });
     }

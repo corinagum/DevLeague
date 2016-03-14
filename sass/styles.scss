@@ -172,41 +172,57 @@ body {
   .post {
     max-width: 100%;
     background-color: #FFFFFF;
-    // margin:auto;
     margin-top: 5%;
-    padding: 5%;
-    // height: 480px;
+    padding: 4vh;
     flex: 0 0 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     border: 4px solid #FFFFFF;
+    justify-content:space-around;
 
     @media #{$medium}{
-      height: 450px;
+      padding: 3vh;
+      height: 475px;
       margin:auto;
       margin-left: 5px;
       margin-bottom: 20px;
     }
     @media #{$large}{
-      max-width: 450px;
+      height: auto;
+      padding: 3vh;
+      padding-top: 3em;
     }
 
     .post-image {
-      width: $mobile-width;
-      height: 220px;
       flex: 0 0 auto;
       margin: auto;
       margin-bottom: 10px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-
+      position: relative;
+      width: 71vw;
+      height: 71vw;
+      overflow: hidden;
       @media #{$medium}{
-        // width: 275px;
-        // height: 170px;
-        height: 250px;
+        position: relative;
+        width: 35vw;
+        height: 35vw;
         margin-bottom: 15px;
+      }
+      @media #{$large}{
+        position: relative;
+        width: 35vw;
+        height: 35vw;
+        margin-bottom: 15px;
+      }
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
       }
     }
 
@@ -314,4 +330,3 @@ body {
 }
 
 }
-
