@@ -102,8 +102,12 @@ body {
   a {
     color: #7d7e81;
     text-decoration: none;
-
   }
+  a:hover {
+    color:#ea4220;
+  }
+
+
   .buttons {
     text-transform: uppercase;
     line-height: 40px;
@@ -125,7 +129,6 @@ body {
       text-align: center;
     }
   }
-
   .buttons:hover {
     color:#ea4220;
   }
@@ -200,7 +203,7 @@ body {
       height: 52vw;
       padding: 3vh;
       padding-top: 2em;
-      padding-bottom: 2em;
+      padding-bottom: 3em;
       max-height: 630px;
       max-width: 545px;
     }
