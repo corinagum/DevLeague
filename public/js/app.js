@@ -9,6 +9,7 @@ function loadBoard (data) {
       var age = moment(dataChild[i].data.created, "X").fromNow();
       var views = dataChild[i].data.score;
 
+      var reddit = "http://reddit.com";
       var link = document.createElement("a");
         $(link).addClass("permalink");
         link.setAttribute('href', reddit + dataChild[i].data.permalink);
@@ -44,11 +45,10 @@ function loadBoard (data) {
     $(newDiv).append(postSnippet);
     $(imageHolder).append(image);
   }
-  // console.log(dataChild);
 }
 
 window.onload = function() {
-  $.getJSON("./api/get_the_app.json", function(data) { //JSON equivalent of linking
+  $.getJSON("https://www.reddit.com/r/dogpictures/.json", function(data) { //JSON equivalent of linking
  //  the code - works just the same as adding src code for javascript
  //  or css
  // two parameters: 1) load the code, 2) then do something with it
@@ -70,4 +70,3 @@ window.onload = function() {
     }
   });
 };
-

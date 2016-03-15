@@ -19,6 +19,7 @@
 
 // VARIABLES & MIXINS
 $mobile-width: 95%;
+$mobile-width-less5: 93%;
 // Mixins
 
 // MEDIA QUERY RANGES
@@ -155,7 +156,11 @@ body {
     margin-bottom: 60px;
     justify-content: space-around;
   }
-
+  @media #{$large}{
+    margin-top: 40px;
+    margin-bottom: 60px;
+    justify-content: space-around;
+  }
   a {
     text-decoration:none;
     margin:0;
@@ -183,7 +188,6 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     border: 4px solid #FFFFFF;
-    justify-content:space-around;
 
     @media #{$medium}{
       padding: 3vh;
@@ -193,9 +197,12 @@ body {
       margin-bottom: 20px;
     }
     @media #{$large}{
-      height: auto;
+      height: 52vw;
       padding: 3vh;
-      padding-top: 3em;
+      padding-top: 2em;
+      padding-bottom: 2em;
+      max-height: 630px;
+      max-width: 545px;
     }
 
     .post-image {
@@ -215,6 +222,8 @@ body {
       @media #{$large}{
         position: relative;
         width: 35vw;
+        max-width: 440px;
+        max-height: 440px;
         height: 35vw;
         margin-bottom: 15px;
       }
@@ -231,8 +240,7 @@ body {
     }
 
     .post-title {
-    width: $mobile-width;
-    // height: auto;
+    width: $mobile-width-less5;
     max-height:2.6em;
     flex: 0 0 7%;
     font-family: 'Oswald', sans-serif;
@@ -242,17 +250,21 @@ body {
     margin:auto;
     font-weight: normal;
     overflow: hidden;
-
+    padding-left: 1vh;
     @media #{$medium}{
-      font-size: 20px;
+      font-size: 24px;
+    line-height: 1.3em;
+    }
+    @media #{$large}{
+      font-size: 24px;
+      line-height: 1.5em;
     }
   }
 
   .post-sub {
-    width: $mobile-width;
+    width: $mobile-width-less5;
     flex: 0 0 auto;
     padding: 10px 0px;
-    // padding-bottom: 10px;
     font-family: 'Lato', sans-serif;
     font-size: 15px;
     margin: auto;
@@ -265,7 +277,7 @@ body {
   }
 
   .post-snippet {
-    width: $mobile-width;
+    width: $mobile-width-less5;
     flex: 0 0 auto;
     padding:none;
     font-family: 'Lato', sans-serif;
