@@ -1,17 +1,20 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var connect = require('gulp-connect');
+var livereload = require('gulp-livereload');
 
 var PathTo = {
   SassFiles: './sass/**/*.scss',
   PublicFolder: './public',
   PublicCss: './public/styles',
-  PublicCssFiles: './public/styles/*.css'
+  PublicCssFiles: './public/styles/*.css',
 };
 
 gulp.task('watch-files', function (){
   gulp.watch(PathTo.SassFiles, ['compile-sass']);
   gulp.watch(PathTo.PublicCssFiles, ['html']);
+  livereload.listen();
+  gulp.watch(['public/**']).on('change', livereload.changed);
 });
 
 gulp.task('compile-sass', function (){
