@@ -98,7 +98,11 @@ body {
   @media #{$large}{
     box-shadow: 2px 2px 5px #222222;
   }
+  a {
+    color: #7d7e81;
+    text-decoration: none;
 
+  }
   .buttons {
     text-transform: uppercase;
     line-height: 40px;
