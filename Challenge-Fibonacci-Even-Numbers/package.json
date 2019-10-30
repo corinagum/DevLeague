@@ -1,5 +1,5 @@
 {
-  "name": "Challenge-Even-Fibonacci-Numbers",
+  "name": "challenge-even-fibonacci-numbers",
   "version": "0.0.2",
   "description": "Euler #002 with tests",
   "main": "even_fib_nums.js",
