@@ -1,0 +1,64 @@
+// PROCESS
+// 0. CSS reset
+// 1. Set basic variables & media query ranges
+// 2. Style large blocks with bg colors for layout
+// 3. Get general layout elements (block) sized for all media queries
+// 4. Modify general layout elements with &
+// 5. Secondary features grid (S --> L)
+// 6. Typography & Image Sizes
+// 7. Refactor the SCSS to make it dryer & simpler.
+// 8. Set variables for common values.
+
+// 0. RESETS & FRAMEWORKS
+@import "partials/reset";
+
+* {
+  box-sizing: border-box;
+}
+
+// VARIABLES & MIXINS
+$control-width: 200px;
+$control-height: 50px;
+// Mixins
+
+// MEDIA QUERY RANGES
+$medium: "only screen and (min-width: 630px)";
+$large: "only screen and (min-width:900px)";
+
+// GENERAL STYLES
+// @media #{$medium}{}
+
+.holder {
+  display: flex;
+  flex-flow: column nowrap;
+  width: ($control-width+20px);
+  height: ($control-height+20px);
+  margin: auto;
+  justify-content: space-around;
+}
+.button {
+  margin: auto;
+  width: $control-width;
+  height: $control-height;
+  background-color: #043049;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  transition: all 0.25s linear;
+  color: #F2DCC2;
+  font-family: 'Verdana', sans-serif;
+  line-height: $control-height;
+  text-align: center;
+  font-weight: bold;
+}
+
+.button:hover {
+  width: ($control-width + 5px);
+  height: ($control-height + 5px);
+  line-height: ($control-height+5px);
+  background-color: #D91438;
+  transition: all 0.25s linear;
+}
+
+.button:active {
+  background-color: #A60A17;
+}
