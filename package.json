@@ -1,0 +1,59 @@
+{
+  "name": "warriorjs",
+  "version": "1.2.2",
+  "bin": "./bin/warriorjs",
+  "description": "Game written in JavaScript for learning JavaScript and artificial intelligence",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel src --out-dir lib",
+    "prepublish": "npm run compile",
+    "test": "mocha --compilers js:babel/register --ui bdd --reporter spec --recursive",
+    "test-travis": "echo \"No ES5 tests yet\" && exit 0",
+    "lint": "eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olistic/warriorjs.git"
+  },
+  "keywords": [
+    "es6",
+    "es7",
+    "es2015",
+    "es2016",
+    "warriorjs",
+    "core",
+    "engine",
+    "play",
+    "game",
+    "fun",
+    "teach",
+    "learn",
+    "ai",
+    "interactive",
+    "cli"
+  ],
+  "author": "Matias Olivera <m@matioli.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olistic/warriorjs/issues"
+  },
+  "homepage": "https://github.com/olistic/warriorjs",
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "babel-eslint": "^4.1.6",
+    "chai": "^3.4.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.0.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "bluebird": "^3.0.5",
+    "chalk": "^1.1.1",
+    "ejs": "^2.3.4",
+    "fs-extra": "^0.26.2",
+    "glob": "^6.0.1",
+    "inquirer": "^0.11.0",
+    "warriorjs-engine": "^0.4.2",
+    "yargs": "^3.31.0"
+  }
+}

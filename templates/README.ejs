@@ -1,0 +1,27 @@
+Level <%- level.number %>
+
+<%- level.description %>
+
+Tip: <%- level.tip %>
+
+
+<%- level.floorMap %>
+
+  > = stairs
+<% Object.keys(level.units).forEach(function (name) { -%>
+  <%= level.units[name] %> = <%= name %>
+<% }); -%>
+
+
+Warrior abilities:
+<% Object.keys(level.warriorAbilities.existent).forEach(function (name) { -%>
+
+  warrior.<%- name %>()
+<% }); -%>
+<% Object.keys(level.warriorAbilities.new).forEach(function (name) { -%>
+
+  warrior.<%- name %>() (NEW!)
+<% }); -%>
+
+
+When you're done editing Player.js, run the warriorjs command again.
