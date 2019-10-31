@@ -1,0 +1,16 @@
+extends ./../layout
+
+block content
+  ul
+    each data in products
+      li Product Name:&nbsp
+        a(href="/products/#{data.id}") #{data.product_name}&nbsp
+        form(method="GET", action="/products/#{data.id}/edit")
+          button(type="submit", value="submit") edit
+        form(name="delete-products", method="POST", action="/products/#{data.id}")
+          input(type="hidden", name="_method", value="DELETE")
+          button(type="submit", value="submit") delete
+
+  a(href="/products/new") New
+
+

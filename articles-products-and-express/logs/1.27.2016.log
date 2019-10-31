@@ -1,0 +1,572 @@
+METHOD : GET
+URL : /products
+TIMESTAMP : Wed Jan 27 2016 09:49:39 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"60d-4duVDWM1VCOhlkCN5ua5DQ"
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 09:49:44 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"5f6-5nc/YpaU+0u9ZicUt29G2A"
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 09:51:11 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  cache-control : max-age=0
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"5f6-5nc/YpaU+0u9ZicUt29G2A"
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 09:52:50 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : POST
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 09:52:56 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 31
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  origin : http://localhost:3000
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  content-type : application/x-www-form-urlencoded
+  referer : http://localhost:3000/articles/new
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Wed Jan 27 2016 09:53:05 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 09:54:14 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : POST
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 09:54:17 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 23
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  origin : http://localhost:3000
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  content-type : application/x-www-form-urlencoded
+  referer : http://localhost:3000/articles/new
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 09:55:31 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Wed Jan 27 2016 09:55:33 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/Harry%20Potter
+TIMESTAMP : Wed Jan 27 2016 09:55:34 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Wed Jan 27 2016 09:55:39 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /products
+TIMESTAMP : Wed Jan 27 2016 09:56:42 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  if-none-match : W/"60d-4duVDWM1VCOhlkCN5ua5DQ"
+  
+"""
+METHOD : GET
+URL : /products
+TIMESTAMP : Wed Jan 27 2016 09:56:44 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /products/new
+TIMESTAMP : Wed Jan 27 2016 09:56:46 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/products
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : POST
+URL : /products/
+TIMESTAMP : Wed Jan 27 2016 09:56:57 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 51
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  origin : http://localhost:3000
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  content-type : application/x-www-form-urlencoded
+  referer : http://localhost:3000/products/new
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /products/
+TIMESTAMP : Wed Jan 27 2016 09:56:57 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/products/new
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles
+TIMESTAMP : Wed Jan 27 2016 09:57:41 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 09:57:45 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : POST
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 09:57:50 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 31
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  origin : http://localhost:3000
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  content-type : application/x-www-form-urlencoded
+  referer : http://localhost:3000/articles/new
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 09:57:54 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/7
+TIMESTAMP : Wed Jan 27 2016 09:59:23 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 09:59:27 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/7
+TIMESTAMP : Wed Jan 27 2016 09:59:45 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:00:07 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 10:00:08 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:00:10 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 10:01:12 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : POST
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:01:28 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 30
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  origin : http://localhost:3000
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  content-type : application/x-www-form-urlencoded
+  referer : http://localhost:3000/articles/new
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 10:01:33 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:01:35 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:01:37 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:02:55 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/new
+TIMESTAMP : Wed Jan 27 2016 10:02:59 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  referer : http://localhost:3000/articles/
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : POST
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:03:02 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  content-length : 30
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  origin : http://localhost:3000
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  content-type : application/x-www-form-urlencoded
+  referer : http://localhost:3000/articles/new
+  accept-encoding : gzip, deflate
+  accept-language : en-US,en;q=0.8
+  
+"""
+METHOD : GET
+URL : /articles/
+TIMESTAMP : Wed Jan 27 2016 10:03:06 GMT-1000 (HST)
+HEADERS : """
+  host : localhost:3000
+  connection : keep-alive
+  pragma : no-cache
+  cache-control : no-cache
+  accept : text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+  upgrade-insecure-requests : 1
+  user-agent : Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36
+  accept-encoding : gzip, deflate, sdch
+  accept-language : en-US,en;q=0.8
+  
+"""

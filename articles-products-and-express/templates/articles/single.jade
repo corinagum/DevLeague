@@ -1,0 +1,9 @@
+extends ./../layout
+
+block content
+  h1 #{article[0].title}
+  p Author: #{article[0].author}
+
+  h2
+    form(type="submit", action="/articles/")
+      button(type="submit", value="submit") Article List
