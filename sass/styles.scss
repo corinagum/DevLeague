@@ -1,0 +1,351 @@
+// PROCESS
+// 0. CSS reset
+// 1. Set basic variables & media query ranges
+// 2. Style large blocks with bg colors for layout
+// 3. Get general layout elements (block) sized for all media queries
+// 4. Modify general layout elements with &
+// 5. Secondary features grid (S --> L)
+// 6. Typography & Image Sizes
+// 7. Refactor the SCSS to make it dryer & simpler.
+// 8. Set variables for common values.
+
+// 0. RESETS & FRAMEWORKS
+@import "partials/reset";
+
+* {
+  box-sizing: border-box;
+  font-style: Oswald;
+}
+
+// VARIABLES & MIXINS
+$mobile-width: 95%;
+$mobile-width-less5: 93%;
+// Mixins
+
+// MEDIA QUERY RANGES
+$medium: "only screen and (min-width: 630px)";
+$large: "only screen and (min-width:900px)";
+
+// GENERAL STYLES
+
+body {
+  background-image: url("../assets/bg.jpg");
+  background-color: #af412b;
+
+}
+.header {
+  font-family: 'Oswald', sans-serif;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #FFFFFF;
+  height: 65px;
+  width: 100%;
+  position: relative;
+  @media #{$medium}{
+    background-image: url("../assets/header_bg.svg");
+    background-size: 400px 40px;
+    background-position: center center;
+  }
+}
+
+.logo {
+  background-image: url("../assets/logo.svg");
+  background-size: 120px 60px;
+  vertical-align: top;
+  background-position: left center;
+  background-repeat: no-repeat;
+  height: 65px;
+  margin-left:5px;
+  @media #{$medium}{
+    background-position: center center;
+  }
+}
+
+.plus {
+  position:absolute;
+  top:15px;
+  right:15px;
+  background-color: #FFFFFF;
+  border: 2px double #f98f35;
+  height: 30px;
+  width: 30px;
+
+  p {
+    font-family: Lato;
+    line-height:22px;
+    text-align: center;
+    font-size: 35px;
+    color: #b30000;
+  }
+}
+
+.plus:hover {
+  background-color: #ea4220;
+  p {
+    color: #FFFFFF;
+  }
+}
+
+.navigation {
+  background-color: #3a3a3c;
+  height: 40px;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: center;
+  @media #{$medium}{
+    height: 45px;
+  }
+
+  @media #{$large}{
+    box-shadow: 2px 2px 5px #222222;
+  }
+  a {
+    color: #7d7e81;
+    text-decoration: none;
+  }
+  a:hover {
+    color:#ea4220;
+  }
+
+
+  .buttons {
+    text-transform: uppercase;
+    line-height: 40px;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    flex: 1 1 33.333%;
+    height: 100%;
+    color: #7d7e81;
+    border-right: 2px groove #7d7e81;
+
+    @media #{$medium}{
+      // background-color: pink;
+      line-height: 45px;
+      border-right: none;
+      flex: 0 1 15%;
+      margin: none;
+      padding: 0px;
+      text-align: center;
+    }
+  }
+  .buttons:hover {
+    color:#ea4220;
+  }
+  .dots {
+    display:none;
+    @media #{$medium}{
+      display: inline-block;
+      line-height: 45px;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 25px;
+      color: #7d7e81;
+    }
+  }
+}
+
+.block {
+  margin: auto;
+  margin-top: 30px;
+  width: $mobile-width;
+  height:100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  @media #{$medium}{
+    margin-top: 40px;
+    margin-bottom: 60px;
+    justify-content: space-around;
+  }
+  @media #{$large}{
+    margin-top: 40px;
+    margin-bottom: 60px;
+    justify-content: space-around;
+  }
+  a {
+    text-decoration:none;
+    margin:0;
+    padding:0;
+    width:95%;
+    display:flex;
+    justify-content: center;
+
+
+    @media #{$medium}{
+      max-width: 48%;
+    }
+    @media #{$large}{
+      max-width: 48%;
+    }
+  }
+
+  .post {
+    max-width: 100%;
+    background-color: #FFFFFF;
+    margin-top: 5%;
+    padding: 4vh;
+    flex: 0 0 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border: 4px solid #FFFFFF;
+
+    @media #{$medium}{
+      padding: 3vh;
+      height: 475px;
+      margin:auto;
+      margin-left: 5px;
+      margin-bottom: 20px;
+    }
+    @media #{$large}{
+      height: 52vw;
+      padding: 3vh;
+      padding-top: 2em;
+      padding-bottom: 3em;
+      max-height: 630px;
+      max-width: 545px;
+    }
+
+    .post-image {
+      flex: 0 0 auto;
+      margin: auto;
+      margin-bottom: 10px;
+      position: relative;
+      width: 71vw;
+      height: 71vw;
+      overflow: hidden;
+      @media #{$medium}{
+        position: relative;
+        width: 35vw;
+        height: 35vw;
+        margin-bottom: 15px;
+      }
+      @media #{$large}{
+        position: relative;
+        width: 35vw;
+        max-width: 440px;
+        max-height: 440px;
+        height: 35vw;
+        margin-bottom: 15px;
+      }
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        height: 100%;
+        width: auto;
+        -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+                transform: translate(-50%,-50%);
+      }
+    }
+
+    .post-title {
+    width: $mobile-width-less5;
+    max-height:2.6em;
+    flex: 0 0 7%;
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    line-height: 1.3em;
+    color: #2c2c2e;
+    margin:auto;
+    font-weight: normal;
+    overflow: hidden;
+    padding-left: 1vh;
+    @media #{$medium}{
+      font-size: 24px;
+    line-height: 1.3em;
+    }
+    @media #{$large}{
+      font-size: 24px;
+      line-height: 1.5em;
+    }
+  }
+
+  .post-sub {
+    width: $mobile-width-less5;
+    flex: 0 0 auto;
+    padding: 10px 0px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    margin: auto;
+    color: #6e6f72;
+    vertical-align: center;
+
+    @media #{$medium}{
+      font-size: 15px;
+    }
+  }
+
+  .post-snippet {
+    width: $mobile-width-less5;
+    flex: 0 0 auto;
+    padding:none;
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+    // margin:15px 0px;
+    color: #56575a;
+    font-size: 15px;
+    max-height:62px;
+    overflow:hidden;
+    text-align: justify;
+    hyphens: auto;
+
+    @media #{$medium}{
+      max-height: 60px;
+      font-size: 15px;
+    }
+  }
+}
+
+  .post:hover {
+    border: 4px solid #f98f35;
+  }
+}
+
+.footer {
+  display: none;
+
+  @media #{$large}{
+  background-color: #3a3a3c;
+  position: fixed; // key factor to keep div at bottom
+  bottom: 0px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px -2px 5px #222222;
+
+
+  .fb {
+    background-image: url("../assets/facebook_grey.svg");
+    width:25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex: 0 0 4%;
+  }
+
+  .fb:hover {
+    background-image: url("../assets/facebook_orange.svg");
+  }
+
+  .insta {
+    background-image: url("../assets/instagram_grey.svg");
+    background-repeat:no-repeat;
+    background-position: center;
+    width:25px;
+    height: 25px;
+    flex: 0 0 4%;
+  }
+
+  .insta:hover {
+    background-image: url("../assets/instagram_orange.svg");
+  }
+}
+
+}
